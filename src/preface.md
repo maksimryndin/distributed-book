@@ -4,7 +4,7 @@
 
 ## Who should read this book?
 
-To be honest, I don't have vast practical experience of building distributed systems except the most popular one among web developers (hint: client-server). But a usual requirement to acquire this practical experience is some non-basic knowledge on the topic. So this a classical "chicken-egg" problem: to work on a distributed software product you are usually required to have some related projects in your portfolio. So writing this book is a way to close these gaps.
+To be honest, I don't have vast practical experience of building distributed systems except the most popular one among web developers (hint: client-server). But a usual requirement to acquire this practical experience is some non-basic knowledge of the topic. So this is a classical "chicken-egg" problem: to work on a distributed software product you are usually required to have some related projects in your portfolio. So writing this book is a way to close these gaps.
 
 Anyway I assume that readers have some practical experience developing web projects and already have some basic notion about vertical and horizontal scaling, containerization, data races, classical algorithms. I will try at my best to introduce all used vocabulary.
 
