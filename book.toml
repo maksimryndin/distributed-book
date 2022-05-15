@@ -4,3 +4,7 @@ language = "en"
 multilingual = false
 src = "src"
 title = "Distributed systems for busy engineer"
+
+
+[output.html]
+curly-quotes = true

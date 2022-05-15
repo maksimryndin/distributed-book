@@ -24,3 +24,4 @@ Here are the list of references to cool articles and books etc I've used to prep
 * [Timmo Verlaan - No(de) discovery without DNS & EPMD - Code BEAM STO](https://www.youtube.com/watch?v=F_YUyd_Qdjs)
 * [Robert on anything](https://rvirding.blogspot.com/)
 * Phil Trinder et al [Scaling Reliably: Improving the Scalability of the Erlang Distributed Actor Platform](https://arxiv.org/pdf/1704.07234.pdf)
+* [Scaling Erlang Cluster to 10,000 Nodes](https://www.infoq.com/presentations/erland-scale-10000-nodes/)
