@@ -6,7 +6,7 @@
 
 To be honest, I don't have vast practical experience of building distributed systems except the most popular one among web developers (hint: client-server). But a usual requirement to acquire this practical experience is some non-basic knowledge of the topic. So this is a classical "chicken-egg" problem: to work on a distributed software product you are usually required to have some related projects in your portfolio. So writing this book is a way to close these gaps.
 
-Anyway I assume that readers have some practical experience developing web projects and already have some basic notion about vertical and horizontal scaling, containerization, data races, classical algorithms. I will try at my best to introduce all used vocabulary.
+Anyway I assume that readers have developed web projects and already have some experience in vertical and horizontal scaling, containerization, data races, classical algorithms and data structures. I will try at my best to introduce all used vocabulary.
 
 I also do not devote any decent time for single machine patterns, as I believe you have enough working practice with them.
 
@@ -16,7 +16,7 @@ I've read some excellent books devoted to distributed systems or related topics.
 * Mikito Takada [Distributed systems: for fun and profit](http://book.mixu.net/distsys/)
 * Brendan Burns [Designing Distributed Systems](https://azure.microsoft.com/mediahandler/files/resourcefiles/designing-distributed-systems/Designing_Distributed_Systems.pdf)
 * Martin Kleppmann [Designing Data-Intensive Applications](https://dataintensive.net/)
-* other resources (please follow [references](./references.md)).
+* Donne Martin [System design primer](https://github.com/donnemartin/system-design-primer)
 
 All above mentioned books have their own view on what topics and at what level should be covered. Martin Kleppman's outstanding book (highly recommended) obviously focuses on data-related topics.
 
@@ -39,7 +39,7 @@ The following goal for the book comes out of the points above - *get reader fami
 ## Errata, typos, bugs and other feedback
 
 I am not a native English speaker so I will be glad to any feedback on correct usage of English grammar and phrases. 
-Also any suggestions, improvements, fixes are welcome. You can provide merge requests at book's Github repository or email me at *{auhtor name}.{author second name}@gmail.com*.
+Also any suggestions, improvements, fixes are welcome. You can provide merge requests at book's Github repository or email me at *{auhtor's name}.{author's last name}@gmail.com*.
 
 ## Acknowledgments
 

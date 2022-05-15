@@ -3,4 +3,4 @@ authors = ["Maksim Ryndin"]
 language = "en"
 multilingual = false
 src = "src"
-title = "Distributed systems for busy developer"
+title = "Distributed systems for busy engineer"
