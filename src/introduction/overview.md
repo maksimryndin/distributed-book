@@ -28,7 +28,7 @@ So decentralization insreases fault-tolerance removing single point of failure. 
 
 ![Mesh vs Star](images/star_mesh.svg)
 
-So in the case of `n` nodes of mesh network topoly we have `n*(n-1)/2` connections[^graph] while in the case of the star network we have only `n-1` connections. So heavily meshed distributed systems produce increasing pressure on a network degrading its throughput.
+So in the case of `n` nodes of mesh network topology we have `n*(n-1)/2` connections[^graph] while in the case of the star network we have only `n-1` connections. So heavily meshed distributed systems produce increasing pressure on a network degrading its throughput.
 
 ### Why we need make our software distributed?
 
