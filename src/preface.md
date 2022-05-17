@@ -43,7 +43,7 @@ Also any suggestions, improvements, fixes are welcome. You can provide merge req
 
 ## Acknowledgments
 
-I would like to tell many kind words to people who influenced me as a software engineer during my career. First of all, the friend of mine, [Farit Sadykov](https://github.com/Farit), who helped me a lot to become a developer. Also my colleagues, especially [Pavel Antonov](https://github.com/softzilla), [Nikolay Yurov](https://github.com/dbz-legacy), [Vladimir Galkin](https://github.com/lan-pnz), Pavel Gorbunov, [Andrey Belov](https://github.com/andybelov), [Kirill Zhuravlev](https://github.com/kazhuravlev), [Ilya Scherbakov](https://github.com/scherbakoviv).
+I would like to tell many kind words to people who influenced me as a software engineer during my career. First of all, the friend of mine, [Farit Sadykov](https://github.com/Farit), who helped me a lot to become a developer. Also my colleagues, especially [Pavel Antonov](https://github.com/softzilla), [Nikolay Yurov](https://github.com/dbz-legacy), [Vladimir Galkin](https://github.com/lan-pnz), Pavel Gorbunov, [Andrey Belov](https://github.com/andybelov), Evgeny Orlov, [Ilya Zhigalko](https://otus.ru/teacher/1300/), Slava Cheremushkin, [Kirill Zhuravlev](https://github.com/kazhuravlev), [Ilya Scherbakov](https://github.com/scherbakoviv).
 
 Also many thanks to open source enthusiasts creating wonderful products, books, and articles, generously sharing knowledge with the rest of the world. We truly stand on the shoulders of giants.
 

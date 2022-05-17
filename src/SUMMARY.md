@@ -3,6 +3,8 @@
 [Preface](./preface.md)
 
 - [Introduction](./introduction/overview.md)
+    - [Unreliable network](./introduction/network.md)
+    - [Distributed vs Decentralized](./introduction/decentralized.md)
     - [Taste of distributed](./introduction/taste-distributed.md)
     - [Exercises](./introduction/exercises.md)
 

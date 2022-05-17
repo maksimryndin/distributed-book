@@ -29,6 +29,7 @@ Erlang is actively modernized and continuosly developed. So it's a solid foundat
 
 **Erlang lessons to go distributed**:
 * separation of concerns and modularity - you can configure your communication transport, algorithm of node discovery, network topology;
+* distributed system must be observable (Erlang has excellent tracing and monitoring [tools](https://www.erlang.org/doc/man/observer.html) allowing to observe even specific Erlang processes);
 * communication is asynchronous so no node has to wait any acknowledgement that its message was received by another one;
 * message passing is location transparent (the code to send message to local Erlang process is the same as for sending to a process on another node in the cluster -- at a cost of more RAM and time to `memcpy` as every message is deeply copied);
 * maintaining global data (namespace of lightweight processes in case of Erlang) and full connectivity severely limits scalability.
