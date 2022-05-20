@@ -1,0 +1,213 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>References - Distributed systems for busy engineer</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="preface.html">Preface</a></li><li class="chapter-item expanded "><a href="introduction/overview.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="introduction/network.html"><strong aria-hidden="true">1.1.</strong> Unreliable network</a></li><li class="chapter-item expanded "><a href="introduction/decentralized.html"><strong aria-hidden="true">1.2.</strong> Distributed vs Decentralized</a></li><li class="chapter-item expanded "><a href="introduction/taste-distributed.html"><strong aria-hidden="true">1.3.</strong> Taste of distributed</a></li><li class="chapter-item expanded "><a href="introduction/exercises.html"><strong aria-hidden="true">1.4.</strong> Exercises</a></li></ol></li><li class="chapter-item expanded "><a href="established-systems/overview.html"><strong aria-hidden="true">2.</strong> Established systems</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="established-systems/erlang.html"><strong aria-hidden="true">2.1.</strong> Erlang/OTP</a></li></ol></li><li class="chapter-item expanded "><a href="computing/overview.html"><strong aria-hidden="true">3.</strong> Distributed computing</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="computing/ml_training.html"><strong aria-hidden="true">3.1.</strong> ML training</a></li></ol></li><li class="chapter-item expanded "><a href="references.html" class="active"><strong aria-hidden="true">4.</strong> References</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Distributed systems for busy engineer</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/maksimryndin/distributed-book" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p>Here are the list of references to cool articles and books etc I’ve used to prepare this book.</p>
+<ul>
+<li>Mikito Takada <a href="http://book.mixu.net/distsys/">Distributed systems: for fun and profit</a></li>
+<li>Brendan Burns <a href="https://azure.microsoft.com/mediahandler/files/resourcefiles/designing-distributed-systems/Designing_Distributed_Systems.pdf">Designing Distributed Systems</a></li>
+<li>Martin Kleppmann <a href="https://dataintensive.net/">Designing Data-Intensive Applications</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Web3">Wikipedia Web 3.0</a></li>
+<li><a href="https://dhghomon.github.io/easy_rust/">Easy Rust</a></li>
+<li><a href="https://doc.rust-lang.org/rust-by-example/">Rust by example</a></li>
+<li><a href="https://github.com/donnemartin/system-design-primer">System design primer</a></li>
+<li><a href="https://www.youtube.com/watch?v=hnpzNAPiC0E">Lisa Guo on scaling Instagram</a></li>
+<li><a href="http://wiki.c2.com/?AlanKayOnMessaging">Re: prototypes vs classes was: Re: Sun’s HotSpot</a></li>
+<li>Martin Kleppmann <a href="https://arxiv.org/pdf/1509.05393.pdf">A Critique of the CAP Theorem</a></li>
+<li>Martin Logan, Eric Merritt, and Richard Carlsson <a href="https://livebook.manning.com/book/erlang-and-otp-in-action/chapter-8/1">Erlang and OTP in Action</a></li>
+<li><a href="https://github.com/tsloughter/epmdless">https://github.com/tsloughter/epmdless</a></li>
+<li><a href="https://contactchanaka.medium.com/erlang-cluster-peer-discovery-on-kubernetes-aa2ed15663f9">https://contactchanaka.medium.com/erlang-cluster-peer-discovery-on-kubernetes-aa2ed15663f9</a></li>
+<li>Joe Armstrong <a href="https://erlang.org/download/armstrong_thesis_2003.pdf">Making reliable distributed systems in the presence of software errors</a></li>
+<li><a href="https://www.erlang.org">https://www.erlang.org</a></li>
+<li><a href="https://stackoverflow.com/questions/43173196/what-is-the-maximum-practical-number-of-nodes-in-an-erlang-system">https://stackoverflow.com/questions/43173196/what-is-the-maximum-practical-number-of-nodes-in-an-erlang-system</a></li>
+<li><a href="https://stackoverflow.com/questions/5044574/how-scalable-is-distributed-erlang">https://stackoverflow.com/questions/5044574/how-scalable-is-distributed-erlang</a></li>
+<li><a href="https://news.ycombinator.com/item?id=15558051">Why we used Pony to write Wallaroo</a></li>
+<li><a href="https://adoptingerlang.org/">Adopting Erlang</a></li>
+<li><a href="https://blog.stenmans.org/theBeamBook/">BEAM book</a></li>
+<li><a href="https://stackoverflow.com/questions/32846615/what-is-the-best-way-of-doing-computationally-intensive-tasks-in-erlang-w-o-scal">https://stackoverflow.com/questions/32846615/what-is-the-best-way-of-doing-computationally-intensive-tasks-in-erlang-w-o-scal</a></li>
+<li>Timmo Verlaan <a href="https://www.youtube.com/watch?v=F_YUyd_Qdjs">No(de) discovery without DNS &amp; EPMD - Code BEAM STO</a></li>
+<li><a href="https://rvirding.blogspot.com/">Robert on anything</a></li>
+<li>Phil Trinder et al <a href="https://arxiv.org/pdf/1704.07234.pdf">Scaling Reliably: Improving the Scalability of the Erlang Distributed Actor Platform</a></li>
+<li><a href="https://www.infoq.com/presentations/erland-scale-10000-nodes/">Scaling Erlang Cluster to 10,000 Nodes</a></li>
+<li><a href="https://softwareengineering.stackexchange.com/questions/277464/is-erlang-really-an-actor-model-language">https://softwareengineering.stackexchange.com/questions/277464/is-erlang-really-an-actor-model-language</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing">Fallacies of distributed computing</a></li>
+<li>Fred Hebert <a href="https://ferd.ca/lessons-learned-while-working-on-large-scale-server-software.html">Lessons Learned while Working on Large-Scale Server Software</a></li>
+<li><a href="https://www.tensorflow.org/guide/distributed_training">Distributed training with TensorFlow</a></li>
+<li><a href="https://blog.twitter.com/engineering/en_us/topics/insights/2020/distributed-training-of-sparse-machine-learning-models-1">Distributed training of sparse ML models — Part 1: Network bottlenecks</a></li>
+<li><a href="https://blog.twitter.com/engineering/en_us/topics/insights/2020/distributed-training-of-sparse-machine-learning-models-2">Distributed training of sparse ML models — Part 2: Optimized strategies</a></li>
+<li><a href="https://blog.twitter.com/engineering/en_us/topics/insights/2020/distributed-training-of-sparse-machine-learning-models-3">Distributed training of sparse ML models — Part 3: Observed speedups</a></li>
+<li><a href="https://www.ibm.com/topics/what-is-blockchain">What is blockchain technology?</a></li>
+<li>Mario Zupan <a href="https://blog.logrocket.com/how-to-build-a-blockchain-in-rust/">How to build a blockchain in Rust</a></li>
+<li>Pascal Akunne <a href="https://blog.logrocket.com/guide-blockchain-consensus-protocols/">A guide to blockchain consensus protocols</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Ethereum">Ethereum</a></li>
+<li>Satoshi Nakamoto <a href="https://bitcoin.org/bitcoin.pdf">Bitcoin: A Peer-to-Peer Electronic Cash System</a></li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="computing/ml_training.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="computing/ml_training.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

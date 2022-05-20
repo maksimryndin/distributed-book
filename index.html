@@ -1,0 +1,214 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Preface - Distributed systems for busy engineer</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="preface.html">Preface</a></li><li class="chapter-item expanded "><a href="introduction/overview.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="introduction/network.html"><strong aria-hidden="true">1.1.</strong> Unreliable network</a></li><li class="chapter-item expanded "><a href="introduction/decentralized.html"><strong aria-hidden="true">1.2.</strong> Distributed vs Decentralized</a></li><li class="chapter-item expanded "><a href="introduction/taste-distributed.html"><strong aria-hidden="true">1.3.</strong> Taste of distributed</a></li><li class="chapter-item expanded "><a href="introduction/exercises.html"><strong aria-hidden="true">1.4.</strong> Exercises</a></li></ol></li><li class="chapter-item expanded "><a href="established-systems/overview.html"><strong aria-hidden="true">2.</strong> Established systems</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="established-systems/erlang.html"><strong aria-hidden="true">2.1.</strong> Erlang/OTP</a></li></ol></li><li class="chapter-item expanded "><a href="computing/overview.html"><strong aria-hidden="true">3.</strong> Distributed computing</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="computing/ml_training.html"><strong aria-hidden="true">3.1.</strong> ML training</a></li></ol></li><li class="chapter-item expanded "><a href="references.html"><strong aria-hidden="true">4.</strong> References</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Distributed systems for busy engineer</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/maksimryndin/distributed-book" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="preface"><a class="header" href="#preface">Preface</a></h1>
+<p><em>To my girls: wife, daughter, and mom - for their patience and love</em></p>
+<h2 id="who-should-read-this-book"><a class="header" href="#who-should-read-this-book">Who should read this book?</a></h2>
+<p>To be honest, I don’t have vast practical experience of building distributed systems except the most popular one among web developers (hint: client-server). But a usual requirement to acquire this practical experience is some non-basic knowledge of the topic. So this is a classical “chicken-egg” problem: to work on a distributed software product you are usually required to have some related projects in your portfolio. So writing this book is a way to close these gaps.</p>
+<p>Anyway I assume that readers have developed web projects and already have some experience in vertical and horizontal scaling, containerization, data races, classical algorithms and data structures. I will try at my best to introduce all used vocabulary.</p>
+<p>I also do not devote any decent time for single machine patterns, as I believe you have enough working practice with them.</p>
+<h2 id="why-yet-another-book-on-distributed-systems"><a class="header" href="#why-yet-another-book-on-distributed-systems">Why yet another book on distributed systems?</a></h2>
+<p>I’ve read some excellent books devoted to distributed systems or related topics. Among them:</p>
+<ul>
+<li>Mikito Takada <a href="http://book.mixu.net/distsys/">Distributed systems: for fun and profit</a></li>
+<li>Brendan Burns <a href="https://azure.microsoft.com/mediahandler/files/resourcefiles/designing-distributed-systems/Designing_Distributed_Systems.pdf">Designing Distributed Systems</a></li>
+<li>Martin Kleppmann <a href="https://dataintensive.net/">Designing Data-Intensive Applications</a></li>
+<li>Donne Martin <a href="https://github.com/donnemartin/system-design-primer">System design primer</a></li>
+</ul>
+<p>All above mentioned books have their own view on what topics and at what level should be covered. Martin Kleppman’s outstanding book (highly recommended) obviously focuses on data-related topics.</p>
+<p>Despite I’ve read the books above, I had no clear mental picture and systematic view of Raft Algorithm, Lamport clocks and other distributed buzzwords. So this book tries to cover important topics (choice is subjective, of course) and to serve as a practical guide for busy engineers striving to grasp core concepts in timely manner.</p>
+<p>True understanding comes with real doing, so practice through exercises is a necessary part of learning. I have chosen Rust as a language to use throughout the book as I believe that Rust incorporates modern best practices and solid theoretical achievements. Experienced developers will dive without further ado. But for those who like more gradual involvement I could recommend the following excellent free resources to start with:</p>
+<ul>
+<li><a href="https://dhghomon.github.io/easy_rust/">Easy Rust</a></li>
+<li><a href="https://doc.rust-lang.org/rust-by-example/">Rust by example</a></li>
+</ul>
+<h2 id="why-should-we-learn-about-distributed-systems"><a class="header" href="#why-should-we-learn-about-distributed-systems">Why should we learn about distributed systems?</a></h2>
+<p>I admit that you already know the answer if you’ve started reading the book. But for the sake of completeness let’s enlist some points:</p>
+<ul>
+<li>modern scalable products inevitably rely on concepts discussed further. So if you want to get working experience in modern tech companies or even build your own product with highload and fault-tolerance in mind, you should grasp the basics<sup class="footnote-reference"><a href="#note">1</a></sup>;</li>
+<li>expecting your software being distributed at some point in the future can radically improve your architecture decisions and even determine your preferred stack of technologies to use;</li>
+<li>emerging <a href="https://en.wikipedia.org/wiki/Web3">Web 3.0</a> is build around an idea of <em>decentralization</em> which is tightly connected with <em>distributed</em>. So at least you will be able to understand underlying technologies and explore them deeper.</li>
+</ul>
+<p>The following goal for the book comes out of the points above - <em>get reader familiar with selected topics on distributed systems with strong emphasis on practice</em>.</p>
+<h2 id="errata-typos-bugs-and-other-feedback"><a class="header" href="#errata-typos-bugs-and-other-feedback">Errata, typos, bugs and other feedback</a></h2>
+<p>I am not a native English speaker so I will be glad to any feedback on correct usage of English grammar and phrases. 
+Also any suggestions, improvements, fixes are welcome. You can provide merge requests at book’s Github repository or email me at <em>{auhtor’s name}.{author’s last name}@gmail.com</em>.</p>
+<h2 id="acknowledgments"><a class="header" href="#acknowledgments">Acknowledgments</a></h2>
+<p>I would like to tell many kind words to people who influenced me as a software engineer during my career. First of all, the friend of mine, <a href="https://github.com/Farit">Farit Sadykov</a>, who helped me a lot to become a developer. Also my colleagues, especially <a href="https://github.com/softzilla">Pavel Antonov</a>, <a href="https://github.com/dbz-legacy">Nikolay Yurov</a>, <a href="https://github.com/lan-pnz">Vladimir Galkin</a>, Pavel Gorbunov, <a href="https://github.com/andybelov">Andrey Belov</a>, Evgeny Orlov, <a href="https://otus.ru/teacher/1300/">Ilya Zhigalko</a>, Slava Cheremushkin, <a href="https://github.com/kazhuravlev">Kirill Zhuravlev</a>, <a href="https://github.com/scherbakoviv">Ilya Scherbakov</a>.</p>
+<p>Also many thanks to open source enthusiasts creating wonderful products, books, and articles, generously sharing knowledge with the rest of the world. We truly stand on the shoulders of giants.</p>
+<p><em>Maksim Ryndin</em></p>
+<p><em>Montenegro, 2022.</em></p>
+<div class="footnote-definition" id="note"><sup class="footnote-definition-label">1</sup>
+<p>Being scalable doesn’t only mean software and infrastructure while adding more servers. It’s also about your team being ready to grow with growing traffic. So being prepared to go distributed is a must-have for every team member in terms of some introductory learning experience, automated pipelines and merge reviews etc.
+Please watch very informative <a href="https://www.youtube.com/watch?v=hnpzNAPiC0E">presentation</a> by Lisa Guo on scaling Instagram.</p>
+</div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="next" href="introduction/overview.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="next" href="introduction/overview.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>
