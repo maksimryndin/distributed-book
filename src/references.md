@@ -32,3 +32,8 @@ Here are the list of references to cool articles and books etc I've used to prep
 * [Distributed training of sparse ML models — Part 1: Network bottlenecks](https://blog.twitter.com/engineering/en_us/topics/insights/2020/distributed-training-of-sparse-machine-learning-models-1)
 * [Distributed training of sparse ML models — Part 2: Optimized strategies](https://blog.twitter.com/engineering/en_us/topics/insights/2020/distributed-training-of-sparse-machine-learning-models-2)
 * [Distributed training of sparse ML models — Part 3: Observed speedups](https://blog.twitter.com/engineering/en_us/topics/insights/2020/distributed-training-of-sparse-machine-learning-models-3)
+* [What is blockchain technology?](https://www.ibm.com/topics/what-is-blockchain)
+* Mario Zupan [How to build a blockchain in Rust](https://blog.logrocket.com/how-to-build-a-blockchain-in-rust/)
+* Pascal Akunne [A guide to blockchain consensus protocols](https://blog.logrocket.com/guide-blockchain-consensus-protocols/)
+* [Ethereum](https://en.wikipedia.org/wiki/Ethereum)
+* Satoshi Nakamoto [Bitcoin: A Peer-to-Peer Electronic Cash System](https://bitcoin.org/bitcoin.pdf)

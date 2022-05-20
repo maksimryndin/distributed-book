@@ -14,15 +14,15 @@ where total number of rows is a batch size `m` and each features row is about 2^
 So the first layer of the network requires 2^20 rows in its parameters matrix `W` consisting of `float32` numbers (4 bytes each) and it's number of columns depends on the next layer size, typically 50 - 400 in case of Twitter. So this results in first layer matrices of 
 `50 * 2^20  * (4*2^-20) Mb = 200 Mb` to `400 * 2^20  * (4*2^-20) Mb = 1600 Mb`. When you have a lot of worker nodes exhanging gigabyte of data each with parameters servers, your network bandwith is in danger. While first layer is huge, other layers are considerably smaller.
 
-Twitter approaches this scalability problem with clever nodes organization[^approach].
+Twitter approaches this scalability problem with a clever nodes organization[^approach].
 
-Assume we have `K` worker nodes and `P` parameters nodes. And we `n` features in dataset row.
-Then if we break weights matrix of the first (sparse) layer in `P` submatrices:
+Assume we have `K` worker nodes, `P` parameters nodes, and `n` features in a dataset row.
+Then if we break the weights matrix of the first (sparse) layer in `P` submatrices by features (by columns):
 
 `X * W` = `X`<sub>1</sub>` * W`<sub>1</sub> + .. + `X`<sub>P</sub>` * W`<sub>P</sub>
 
 then each worker node should only work with block of input `X`<sub>i</sub> and block of weights matrix `W`<sub>i</sub>.
-Each parameters server `i` is responsible for ith partition `W`<sub>i</sub> of the sparse first layer.
+Each parameters server `i` is responsible for i<sup>th</sup> partition `W`<sub>i</sub> of the sparse first layer.
 
 Each worker node runs two processes with the following pseudocode:
 
@@ -43,7 +43,7 @@ fn process_input() {
 }
 ```
 
-Reconstructing output layer of first sparse layer and training rest layers:
+Reconstructing output layer of the first sparse layer and training rest layers:
 
 ```
 const P // number of partitions of the sparse layer
@@ -80,7 +80,7 @@ fn train_first_layer() {
 
 ![Twitter ML cluster](images/twitter.svg)
 
-Such cluster organization allows for worker node failure and restart without loss of weights of the first layer (parameters node failure is more damaging). Each worker node is stateless and no transfer of huge sparse matrix `W` occurs over network[^results].
+Such cluster organization allows for failure and restart of a worker node without loss of weights of the first layer (failure of a parameters node is more damaging). Each worker node is stateless and no transfer of a huge sparse matrix `W` occurs over network[^results].
 
 [^twitter]: [Distributed training of sparse ML models — Part 1: Network bottlenecks](https://blog.twitter.com/engineering/en_us/topics/insights/2020/distributed-training-of-sparse-machine-learning-models-1)[Distributed training with TensorFlow](https://www.tensorflow.org/guide/distributed_training)
 

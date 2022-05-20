@@ -14,7 +14,7 @@ So there are many questions like above and *for the purpose of the book* we will
 
 **Distributed system is a software which has at least two components interacting with each other only by a network.**
 
-Even if a network used for communication of the components for the present moment is a loopback inteface ("localhost"), it can become real network for the next moment.
+Even if a network used for communication of the components for the present moment is a loopback interface ("localhost"), it can become a real network for the next moment.
 
 ### Why we need make our software distributed?
 

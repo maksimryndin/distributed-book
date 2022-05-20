@@ -8,3 +8,5 @@ title = "Distributed systems for busy engineer"
 
 [output.html]
 curly-quotes = true
+git-repository-url = "https://github.com/maksimryndin/distributed-book"
+site-url = "https://maksimryndin.github.io/distributed-book/"

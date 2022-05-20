@@ -23,7 +23,7 @@ By default, communication between nodes of a cluster is done over TCP.  Separate
 
 You can also implement your own procedures for [nodes discovery](https://www.erlang.org/doc/apps/erts/alt_disco.html) and discovery under [container](https://contactchanaka.medium.com/erlang-cluster-peer-discovery-on-kubernetes-aa2ed15663f9) orchestrator.
 
-Default Erlang distribution with cookies assumes trusted network so you should change default communication mechanism in case of untrusted network[^epmdless]. Moreover, large number of nodes with fully connected mesh communicating over large and uncontrolled network can be prohibitatively costly. This break point may range from 40 to 140 nodes[^erlang_nodes] depending on load and amount of global state required to sync over cluster (such as a process namespace). In such cases federated[^federated] clusters and partitioning of global state in separate groups of nodes inside a cluster is a way to go[^erlang_scale].
+Default Erlang distribution with cookies assumes trusted network so you should change default communication mechanism in case of untrusted network[^epmdless]. Moreover, large number of nodes with fully connected mesh communicating over large and uncontrolled network can be prohibitatively costly. This break point may range from 40 to 140 nodes[^erlang_nodes] depending on load and amount of global state required to sync over cluster (such as a process namespace or getting `now` time which requires global lock to provide monotonically increasing time over the cluster). In such cases federated[^federated] clusters and partitioning of global state in separate groups of nodes inside a cluster is a way to go[^erlang_scale].
 
 Erlang is actively modernized and continuosly developed. So it's a solid foundation for distributed system.
 
@@ -32,7 +32,7 @@ Erlang is actively modernized and continuosly developed. So it's a solid foundat
 * distributed system must be observable (Erlang has excellent tracing and monitoring [tools](https://www.erlang.org/doc/man/observer.html) allowing to observe even specific Erlang processes);
 * communication is asynchronous so no node has to wait any acknowledgement that its message was received by another one;
 * message passing is location transparent (the code to send message to local Erlang process is the same as for sending to a process on another node in the cluster -- at a cost of more RAM and time to `memcpy` as every message is deeply copied);
-* maintaining global data (namespace of lightweight processes in case of Erlang) and full connectivity severely limits scalability.
+* maintaining global mutable data (namespace of lightweight processes in case of Erlang) and full connectivity severely limits scalability.
 
 
 [^klarna]: For example, Sweden fintech Klarna uses Erlang as it's core platform handling 2 million transactions per day - look at their [job descriptions](https://jobs.lever.co/klarna?team=Engineering).
