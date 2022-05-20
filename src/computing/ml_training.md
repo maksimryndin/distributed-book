@@ -3,7 +3,7 @@
 Machine learning involves many matrix operations and is naturally parallelized not only within single node but also over distributed nodes. Out-of-box solutions like [Distributed training with TensorFlow](https://www.tensorflow.org/guide/distributed_training) transfer parameters (aka weights) from parameters nodes to worker nodes and back during model training. But large parameters matrices for sparse data heavily consume network bandwith and severely decrease model training speed[^twitter].
 
 Sparse data means having many null values. For example, *unpacked* data batch `X` looks like
-```
+```ignore
 [[0, 0, .., 0, 9], 
  [5,0, .., 0, 34], 
  ...
@@ -28,7 +28,7 @@ Each worker node runs two processes with the following pseudocode:
 
 Data unpacking and partitioning:
 
-```
+```ignore
 const m // batch size
 const P // number of partitions of the sparse layer
 
@@ -45,7 +45,7 @@ fn process_input() {
 
 Reconstructing output layer of the first sparse layer and training rest layers:
 
-```
+```ignore
 const P // number of partitions of the sparse layer
 
 fn train_rest_of_layers() {
@@ -62,7 +62,7 @@ Because the second and further layers are much smaller than the first "sparse" l
 
 Each parameters node `i` runs the following process:
 
-```
+```ignore
 const node_number = i
 const K // number of workers
 
