@@ -5,6 +5,8 @@ multilingual = false
 src = "src"
 title = "Distributed systems for busy engineer"
 
+[build]
+create-missing = false
 
 [output.html]
 curly-quotes = true

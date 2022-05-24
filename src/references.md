@@ -37,3 +37,8 @@ Here are the list of references to cool articles and books etc I've used to prep
 * Pascal Akunne [A guide to blockchain consensus protocols](https://blog.logrocket.com/guide-blockchain-consensus-protocols/)
 * [Ethereum](https://en.wikipedia.org/wiki/Ethereum)
 * Satoshi Nakamoto [Bitcoin: A Peer-to-Peer Electronic Cash System](https://bitcoin.org/bitcoin.pdf)
+* Chase Barker [Getting Started with Solana Development](https://solana.com/news/getting-started-with-solana-development)
+* [Solana Core Concepts (Community Video)](https://www.youtube.com/watch?v=4dNuMXBjpr0)
+* [Solana Docs](https://docs.solana.com)
+* [https://chorus.one/networks/solana/](https://chorus.one/networks/solana/)
+* Felix Lutsch [The Basics of Staking](https://cvj.ch/en/education/basics/the-basics-of-staking/)

@@ -5,7 +5,7 @@
 
 [Erlang](https://www.erlang.org) still remains to be a unique fusion of practical engineering and clever architectural vision. Created in 1980s, it still has such a great potential to evolve in a modern web[^klarna][^my_experience].
 
-We won't dive in the language per se and pragmatic ideas of "let it fail", [supervision trees](https://adoptingerlang.org/docs/development/supervision_trees/), and fault tolerance. You can read very consice and full of practical wisdom [thesis](https://erlang.org/download/armstrong_thesis_2003.pdf) (highly recommended) of Joe Armstrong, one of the Erlang creators.
+We won't dive in the language per se and pragmatic ideas of "let it fail", [supervision trees](https://adoptingerlang.org/docs/development/supervision_trees/), and fault tolerance. You can read the very concise and full of practical wisdom [thesis](https://erlang.org/download/armstrong_thesis_2003.pdf) (highly recommended) of Joe Armstrong, one of the Erlang creators.
 
 Let's focus more on Erlang distribution capabilities. Erlang is compiled to run in a virtual machine called BEAM[^lumen]. [Elixir](https://elixir-lang.org/) is also a BEAM-runnable language with interoperability with Erlang.
 

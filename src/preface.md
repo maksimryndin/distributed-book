@@ -20,7 +20,7 @@ I've read some excellent books devoted to distributed systems or related topics.
 
 All above mentioned books have their own view on what topics and at what level should be covered. Martin Kleppman's outstanding book (highly recommended) obviously focuses on data-related topics.
 
-Despite I've read the books above, I had no clear mental picture and systematic view of Raft Algorithm, Lamport clocks and other distributed buzzwords. So this book tries to cover important topics (choice is subjective, of course) and to serve as a practical guide for busy engineers striving to grasp core concepts in timely manner.
+Despite I've read the books above, I had no clear mental picture and systematic view of Raft Algorithm, Lamport clocks and other distributed buzzwords. So this book tries to cover important topics (choice is subjective, of course) and to serve as a practical guide for busy engineers striving to grasp core concepts in a timely manner.
 
 True understanding comes with real doing, so practice through exercises is a necessary part of learning. I have chosen Rust as a language to use throughout the book as I believe that Rust incorporates modern best practices and solid theoretical achievements. Experienced developers will dive without further ado. But for those who like more gradual involvement I could recommend the following excellent free resources to start with:
 * [Easy Rust](https://dhghomon.github.io/easy_rust/)
@@ -38,7 +38,7 @@ The following goal for the book comes out of the points above - *get reader fami
 
 ## Errata, typos, bugs and other feedback
 
-I am not a native English speaker so I will be glad to any feedback on correct usage of English grammar and phrases. 
+I am not a native English speaker so I will be glad to get any feedback on a correct usage of English grammar and phrases. 
 Also any suggestions, improvements, fixes are welcome. You can provide merge requests at book's Github repository or email me at *{auhtor's name}.{author's last name}@gmail.com*.
 
 ## Acknowledgments

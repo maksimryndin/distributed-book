@@ -14,5 +14,11 @@
 - [Distributed computing](./computing/overview.md)
     - [ML training](./computing/ml_training.md)
 
+- [Decentralized](./decentralized/overview.md)
+    - [p2p networks](./decentralized/p2p.md)
+    - [Blockchain](./decentralized/blockchain.md)
+    - [Smart contracts](./decentralized/smart_contracts.md)
+
+
 - [References](./references.md)
 
