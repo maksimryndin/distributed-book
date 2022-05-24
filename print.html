@@ -76,7 +76,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="preface.html">Preface</a></li><li class="chapter-item expanded "><a href="introduction/overview.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="introduction/network.html"><strong aria-hidden="true">1.1.</strong> Unreliable network</a></li><li class="chapter-item expanded "><a href="introduction/decentralized.html"><strong aria-hidden="true">1.2.</strong> Distributed vs Decentralized</a></li><li class="chapter-item expanded "><a href="introduction/taste-distributed.html"><strong aria-hidden="true">1.3.</strong> Taste of distributed</a></li><li class="chapter-item expanded "><a href="introduction/exercises.html"><strong aria-hidden="true">1.4.</strong> Exercises</a></li></ol></li><li class="chapter-item expanded "><a href="established-systems/overview.html"><strong aria-hidden="true">2.</strong> Established systems</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="established-systems/erlang.html"><strong aria-hidden="true">2.1.</strong> Erlang/OTP</a></li></ol></li><li class="chapter-item expanded "><a href="computing/overview.html"><strong aria-hidden="true">3.</strong> Distributed computing</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="computing/ml_training.html"><strong aria-hidden="true">3.1.</strong> ML training</a></li></ol></li><li class="chapter-item expanded "><a href="references.html"><strong aria-hidden="true">4.</strong> References</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="preface.html">Preface</a></li><li class="chapter-item expanded "><a href="introduction/overview.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="introduction/network.html"><strong aria-hidden="true">1.1.</strong> Unreliable network</a></li><li class="chapter-item expanded "><a href="introduction/decentralized.html"><strong aria-hidden="true">1.2.</strong> Distributed vs Decentralized</a></li><li class="chapter-item expanded "><a href="introduction/taste-distributed.html"><strong aria-hidden="true">1.3.</strong> Taste of distributed</a></li><li class="chapter-item expanded "><a href="introduction/exercises.html"><strong aria-hidden="true">1.4.</strong> Exercises</a></li></ol></li><li class="chapter-item expanded "><a href="established-systems/overview.html"><strong aria-hidden="true">2.</strong> Established systems</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="established-systems/erlang.html"><strong aria-hidden="true">2.1.</strong> Erlang/OTP</a></li></ol></li><li class="chapter-item expanded "><a href="computing/overview.html"><strong aria-hidden="true">3.</strong> Distributed computing</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="computing/ml_training.html"><strong aria-hidden="true">3.1.</strong> ML training</a></li></ol></li><li class="chapter-item expanded "><a href="decentralized/overview.html"><strong aria-hidden="true">4.</strong> Decentralized</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="decentralized/p2p.html"><strong aria-hidden="true">4.1.</strong> p2p networks</a></li><li class="chapter-item expanded "><a href="decentralized/blockchain.html"><strong aria-hidden="true">4.2.</strong> Blockchain</a></li><li class="chapter-item expanded "><a href="decentralized/smart_contracts.html"><strong aria-hidden="true">4.3.</strong> Smart contracts</a></li></ol></li><li class="chapter-item expanded "><a href="references.html"><strong aria-hidden="true">5.</strong> References</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -153,7 +153,7 @@
 <li>Donne Martin <a href="https://github.com/donnemartin/system-design-primer">System design primer</a></li>
 </ul>
 <p>All above mentioned books have their own view on what topics and at what level should be covered. Martin Kleppman’s outstanding book (highly recommended) obviously focuses on data-related topics.</p>
-<p>Despite I’ve read the books above, I had no clear mental picture and systematic view of Raft Algorithm, Lamport clocks and other distributed buzzwords. So this book tries to cover important topics (choice is subjective, of course) and to serve as a practical guide for busy engineers striving to grasp core concepts in timely manner.</p>
+<p>Despite I’ve read the books above, I had no clear mental picture and systematic view of Raft Algorithm, Lamport clocks and other distributed buzzwords. So this book tries to cover important topics (choice is subjective, of course) and to serve as a practical guide for busy engineers striving to grasp core concepts in a timely manner.</p>
 <p>True understanding comes with real doing, so practice through exercises is a necessary part of learning. I have chosen Rust as a language to use throughout the book as I believe that Rust incorporates modern best practices and solid theoretical achievements. Experienced developers will dive without further ado. But for those who like more gradual involvement I could recommend the following excellent free resources to start with:</p>
 <ul>
 <li><a href="https://dhghomon.github.io/easy_rust/">Easy Rust</a></li>
@@ -168,7 +168,7 @@
 </ul>
 <p>The following goal for the book comes out of the points above - <em>get reader familiar with selected topics on distributed systems with strong emphasis on practice</em>.</p>
 <h2 id="errata-typos-bugs-and-other-feedback"><a class="header" href="#errata-typos-bugs-and-other-feedback">Errata, typos, bugs and other feedback</a></h2>
-<p>I am not a native English speaker so I will be glad to any feedback on correct usage of English grammar and phrases. 
+<p>I am not a native English speaker so I will be glad to get any feedback on a correct usage of English grammar and phrases. 
 Also any suggestions, improvements, fixes are welcome. You can provide merge requests at book’s Github repository or email me at <em>{auhtor’s name}.{author’s last name}@gmail.com</em>.</p>
 <h2 id="acknowledgments"><a class="header" href="#acknowledgments">Acknowledgments</a></h2>
 <p>I would like to tell many kind words to people who influenced me as a software engineer during my career. First of all, the friend of mine, <a href="https://github.com/Farit">Farit Sadykov</a>, who helped me a lot to become a developer. Also my colleagues, especially <a href="https://github.com/softzilla">Pavel Antonov</a>, <a href="https://github.com/dbz-legacy">Nikolay Yurov</a>, <a href="https://github.com/lan-pnz">Vladimir Galkin</a>, Pavel Gorbunov, <a href="https://github.com/andybelov">Andrey Belov</a>, Evgeny Orlov, <a href="https://otus.ru/teacher/1300/">Ilya Zhigalko</a>, Slava Cheremushkin, <a href="https://github.com/kazhuravlev">Kirill Zhuravlev</a>, <a href="https://github.com/scherbakoviv">Ilya Scherbakov</a>.</p>
@@ -240,7 +240,7 @@ Roger Johansson, creator of ProtoActor</p>
 <a href="https://rvirding.blogspot.com/2008/01/virdings-first-rule-of-programming.html">Robert Virding</a>, one of the creators of Erlang</p>
 </blockquote>
 <p><a href="https://www.erlang.org">Erlang</a> still remains to be a unique fusion of practical engineering and clever architectural vision. Created in 1980s, it still has such a great potential to evolve in a modern web<sup class="footnote-reference"><a href="#klarna">1</a></sup><sup class="footnote-reference"><a href="#my_experience">2</a></sup>.</p>
-<p>We won’t dive in the language per se and pragmatic ideas of “let it fail”, <a href="https://adoptingerlang.org/docs/development/supervision_trees/">supervision trees</a>, and fault tolerance. You can read very consice and full of practical wisdom <a href="https://erlang.org/download/armstrong_thesis_2003.pdf">thesis</a> (highly recommended) of Joe Armstrong, one of the Erlang creators.</p>
+<p>We won’t dive in the language per se and pragmatic ideas of “let it fail”, <a href="https://adoptingerlang.org/docs/development/supervision_trees/">supervision trees</a>, and fault tolerance. You can read the very concise and full of practical wisdom <a href="https://erlang.org/download/armstrong_thesis_2003.pdf">thesis</a> (highly recommended) of Joe Armstrong, one of the Erlang creators.</p>
 <p>Let’s focus more on Erlang distribution capabilities. Erlang is compiled to run in a virtual machine called BEAM<sup class="footnote-reference"><a href="#lumen">3</a></sup>. <a href="https://elixir-lang.org/">Elixir</a> is also a BEAM-runnable language with interoperability with Erlang.</p>
 <p>Erlang lightweight processes, while executing application logic, communicate with each other using signals. Most used signal type is a message<sup class="footnote-reference"><a href="#actor">4</a></sup>. Processes are scheduled for execution by BEAM. You can run millions of processes<sup class="footnote-reference"><a href="#erlang_limits">5</a></sup>. OTP is a collection of reusable components (abstractions for concurrent and distributed patterns such as client-server). So Erlang/OTP is a framework allowing you to quickly create complex concurrent and distributed systems.</p>
 <p>BEAM (written in C) can be extended with dynamically loaded compiled modules with Native Implemented Functions (<a href="https://www.erlang.org/doc/tutorial/nif.html">NIFs</a>). So you can write this shared module in a language you prefer (supporting C ABI, of course)<sup class="footnote-reference"><a href="#rustler">6</a></sup>.<br />
@@ -358,7 +358,7 @@ fn train_first_layer() {
 }
 </code></pre>
 <p><img src="computing/images/twitter.svg" alt="Twitter ML cluster" /></p>
-<p>Such cluster organization allows for failure and restart of a worker node without loss of weights of the first layer (failure of a parameters node is more damaging). Each worker node is stateless and no transfer of a huge sparse matrix <code>W</code> occurs over network<sup class="footnote-reference"><a href="#results">3</a></sup>.</p>
+<p>Such a cluster organization allows for failure and restart of a worker node without loss of weights of the first layer (failure of a parameters node is more damaging). Each worker node is stateless and no transfer of a huge sparse matrix <code>W</code> occurs over network<sup class="footnote-reference"><a href="#results">3</a></sup>.</p>
 <div class="footnote-definition" id="twitter"><sup class="footnote-definition-label">1</sup>
 <p><a href="https://blog.twitter.com/engineering/en_us/topics/insights/2020/distributed-training-of-sparse-machine-learning-models-1">Distributed training of sparse ML models — Part 1: Network bottlenecks</a><a href="https://www.tensorflow.org/guide/distributed_training">Distributed training with TensorFlow</a></p>
 </div>
@@ -368,7 +368,29 @@ fn train_first_layer() {
 <div class="footnote-definition" id="results"><sup class="footnote-definition-label">3</sup>
 <p><a href="https://blog.twitter.com/engineering/en_us/topics/insights/2020/distributed-training-of-sparse-machine-learning-models-3">Distributed training of sparse ML models — Part 3: Observed speedups</a></p>
 </div>
-<div style="break-before: page; page-break-before: always;"></div><p>Here are the list of references to cool articles and books etc I’ve used to prepare this book.</p>
+<div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><h1 id="blockchain"><a class="header" href="#blockchain">Blockchain</a></h1>
+<p>Permissioned vs permisionless</p>
+<p>TPS (transactions per second)</p>
+<p>Blockchain network (also called cluster) is p2p network of nodes (called validators in Solana) exchanging with a copy of a ledger (blockchain). Typically 10 - 50 validators totaling 1000-2000 nodes<sup class="footnote-reference"><a href="#validators">1</a></sup></p>
+<p>Smart contracts are run on VM (Sealevel for Solana, EVM for Ethereum)</p>
+<p>Client is a program communicating with a cluster via transactions (composed of several intructions in terms of solana). </p>
+<p>Transactions are signed by the client by means of Public Key cryptography.</p>
+<p>dApp -decentralized app is a UI (typically writen in some Javascript flavor) client </p>
+<p>Node which appends new transaction to the ledger is an elected leader.</p>
+<p>Token is a unit of payments for computing resources of the cluster (running smart contract or validating its output). You can invest some tokens (delegate a stake) into validator gain a reward. Validator takes some fee (commission) for their services. Growing validators can offer lower commission. It favors large validators to become even larger because lower fee insentives investors to delegate their stakes at a lower commission<sup class="footnote-reference"><a href="#validators oligopoly">2</a></sup>.</p>
+<p>If validator behaves maliciously, you lose your delegated tokens and also validator loses its delegated power and cannot earn more or even as before.</p>
+<p>You can use a wallet which is a client allowing you to operate on your token account (send and receive).
+To make stakes usually separate stake accounts are used. Solana: Tokens on the stake account can only be invested in the one validator the whole amount at one time. To invest to several validators simultaneously you should use several stake accounts.</p>
+<p>How do you get your initial tokens to start? Crypto exchanges (like Binance) allow you to buy some tokens in exchange for a usual currency like US dollars.</p>
+<p>Account is typically identified by public key.</p>
+<p>Validators advertised their public key. </p>
+<div class="footnote-definition" id="validators"><sup class="footnote-definition-label">1</sup>
+<p><a href="https://forums.solana.com/t/validator-information-thread/577/51">https://forums.solana.com/t/validator-information-thread/577/51</a></p>
+</div>
+<div class="footnote-definition" id="validators oligopoly"><sup class="footnote-definition-label">2</sup>
+<p>See, for example, Solana’s validators market shares and commissions <a href="https://solanabeach.io/validators">https://solanabeach.io/validators</a></p>
+</div>
+<div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><p>Here are the list of references to cool articles and books etc I’ve used to prepare this book.</p>
 <ul>
 <li>Mikito Takada <a href="http://book.mixu.net/distsys/">Distributed systems: for fun and profit</a></li>
 <li>Brendan Burns <a href="https://azure.microsoft.com/mediahandler/files/resourcefiles/designing-distributed-systems/Designing_Distributed_Systems.pdf">Designing Distributed Systems</a></li>
@@ -407,6 +429,11 @@ fn train_first_layer() {
 <li>Pascal Akunne <a href="https://blog.logrocket.com/guide-blockchain-consensus-protocols/">A guide to blockchain consensus protocols</a></li>
 <li><a href="https://en.wikipedia.org/wiki/Ethereum">Ethereum</a></li>
 <li>Satoshi Nakamoto <a href="https://bitcoin.org/bitcoin.pdf">Bitcoin: A Peer-to-Peer Electronic Cash System</a></li>
+<li>Chase Barker <a href="https://solana.com/news/getting-started-with-solana-development">Getting Started with Solana Development</a></li>
+<li><a href="https://www.youtube.com/watch?v=4dNuMXBjpr0">Solana Core Concepts (Community Video)</a></li>
+<li><a href="https://docs.solana.com">Solana Docs</a></li>
+<li><a href="https://chorus.one/networks/solana/">https://chorus.one/networks/solana/</a></li>
+<li>Felix Lutsch <a href="https://cvj.ch/en/education/basics/the-basics-of-staking/">The Basics of Staking</a></li>
 </ul>
 
                     </main>
