@@ -42,3 +42,7 @@ Here are the list of references to cool articles and books etc I've used to prep
 * [Solana Docs](https://docs.solana.com)
 * [https://chorus.one/networks/solana/](https://chorus.one/networks/solana/)
 * Felix Lutsch [The Basics of Staking](https://cvj.ch/en/education/basics/the-basics-of-staking/)
+* Satoshi Nakamoto [Bitcoin: A Peer-to-Peer Electronic Cash System](https://bitcoin.org/bitcoin.pdf)
+* [The Launch of Chorus Ventures](https://medium.com/chorus-one/the-launch-of-chorus-ventures-3b3bee21333)
+* Nick Szabo [The Idea of Smart Contracts](https://www.fon.hum.uva.nl/rob/Courses/InformationInSpeech/CDROM/Literature/LOTwinterschool2006/szabo.best.vwh.net/idea.html)
+* Eddie Xie, Yuanjun Yang [How we built Twitter’s highly reliable ads pacing service](https://blog.twitter.com/engineering/en_us/topics/infrastructure/2021/how-we-built-twitter-s-highly-reliable-ads-pacing-service)
