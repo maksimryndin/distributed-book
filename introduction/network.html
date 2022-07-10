@@ -138,10 +138,33 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="unreliable-network"><a class="header" href="#unreliable-network">Unreliable network</a></h1>
-<p>What is network latency, bandwith, throughput?
-How do we measure them?
-Packet loss?
-Network split?</p>
+<p>Our <a href="./introduction/overview.html">definition</a> of a distributed system mentions a network as a medium for communication. This medium is a very interesting and complex subject per se but here we only review some core concepts relevant to our study.</p>
+<p>A network of interconnected computers is based on some physical layer (Ethernet cables or radio in case of wireless networks)<sup class="footnote-reference"><a href="#osi">1</a></sup>. The physical layer itself is subject to different disruptions, noisiness, and other problems. So we always have to assume that <strong>the network is unreliable</strong> and implement different <em>retry, ordering, and healthcheck policies</em> in our services.</p>
+<p>Moreover, network capacity is limited and we should estimate ahead what an amount of data the system under development is going to send through the network.</p>
+<blockquote>
+<p><strong>Network throughput</strong> is an <em>amount of data that can be transferred through a network within a certain time period</em>
+<a href="https://www.oxfordreference.com/search?q=network+throughput&amp;searchBtn=Search&amp;isQuickSearch=true">Oxford Dictionary of the Internet (4 ed.)</a>.</p>
+</blockquote>
+<p>We can measure a network throughput in bits per second (bit/s or bps) or even in data packets per a unit of time.</p>
+<blockquote>
+<p><em>Stop&amp;Think</em>: How do you measure a network throughput? How do you estimate a maximum throughput (also called <em>bandwidth</em> or <em>channel capacity</em>) of a network?<sup class="footnote-reference"><a href="#goodput">2</a></sup></p>
+</blockquote>
+<p>Typical interservice communication within a corporate network often causes to think that the communication is almost instanteneous. But in case of world wide internet connection spanning several networks the time to deliver data significantly increases.</p>
+<blockquote>
+<p><strong>Network latency</strong> is <em>the time taken for a given signal or data packet to propagate through a circuit or network from its source point to its destination</em>
+<a href="https://www.oxfordreference.com/search?q=network+latency&amp;searchBtn=Search&amp;isQuickSearch=true">Oxford Dictionary of Electronics and Electrical Engineering (5 ed.)</a></p>
+</blockquote>
+<p>Network latency usually measured from source to destination and back constituting the so called <em>round trip time (RTT)</em> which is rougly speaking a double latency.<sup class="footnote-reference"><a href="#ping">3</a></sup></p>
+<p>Caching, keep-alive connections, geoghraphical proximity to the users are among usual options to decrease latency.</p>
+<div class="footnote-definition" id="osi"><sup class="footnote-definition-label">1</sup>
+<p>Most of us have heard about <a href="https://en.wikipedia.org/wiki/OSI_model">OSI model</a> as a theoretical framework to discuss networking stack.</p>
+</div>
+<div class="footnote-definition" id="goodput"><sup class="footnote-definition-label">2</sup>
+<p>Also note that the maximum throughput is not actually an upper limit for <em>application specific data</em> throughput as there is always an overhead of a latency, protocols, encryption, compression, packet retransmission etc. A <strong>useful</strong> data throughput is sometimes called a <em>goodput</em> (see also <a href="https://en.wikipedia.org/wiki/Goodput">Wikipedia Goodput</a>).</p>
+</div>
+<div class="footnote-definition" id="ping"><sup class="footnote-definition-label">3</sup>
+<p>An actual latency measurement is complicated by the presence of several nodes in the packet way, queuing (several packets from different sources to the same destination are put in a waiting list to send) on the gateway, processing delays. Tools like a famous <em>ping</em> can use special control protocols (such as ICMP) which differ from those protocols that you actually use for data (such as TCP) so measurements are biased. </p>
+</div>
 
                     </main>
 

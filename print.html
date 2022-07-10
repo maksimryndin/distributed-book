@@ -194,7 +194,7 @@ If the web server and the database are running in separate containers and these 
 <p><strong>Distributed system is a software which has at least two components interacting with each other only by a network.</strong></p>
 <p>Even if a network used for communication of the components for the present moment is a loopback interface (“localhost”), it can become a real network for the next moment.</p>
 <h3 id="why-we-need-make-our-software-distributed"><a class="header" href="#why-we-need-make-our-software-distributed">Why we need make our software distributed?</a></h3>
-<p>At least, to make it scalable and fault-tolerant at cost of increased complexity and managing effort.</p>
+<p>At least, to make it scalable and fault-tolerant at cost of an increased complexity and managing effort.</p>
 <div class="footnote-definition" id="note"><sup class="footnote-definition-label">1</sup>
 <p><a href="http://wiki.c2.com/?AlanKayOnMessaging">Re: prototypes vs classes was: Re: Sun’s HotSpot</a></p>
 </div>
@@ -202,10 +202,33 @@ If the web server and the database are running in separate containers and these 
 <p>In this case we have a complete graph, so every node has connections with other <code>n-1</code> nodes. That’s we have <code>n*(n-1)</code> edges but as we count every edge twice, total number of edges is <code>n*(n-1)/2</code>.</p>
 </div>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="unreliable-network"><a class="header" href="#unreliable-network">Unreliable network</a></h1>
-<p>What is network latency, bandwith, throughput?
-How do we measure them?
-Packet loss?
-Network split?</p>
+<p>Our <a href="introduction/./introduction/overview.html">definition</a> of a distributed system mentions a network as a medium for communication. This medium is a very interesting and complex subject per se but here we only review some core concepts relevant to our study.</p>
+<p>A network of interconnected computers is based on some physical layer (Ethernet cables or radio in case of wireless networks)<sup class="footnote-reference"><a href="#osi">1</a></sup>. The physical layer itself is subject to different disruptions, noisiness, and other problems. So we always have to assume that <strong>the network is unreliable</strong> and implement different <em>retry, ordering, and healthcheck policies</em> in our services.</p>
+<p>Moreover, network capacity is limited and we should estimate ahead what an amount of data the system under development is going to send through the network.</p>
+<blockquote>
+<p><strong>Network throughput</strong> is an <em>amount of data that can be transferred through a network within a certain time period</em>
+<a href="https://www.oxfordreference.com/search?q=network+throughput&amp;searchBtn=Search&amp;isQuickSearch=true">Oxford Dictionary of the Internet (4 ed.)</a>.</p>
+</blockquote>
+<p>We can measure a network throughput in bits per second (bit/s or bps) or even in data packets per a unit of time.</p>
+<blockquote>
+<p><em>Stop&amp;Think</em>: How do you measure a network throughput? How do you estimate a maximum throughput (also called <em>bandwidth</em> or <em>channel capacity</em>) of a network?<sup class="footnote-reference"><a href="#goodput">2</a></sup></p>
+</blockquote>
+<p>Typical interservice communication within a corporate network often causes to think that the communication is almost instanteneous. But in case of world wide internet connection spanning several networks the time to deliver data significantly increases.</p>
+<blockquote>
+<p><strong>Network latency</strong> is <em>the time taken for a given signal or data packet to propagate through a circuit or network from its source point to its destination</em>
+<a href="https://www.oxfordreference.com/search?q=network+latency&amp;searchBtn=Search&amp;isQuickSearch=true">Oxford Dictionary of Electronics and Electrical Engineering (5 ed.)</a></p>
+</blockquote>
+<p>Network latency usually measured from source to destination and back constituting the so called <em>round trip time (RTT)</em> which is rougly speaking a double latency.<sup class="footnote-reference"><a href="#ping">3</a></sup></p>
+<p>Caching, keep-alive connections, geoghraphical proximity to the users are among usual options to decrease latency.</p>
+<div class="footnote-definition" id="osi"><sup class="footnote-definition-label">1</sup>
+<p>Most of us have heard about <a href="https://en.wikipedia.org/wiki/OSI_model">OSI model</a> as a theoretical framework to discuss networking stack.</p>
+</div>
+<div class="footnote-definition" id="goodput"><sup class="footnote-definition-label">2</sup>
+<p>Also note that the maximum throughput is not actually an upper limit for <em>application specific data</em> throughput as there is always an overhead of a latency, protocols, encryption, compression, packet retransmission etc. A <strong>useful</strong> data throughput is sometimes called a <em>goodput</em> (see also <a href="https://en.wikipedia.org/wiki/Goodput">Wikipedia Goodput</a>).</p>
+</div>
+<div class="footnote-definition" id="ping"><sup class="footnote-definition-label">3</sup>
+<p>An actual latency measurement is complicated by the presence of several nodes in the packet way, queuing (several packets from different sources to the same destination are put in a waiting list to send) on the gateway, processing delays. Tools like a famous <em>ping</em> can use special control protocols (such as ICMP) which differ from those protocols that you actually use for data (such as TCP) so measurements are biased. </p>
+</div>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="distributed-vs-decentralized"><a class="header" href="#distributed-vs-decentralized">Distributed vs Decentralized</a></h1>
 <blockquote>
 <p>Decentralized network is a dispersed network having several or multiple large hubs &lt;..&gt; and no dominant central hub.
@@ -222,10 +245,10 @@ Network split?</p>
 <p>Due to growing traffic we decided to shard users data by a starting letter of last name. Can we consider such a sharded database as a distributed system? Explain your answer.</p>
 </li>
 <li>
-<p>How do you measure a network throughput? Bandwith? Contention?</p>
+<p>Model packet loss in the network</p>
 </li>
 <li>
-<p>Model packet loss in the network</p>
+<p>Implement <a href="https://en.wikipedia.org/wiki/Exponential_backoff">exponential backoff algorithm</a></p>
 </li>
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="established-systems"><a class="header" href="#established-systems">Established systems</a></h1>
@@ -251,7 +274,7 @@ Every Erlang VM is started with a predefined name and then it’s enough to regi
 <p><img src="established-systems/images/erlang.svg" alt="Erlang" /></p>
 <p>You can also implement your own procedures for <a href="https://www.erlang.org/doc/apps/erts/alt_disco.html">nodes discovery</a> and discovery under <a href="https://contactchanaka.medium.com/erlang-cluster-peer-discovery-on-kubernetes-aa2ed15663f9">container</a> orchestrator.</p>
 <p>Default Erlang distribution with cookies assumes trusted network so you should change default communication mechanism in case of untrusted network<sup class="footnote-reference"><a href="#epmdless">9</a></sup>. Moreover, large number of nodes with fully connected mesh communicating over large and uncontrolled network can be prohibitatively costly. This break point may range from 40 to 140 nodes<sup class="footnote-reference"><a href="#erlang_nodes">10</a></sup> depending on load and amount of global state required to sync over cluster (such as a process namespace or getting <code>now</code> time which requires global lock to provide monotonically increasing time over the cluster). In such cases federated<sup class="footnote-reference"><a href="#federated">11</a></sup> clusters and partitioning of global state in separate groups of nodes inside a cluster is a way to go<sup class="footnote-reference"><a href="#erlang_scale">12</a></sup>.</p>
-<p>Erlang is actively modernized and continuosly developed. So it’s a solid foundation for distributed system.</p>
+<p>Erlang is actively modernized and continuosly developed. So it’s a solid foundation for a distributed system.</p>
 <p><strong>Erlang lessons to go distributed</strong>:</p>
 <ul>
 <li>separation of concerns and modularity - you can configure your communication transport, algorithm of node discovery, network topology;</li>
@@ -372,23 +395,37 @@ fn train_first_layer() {
 <p>Permissioned vs permisionless</p>
 <p>TPS (transactions per second)</p>
 <p>Blockchain network (also called cluster) is p2p network of nodes (called validators in Solana) exchanging with a copy of a ledger (blockchain). Typically 10 - 50 validators totaling 1000-2000 nodes<sup class="footnote-reference"><a href="#validators">1</a></sup></p>
+<ul>
+<li>distributed state transition requires consensus</li>
+</ul>
 <p>Smart contracts are run on VM (Sealevel for Solana, EVM for Ethereum)</p>
 <p>Client is a program communicating with a cluster via transactions (composed of several intructions in terms of solana). </p>
 <p>Transactions are signed by the client by means of Public Key cryptography.</p>
 <p>dApp -decentralized app is a UI (typically writen in some Javascript flavor) client </p>
 <p>Node which appends new transaction to the ledger is an elected leader.</p>
-<p>Token is a unit of payments for computing resources of the cluster (running smart contract or validating its output). You can invest some tokens (delegate a stake) into validator gain a reward. Validator takes some fee (commission) for their services. Growing validators can offer lower commission. It favors large validators to become even larger because lower fee insentives investors to delegate their stakes at a lower commission<sup class="footnote-reference"><a href="#validators oligopoly">2</a></sup>.</p>
-<p>If validator behaves maliciously, you lose your delegated tokens and also validator loses its delegated power and cannot earn more or even as before.</p>
+<p>Token is a unit of payments for computing resources of the cluster (running smart contract or validating its output). You can invest some tokens (delegate a stake) into validator gain a reward. Validator takes some fee (commission) for their services (in bitcoin by including a transaction with 25 BTC out of nowhere<sup class="footnote-reference"><a href="#buterin">2</a></sup>. Growing validators can offer lower commission. It favors large validators to become even larger because lower fee insentives investors to delegate their stakes at a lower commission<sup class="footnote-reference"><a href="#validators oligopoly">3</a></sup>.</p>
+<p>If validator behaves maliciously, you los
+e your delegated tokens and also validator loses its delegated power and cannot earn more or even as before.</p>
 <p>You can use a wallet which is a client allowing you to operate on your token account (send and receive).
 To make stakes usually separate stake accounts are used. Solana: Tokens on the stake account can only be invested in the one validator the whole amount at one time. To invest to several validators simultaneously you should use several stake accounts.</p>
 <p>How do you get your initial tokens to start? Crypto exchanges (like Binance) allow you to buy some tokens in exchange for a usual currency like US dollars.</p>
 <p>Account is typically identified by public key.</p>
-<p>Validators advertised their public key. </p>
+<p>Validators advertised their public key.</p>
+<p>Bitcoin core can be used to build dApps</p>
+<ul>
+<li>with bitcoin scripting</li>
+<li>with some metaprotocols requiring to use trusted nodes
+Or you should invent your own blockchain</li>
+</ul>
+<p>Buterin suggested EVM to </p>
 <div class="footnote-definition" id="validators"><sup class="footnote-definition-label">1</sup>
 <p><a href="https://forums.solana.com/t/validator-information-thread/577/51">https://forums.solana.com/t/validator-information-thread/577/51</a></p>
 </div>
-<div class="footnote-definition" id="validators oligopoly"><sup class="footnote-definition-label">2</sup>
+<div class="footnote-definition" id="validators oligopoly"><sup class="footnote-definition-label">3</sup>
 <p>See, for example, Solana’s validators market shares and commissions <a href="https://solanabeach.io/validators">https://solanabeach.io/validators</a></p>
+</div>
+<div class="footnote-definition" id="buterin"><sup class="footnote-definition-label">2</sup>
+<p>(https://ethereum.org/en/whitepaper/)</p>
 </div>
 <div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><p>Here are the list of references to cool articles and books etc I’ve used to prepare this book.</p>
 <ul>
@@ -438,6 +475,16 @@ To make stakes usually separate stake accounts are used. Solana: Tokens on the s
 <li><a href="https://medium.com/chorus-one/the-launch-of-chorus-ventures-3b3bee21333">The Launch of Chorus Ventures</a></li>
 <li>Nick Szabo <a href="https://www.fon.hum.uva.nl/rob/Courses/InformationInSpeech/CDROM/Literature/LOTwinterschool2006/szabo.best.vwh.net/idea.html">The Idea of Smart Contracts</a></li>
 <li>Eddie Xie, Yuanjun Yang <a href="https://blog.twitter.com/engineering/en_us/topics/infrastructure/2021/how-we-built-twitter-s-highly-reliable-ads-pacing-service">How we built Twitter’s highly reliable ads pacing service</a></li>
+<li><a href="https://habr.com/ru/company/vasexperts/blog/670964/">Взлетит или нет — две разные точки зрения на Web3</a></li>
+<li><a href="https://www.ibm.com/cloud/learn/etcd">etcd</a></li>
+<li><a href="https://etcd.io/">Etcd official website</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Network_throughput">Wikipedia Network throughput</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Network_congestion">Wikipedia Network congestion</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Goodput">Wikipedia Goodput</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Measuring_network_throughput">Wikipedia </a></li>
+<li><a href="https://en.wikipedia.org/wiki/Latency_(engineering)">Wikipedia Latency (engineering)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Network_delay">Wikipedia Network delay</a></li>
+<li>Alex Diaconu <a href="https://ably.com/blog/8-fallacies-of-distributed-computing">Navigating the 8 fallacies of distributed computing</a></li>
 </ul>
 
                     </main>
