@@ -18,7 +18,7 @@ Even if a network used for communication of the components for the present momen
 
 ### Why we need make our software distributed?
 
-At least, to make it scalable and fault-tolerant at cost of increased complexity and managing effort.
+At least, to make it scalable and fault-tolerant at cost of an increased complexity and managing effort.
 
 [^note]: [Re: prototypes vs classes was: Re: Sun's HotSpot](http://wiki.c2.com/?AlanKayOnMessaging)
 

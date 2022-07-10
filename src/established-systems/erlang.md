@@ -25,7 +25,7 @@ You can also implement your own procedures for [nodes discovery](https://www.erl
 
 Default Erlang distribution with cookies assumes trusted network so you should change default communication mechanism in case of untrusted network[^epmdless]. Moreover, large number of nodes with fully connected mesh communicating over large and uncontrolled network can be prohibitatively costly. This break point may range from 40 to 140 nodes[^erlang_nodes] depending on load and amount of global state required to sync over cluster (such as a process namespace or getting `now` time which requires global lock to provide monotonically increasing time over the cluster). In such cases federated[^federated] clusters and partitioning of global state in separate groups of nodes inside a cluster is a way to go[^erlang_scale].
 
-Erlang is actively modernized and continuosly developed. So it's a solid foundation for distributed system.
+Erlang is actively modernized and continuosly developed. So it's a solid foundation for a distributed system.
 
 **Erlang lessons to go distributed**:
 * separation of concerns and modularity - you can configure your communication transport, algorithm of node discovery, network topology;
