@@ -82,7 +82,7 @@ fn train_first_layer() {
 
 Such a cluster organization allows for failure and restart of a worker node without loss of weights of the first layer (failure of a parameters node is more damaging). Each worker node is stateless and no transfer of a huge sparse matrix `W` occurs over network[^results].
 
-[^twitter]: [Distributed training of sparse ML models — Part 1: Network bottlenecks](https://blog.twitter.com/engineering/en_us/topics/insights/2020/distributed-training-of-sparse-machine-learning-models-1)[Distributed training with TensorFlow](https://www.tensorflow.org/guide/distributed_training)
+[^twitter]: [Distributed training of sparse ML models — Part 1: Network bottlenecks](https://blog.twitter.com/engineering/en_us/topics/insights/2020/distributed-training-of-sparse-machine-learning-models-1)
 
 [^approach]: [Distributed training of sparse ML models — Part 2: Optimized strategies](https://blog.twitter.com/engineering/en_us/topics/insights/2020/distributed-training-of-sparse-machine-learning-models-2)
 

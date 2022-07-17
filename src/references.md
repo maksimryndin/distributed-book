@@ -56,3 +56,28 @@ Here are the list of references to cool articles and books etc I've used to prep
 * [Wikipedia Latency (engineering)](https://en.wikipedia.org/wiki/Latency_(engineering))
 * [Wikipedia Network delay](https://en.wikipedia.org/wiki/Network_delay)
 * Alex Diaconu [Navigating the 8 fallacies of distributed computing](https://ably.com/blog/8-fallacies-of-distributed-computing)
+* [Kubernetes: Why Use It, How It Works, Options and Alternatives](https://www.aquasec.com/cloud-native-academy/kubernetes-101/kubernetes-complete-guide/)
+* [Kubernetes Nodes: Components and Basic Operations](https://www.aquasec.com/cloud-native-academy/kubernetes-101/kubernetes-nodes/)
+* [Clustering and Network Partitions](https://www.rabbitmq.com/partitions.html)
+* Martin Kleppmann [A Critique of the CAP Theorem](https://arxiv.org/abs/1509.05393)
+* [Benchmarks: FreeBSD 13 vs. NetBSD 9.2 vs. OpenBSD 7 vs. DragonFlyBSD 6 vs. Linux](https://www.phoronix.com/scan.php?page=article&item=bsd-linux-eo2021&num=1)
+* [Urbit](https://urbit.org)
+* [Ethereum Whitepaper](https://ethereum.org/en/whitepaper/)
+* [Urbit for Normies](https://urbit.org/blog/urbit-for-normies)
+
+https://blog.twitter.com/engineering/en_us/topics/insights/2021/simple-scalable-graph-neural-networks
+https://blog.twitter.com/engineering/en_us/topics/insights/2021/fusing-elasticsearch-with-neural-networks-to-identify-data
+https://blog.twitter.com/engineering/en_us/topics/infrastructure/2021/processing-billions-of-events-in-real-time-at-twitter-
+https://blog.twitter.com/engineering/en_us/topics/insights/2021/graph-neural-networks-through-the-lens-of-differential-geometry-
+https://blog.twitter.com/engineering/en_us/topics/insights/2022/graph-machine-learning-with-missing-node-features
+
+https://blog.twitter.com/engineering/en_us/topics/open-source/2020/hunting-a-linux-kernel-bug
+
+https://ethereum.org/en/developers/docs/evm/
+https://ethereum.github.io/yellowpaper/paper.pdf
+https://ethereum.org/en/developers/docs/
+https://docs.soliditylang.org/en/v0.6.0/introduction-to-smart-contracts.html#the-ethereum-virtual-machine
+
+https://habr.com/ru/company/yandex/blog/564510/
+
+https://robertgreiner.com/cap-theorem-revisited/

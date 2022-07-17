@@ -11,7 +11,7 @@ Let's focus more on Erlang distribution capabilities. Erlang is compiled to run 
 
 Erlang lightweight processes, while executing application logic, communicate with each other using signals. Most used signal type is a message[^actor]. Processes are scheduled for execution by BEAM. You can run millions of processes[^erlang_limits]. OTP is a collection of reusable components (abstractions for concurrent and distributed patterns such as client-server). So Erlang/OTP is a framework allowing you to quickly create complex concurrent and distributed systems.
 
-BEAM (written in C) can be extended with dynamically loaded compiled modules with Native Implemented Functions ([NIFs](https://www.erlang.org/doc/tutorial/nif.html)). So you can write this shared module in a language you prefer (supporting C ABI, of course)[^rustler].  
+BEAM (written in C) can be extended with dynamically loaded compiled modules with Native Implemented Functions ([NIFs](https://www.erlang.org/doc/tutorial/nif.html)). So you can write this shared module in a language you prefer (supporting C interoperability, of course)[^rustler].  
 Erlang is primarily well suited for a massive IO-bound load so for CPU-bound tasks you should use, for example, above mentioned NIFs[^erlang_io_bound].
 
 Every node (Erlang VM) to form a cluster should share the same cookie file with a secret. It is rather a basic "security" with the aim to differentiate two or more clusters.
@@ -35,7 +35,7 @@ Erlang is actively modernized and continuosly developed. So it's a solid foundat
 * maintaining global mutable data (namespace of lightweight processes in case of Erlang) and full connectivity severely limits scalability.
 
 
-[^klarna]: For example, Sweden fintech Klarna uses Erlang as it's core platform handling 2 million transactions per day - look at their [job descriptions](https://jobs.lever.co/klarna?team=Engineering).
+[^klarna]: For example, Swedish fintech Klarna uses Erlang as it's core platform handling 2 million transactions per day - look at their [job descriptions](https://jobs.lever.co/klarna?team=Engineering).
 
 [^my_experience]: At one of my work places I almost convinced my CTO to write IO-bound service for proxying media streams and unary requests in Erlang. For two weeks I read everything on Erlang and finally presented a workable version which was deployed to production. It had worked under production for about 3 weeks till the CTO had a look at the code. He was rather afraid of completely non-imperative style of code and inability to scale his Erlang team (consisted of only me). So he gently asked me to rewrite the app in Go. For those brave of you [Adopting Erlang](https://adoptingerlang.org/).
 

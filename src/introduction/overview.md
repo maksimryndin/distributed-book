@@ -14,11 +14,17 @@ So there are many questions like above and *for the purpose of the book* we will
 
 **Distributed system is a software which has at least two components interacting with each other only by a network.**
 
-Even if a network used for communication of the components for the present moment is a loopback interface ("localhost"), it can become a real network for the next moment.
+If not otherwise specified, we will call components *nodes* and a group of connected nodes is named *cluster*.
+
+Even if a network used for communication of the components for the present moment is a loopback interface ("localhost"), it can become a real network for the next deployment.
 
 ### Why we need make our software distributed?
 
-At least, to make it scalable and fault-tolerant at cost of an increased complexity and managing effort.
+At least, to make it highly [available](./availability.html) at the cost of an increased complexity and managing effort.
+
+### Overview of the book
+
+TODO
 
 [^note]: [Re: prototypes vs classes was: Re: Sun's HotSpot](http://wiki.c2.com/?AlanKayOnMessaging)
 
