@@ -76,7 +76,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="preface.html">Preface</a></li><li class="chapter-item expanded "><a href="introduction/overview.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="introduction/network.html"><strong aria-hidden="true">1.1.</strong> Unreliable network</a></li><li class="chapter-item expanded "><a href="introduction/decentralized.html"><strong aria-hidden="true">1.2.</strong> Distributed vs Decentralized</a></li><li class="chapter-item expanded "><a href="introduction/taste-distributed.html"><strong aria-hidden="true">1.3.</strong> Taste of distributed</a></li><li class="chapter-item expanded "><a href="introduction/exercises.html"><strong aria-hidden="true">1.4.</strong> Exercises</a></li></ol></li><li class="chapter-item expanded "><a href="established-systems/overview.html"><strong aria-hidden="true">2.</strong> Established systems</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="established-systems/erlang.html"><strong aria-hidden="true">2.1.</strong> Erlang/OTP</a></li></ol></li><li class="chapter-item expanded "><a href="computing/overview.html"><strong aria-hidden="true">3.</strong> Distributed computing</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="computing/ml_training.html"><strong aria-hidden="true">3.1.</strong> ML training</a></li></ol></li><li class="chapter-item expanded "><a href="decentralized/overview.html"><strong aria-hidden="true">4.</strong> Decentralized</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="decentralized/p2p.html"><strong aria-hidden="true">4.1.</strong> p2p networks</a></li><li class="chapter-item expanded "><a href="decentralized/blockchain.html"><strong aria-hidden="true">4.2.</strong> Blockchain</a></li><li class="chapter-item expanded "><a href="decentralized/smart_contracts.html"><strong aria-hidden="true">4.3.</strong> Smart contracts</a></li></ol></li><li class="chapter-item expanded "><a href="references.html"><strong aria-hidden="true">5.</strong> References</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="preface.html">Preface</a></li><li class="chapter-item expanded "><a href="introduction/overview.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="introduction/network.html"><strong aria-hidden="true">1.1.</strong> Unreliable network</a></li><li class="chapter-item expanded "><a href="introduction/practice.html"><strong aria-hidden="true">1.2.</strong> Measuring network</a></li><li class="chapter-item expanded "><a href="introduction/availability.html"><strong aria-hidden="true">1.3.</strong> Availability</a></li><li class="chapter-item expanded "><a href="introduction/decentralized.html"><strong aria-hidden="true">1.4.</strong> Distributed vs Decentralized</a></li><li class="chapter-item expanded "><a href="introduction/taste-distributed.html"><strong aria-hidden="true">1.5.</strong> Taste of distributed</a></li><li class="chapter-item expanded "><a href="introduction/exercises.html"><strong aria-hidden="true">1.6.</strong> Exercises</a></li></ol></li><li class="chapter-item expanded "><a href="established-systems/overview.html"><strong aria-hidden="true">2.</strong> Established systems</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="established-systems/erlang.html"><strong aria-hidden="true">2.1.</strong> Erlang/OTP</a></li></ol></li><li class="chapter-item expanded "><a href="consistency/overview.html"><strong aria-hidden="true">3.</strong> Consistency</a></li><li class="chapter-item expanded "><a href="computing/overview.html"><strong aria-hidden="true">4.</strong> Distributed computing</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="computing/ml_training.html"><strong aria-hidden="true">4.1.</strong> ML training</a></li></ol></li><li class="chapter-item expanded "><a href="decentralized/overview.html"><strong aria-hidden="true">5.</strong> Decentralized</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="decentralized/p2p.html"><strong aria-hidden="true">5.1.</strong> p2p networks</a></li><li class="chapter-item expanded "><a href="decentralized/blockchain.html"><strong aria-hidden="true">5.2.</strong> Blockchain</a></li><li class="chapter-item expanded "><a href="decentralized/smart_contracts.html"><strong aria-hidden="true">5.3.</strong> Smart contracts</a></li></ol></li><li class="chapter-item expanded "><a href="references.html"><strong aria-hidden="true">6.</strong> References</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -192,9 +192,12 @@ Please watch very informative <a href="https://www.youtube.com/watch?v=hnpzNAPiC
 If the web server and the database are running in separate containers and these containers are on different physical nodes, then this system is distributed. But a container orchestrator then moves both containers on the same node. Does the system of two connected containers lose its distributed flavor?</p>
 <p>So there are many questions like above and <em>for the purpose of the book</em> we will follow the next definition of a distributed system.</p>
 <p><strong>Distributed system is a software which has at least two components interacting with each other only by a network.</strong></p>
-<p>Even if a network used for communication of the components for the present moment is a loopback interface (“localhost”), it can become a real network for the next moment.</p>
+<p>If not otherwise specified, we will call components <em>nodes</em> and a group of connected nodes is named <em>cluster</em>.</p>
+<p>Even if a network used for communication of the components for the present moment is a loopback interface (“localhost”), it can become a real network for the next deployment.</p>
 <h3 id="why-we-need-make-our-software-distributed"><a class="header" href="#why-we-need-make-our-software-distributed">Why we need make our software distributed?</a></h3>
-<p>At least, to make it scalable and fault-tolerant at cost of an increased complexity and managing effort.</p>
+<p>At least, to make it highly <a href="introduction/./availability.html">available</a> at the cost of an increased complexity and managing effort.</p>
+<h3 id="overview-of-the-book"><a class="header" href="#overview-of-the-book">Overview of the book</a></h3>
+<p>TODO</p>
 <div class="footnote-definition" id="note"><sup class="footnote-definition-label">1</sup>
 <p><a href="http://wiki.c2.com/?AlanKayOnMessaging">Re: prototypes vs classes was: Re: Sun’s HotSpot</a></p>
 </div>
@@ -213,13 +216,25 @@ If the web server and the database are running in separate containers and these 
 <blockquote>
 <p><em>Stop&amp;Think</em>: How do you measure a network throughput? How do you estimate a maximum throughput (also called <em>bandwidth</em> or <em>channel capacity</em>) of a network?<sup class="footnote-reference"><a href="#goodput">2</a></sup></p>
 </blockquote>
-<p>Typical interservice communication within a corporate network often causes to think that the communication is almost instanteneous. But in case of world wide internet connection spanning several networks the time to deliver data significantly increases.</p>
+<p>Congestion control algorithms https://cloud.google.com/blog/products/networking/tcp-bbr-congestion-control-comes-to-gcp-your-internet-just-got-faster
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/net/ipv4/tcp_bbr.c</p>
+<p>https://cacm.acm.org/magazines/2017/2/212428-bbr-congestion-based-congestion-control/fulltext</p>
+<p>https://dl.acm.org/doi/10.1145/52324.52356</p>
+<p>https://github.com/google/bbr</p>
+<p>Typical interservice communication within a corporate network often causes to think that the communication is almost instanteneous. But in case of a world wide internet connection spanning several networks the time to deliver data significantly increases.</p>
 <blockquote>
 <p><strong>Network latency</strong> is <em>the time taken for a given signal or data packet to propagate through a circuit or network from its source point to its destination</em>
 <a href="https://www.oxfordreference.com/search?q=network+latency&amp;searchBtn=Search&amp;isQuickSearch=true">Oxford Dictionary of Electronics and Electrical Engineering (5 ed.)</a></p>
 </blockquote>
 <p>Network latency usually measured from source to destination and back constituting the so called <em>round trip time (RTT)</em> which is rougly speaking a double latency.<sup class="footnote-reference"><a href="#ping">3</a></sup></p>
-<p>Caching, keep-alive connections, geoghraphical proximity to the users are among usual options to decrease latency.</p>
+<p>Caching, keep-alive connections, geoghraphical proximity to the users are among usual options to decrease latency<sup class="footnote-reference"><a href="#os">4</a></sup>.</p>
+<p><strong>Network partition</strong> happens if some nodes of a cluster in a distributed system cannot communicate due to a network failure but are supposed to.</p>
+<p>So for a distributed system it is absolutely necessary to handle different network failures (which are quite common):</p>
+<ul>
+<li>meet bandwith requirements and handle network congestion on scaling;</li>
+<li>deal with increased latencies;</li>
+<li>have policies for network partitions: if a network partition creates two and more subclusters and such subclusters can behave independently (situation known as a <em>split-brain</em><sup class="footnote-reference"><a href="#rabbitmq">5</a></sup>), how should the system evolve and finally merge conflicting states? </li>
+</ul>
 <div class="footnote-definition" id="osi"><sup class="footnote-definition-label">1</sup>
 <p>Most of us have heard about <a href="https://en.wikipedia.org/wiki/OSI_model">OSI model</a> as a theoretical framework to discuss networking stack.</p>
 </div>
@@ -227,7 +242,38 @@ If the web server and the database are running in separate containers and these 
 <p>Also note that the maximum throughput is not actually an upper limit for <em>application specific data</em> throughput as there is always an overhead of a latency, protocols, encryption, compression, packet retransmission etc. A <strong>useful</strong> data throughput is sometimes called a <em>goodput</em> (see also <a href="https://en.wikipedia.org/wiki/Goodput">Wikipedia Goodput</a>).</p>
 </div>
 <div class="footnote-definition" id="ping"><sup class="footnote-definition-label">3</sup>
-<p>An actual latency measurement is complicated by the presence of several nodes in the packet way, queuing (several packets from different sources to the same destination are put in a waiting list to send) on the gateway, processing delays. Tools like a famous <em>ping</em> can use special control protocols (such as ICMP) which differ from those protocols that you actually use for data (such as TCP) so measurements are biased. </p>
+<p>An actual latency measurement is complicated by the presence of several nodes in the packet way, queuing (several packets from different sources to the same destination are put in a waiting list to send) on the gateway, processing delays. Tools like a famous <em>ping</em> can use special control protocols (such as ICMP) which differ from those protocols that you actually use for data (such as TCP) so measurements are biased.</p>
+</div>
+<div class="footnote-definition" id="os"><sup class="footnote-definition-label">4</sup>
+<p>Analyzing your application stack, CPU/IO profile can also help to choose an appropriate operating system if it is possible - see benchmarks <a href="https://www.phoronix.com/scan.php?page=article&amp;item=bsd-linux-eo2021&amp;num=1">Benchmarks: FreeBSD 13 vs. NetBSD 9.2 vs. OpenBSD 7 vs. DragonFlyBSD 6 vs. Linux</a></p>
+</div>
+<div class="footnote-definition" id="rabbitmq"><sup class="footnote-definition-label">5</sup>
+<p><a href="https://www.rabbitmq.com/partitions.html">Clustering and Network Partitions</a></p>
+</div>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="create-your-own-tool-to-measure-network-throughput"><a class="header" href="#create-your-own-tool-to-measure-network-throughput">Create your own tool to measure network throughput</a></h1>
+<p>Here we will create our own Rust version of iperf3 to better understand concepts around network</p>
+<p>https://github.com/esnet/iperf</p>
+<p>Wireshark to analyze packets</p>
+<p>Write our own DPI (nDPI, goodbyeDPI)</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="availability"><a class="header" href="#availability">Availability</a></h1>
+<p>Availability in the common practice is understood as a metric rather than a property of the system. While in the theory of distributed systems (especially, CAP theorem<sup class="footnote-reference"><a href="#kleppmann">1</a></sup>) it is more about property leading to confusion.</p>
+<p>We will follow practical considerations and under availability will understand the following concepts.</p>
+<blockquote>
+<p><em>A service level indicator (SLI) is a carefully defined quantitative measure of some aspect of the level of service that is being provided. It is a metric, not a target.</em><sup class="footnote-reference"><a href="#gcp">2</a></sup></p>
+</blockquote>
+<p>For example, it can be a ratio of successfully handled requests.</p>
+<blockquote>
+<p><em>A service level objective (SLO) specifies a target level for the reliability of your service. The SLO is a target value for an SLI.</em><sup class="footnote-reference"><a href="#gcp">2</a></sup></p>
+</blockquote>
+<p>Service Level Agreement (SLA) declares your commitment to satisfy SLO.
+SLO also determines your <em>error budget</em>, i.e. duration of the <a href="https://uptime.is/">allowed downtime</a> within different time periods</p>
+<p>Going distributed is just one of the ways to strengthen availability via adding scalabity and redundancy.</p>
+<p>Clever design (including API), code quality assurance, proper algorithms, performance tuning, application monitoring, best DevSecOps practices, business and tech metrics collection significantly improves availability and should be considered first before introducing complexity of a distribution.</p>
+<div class="footnote-definition" id="kleppmann"><sup class="footnote-definition-label">1</sup>
+<p>Martin Kleppmann <a href="https://arxiv.org/abs/1509.05393">A Critique of the CAP Theorem</a></p>
+</div>
+<div class="footnote-definition" id="gcp"><sup class="footnote-definition-label">2</sup>
+<p>Google Cloud Architecture Framework <a href="https://cloud.google.com/architecture/framework/reliability/principles">Reliability principles</a></p>
 </div>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="distributed-vs-decentralized"><a class="header" href="#distributed-vs-decentralized">Distributed vs Decentralized</a></h1>
 <blockquote>
@@ -266,7 +312,7 @@ Roger Johansson, creator of ProtoActor</p>
 <p>We won’t dive in the language per se and pragmatic ideas of “let it fail”, <a href="https://adoptingerlang.org/docs/development/supervision_trees/">supervision trees</a>, and fault tolerance. You can read the very concise and full of practical wisdom <a href="https://erlang.org/download/armstrong_thesis_2003.pdf">thesis</a> (highly recommended) of Joe Armstrong, one of the Erlang creators.</p>
 <p>Let’s focus more on Erlang distribution capabilities. Erlang is compiled to run in a virtual machine called BEAM<sup class="footnote-reference"><a href="#lumen">3</a></sup>. <a href="https://elixir-lang.org/">Elixir</a> is also a BEAM-runnable language with interoperability with Erlang.</p>
 <p>Erlang lightweight processes, while executing application logic, communicate with each other using signals. Most used signal type is a message<sup class="footnote-reference"><a href="#actor">4</a></sup>. Processes are scheduled for execution by BEAM. You can run millions of processes<sup class="footnote-reference"><a href="#erlang_limits">5</a></sup>. OTP is a collection of reusable components (abstractions for concurrent and distributed patterns such as client-server). So Erlang/OTP is a framework allowing you to quickly create complex concurrent and distributed systems.</p>
-<p>BEAM (written in C) can be extended with dynamically loaded compiled modules with Native Implemented Functions (<a href="https://www.erlang.org/doc/tutorial/nif.html">NIFs</a>). So you can write this shared module in a language you prefer (supporting C ABI, of course)<sup class="footnote-reference"><a href="#rustler">6</a></sup>.<br />
+<p>BEAM (written in C) can be extended with dynamically loaded compiled modules with Native Implemented Functions (<a href="https://www.erlang.org/doc/tutorial/nif.html">NIFs</a>). So you can write this shared module in a language you prefer (supporting C interoperability, of course)<sup class="footnote-reference"><a href="#rustler">6</a></sup>.<br />
 Erlang is primarily well suited for a massive IO-bound load so for CPU-bound tasks you should use, for example, above mentioned NIFs<sup class="footnote-reference"><a href="#erlang_io_bound">7</a></sup>.</p>
 <p>Every node (Erlang VM) to form a cluster should share the same cookie file with a secret. It is rather a basic “security” with the aim to differentiate two or more clusters.
 Every Erlang VM is started with a predefined name and then it’s enough to register the rest <code>n-1</code> nodes on the first node. All nodes sharing the same cookie will propagate connections to each other creating a fully connected mesh network. This default transitive connection propagation can be configured – a node called <em>hidden node</em> without transitive connections can be used to create clusters with less connections<sup class="footnote-reference"><a href="#erlang_distribution">8</a></sup>.</p>
@@ -284,7 +330,7 @@ Every Erlang VM is started with a predefined name and then it’s enough to regi
 <li>maintaining global mutable data (namespace of lightweight processes in case of Erlang) and full connectivity severely limits scalability.</li>
 </ul>
 <div class="footnote-definition" id="klarna"><sup class="footnote-definition-label">1</sup>
-<p>For example, Sweden fintech Klarna uses Erlang as it’s core platform handling 2 million transactions per day - look at their <a href="https://jobs.lever.co/klarna?team=Engineering">job descriptions</a>.</p>
+<p>For example, Swedish fintech Klarna uses Erlang as it’s core platform handling 2 million transactions per day - look at their <a href="https://jobs.lever.co/klarna?team=Engineering">job descriptions</a>.</p>
 </div>
 <div class="footnote-definition" id="my_experience"><sup class="footnote-definition-label">2</sup>
 <p>At one of my work places I almost convinced my CTO to write IO-bound service for proxying media streams and unary requests in Erlang. For two weeks I read everything on Erlang and finally presented a workable version which was deployed to production. It had worked under production for about 3 weeks till the CTO had a look at the code. He was rather afraid of completely non-imperative style of code and inability to scale his Erlang team (consisted of only me). So he gently asked me to rewrite the app in Go. For those brave of you <a href="https://adoptingerlang.org/">Adopting Erlang</a>.</p>
@@ -318,6 +364,15 @@ Every Erlang VM is started with a predefined name and then it’s enough to regi
 </div>
 <div class="footnote-definition" id="erlang_scale"><sup class="footnote-definition-label">12</sup>
 <p>See <a href="https://arxiv.org/pdf/1704.07234.pdf">Scaling Reliably: Improving the Scalability of the Erlang Distributed Actor Platform</a>, <a href="https://www.infoq.com/presentations/erland-scale-10000-nodes/">Scaling Erlang Cluster to 10,000 Nodes</a>, <a href="https://stackoverflow.com/questions/5044574/how-scalable-is-distributed-erlang">Stackoverflow question</a></p>
+</div>
+<div style="break-before: page; page-break-before: always;"></div><p>Martin Kleppman Critique CAP</p>
+<p>latency-sensitivity framework</p>
+<p>availability as a metric</p>
+<p>operational and network latency</p>
+<p>algorithm sensitivity to latency</p>
+<p>Network partitions <em>can be modelled as large packet delays (up to the duration of the partition), provided that the duration of the partition is finite and lost packets are retransmitted an unbounded number of times</em><sup class="footnote-reference"><a href="#kleppmann">1</a></sup>.</p>
+<div class="footnote-definition" id="kleppmann"><sup class="footnote-definition-label">1</sup>
+<p>Martin Kleppmann <a href="https://arxiv.org/abs/1509.05393">A Critique of the CAP Theorem</a></p>
 </div>
 <div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><h1 id="ml-training"><a class="header" href="#ml-training">ML training</a></h1>
 <p>Machine learning involves many matrix operations and is naturally parallelized not only within single node but also over distributed nodes. Out-of-box solutions like <a href="https://www.tensorflow.org/guide/distributed_training">Distributed training with TensorFlow</a> transfer parameters (aka weights) from parameters nodes to worker nodes and back during model training. But large parameters matrices for sparse data heavily consume network bandwith and severely decrease model training speed<sup class="footnote-reference"><a href="#twitter">1</a></sup>.</p>
@@ -383,7 +438,7 @@ fn train_first_layer() {
 <p><img src="computing/images/twitter.svg" alt="Twitter ML cluster" /></p>
 <p>Such a cluster organization allows for failure and restart of a worker node without loss of weights of the first layer (failure of a parameters node is more damaging). Each worker node is stateless and no transfer of a huge sparse matrix <code>W</code> occurs over network<sup class="footnote-reference"><a href="#results">3</a></sup>.</p>
 <div class="footnote-definition" id="twitter"><sup class="footnote-definition-label">1</sup>
-<p><a href="https://blog.twitter.com/engineering/en_us/topics/insights/2020/distributed-training-of-sparse-machine-learning-models-1">Distributed training of sparse ML models — Part 1: Network bottlenecks</a><a href="https://www.tensorflow.org/guide/distributed_training">Distributed training with TensorFlow</a></p>
+<p><a href="https://blog.twitter.com/engineering/en_us/topics/insights/2020/distributed-training-of-sparse-machine-learning-models-1">Distributed training of sparse ML models — Part 1: Network bottlenecks</a></p>
 </div>
 <div class="footnote-definition" id="approach"><sup class="footnote-definition-label">2</sup>
 <p><a href="https://blog.twitter.com/engineering/en_us/topics/insights/2020/distributed-training-of-sparse-machine-learning-models-2">Distributed training of sparse ML models — Part 2: Optimized strategies</a></p>
@@ -485,7 +540,27 @@ Or you should invent your own blockchain</li>
 <li><a href="https://en.wikipedia.org/wiki/Latency_(engineering)">Wikipedia Latency (engineering)</a></li>
 <li><a href="https://en.wikipedia.org/wiki/Network_delay">Wikipedia Network delay</a></li>
 <li>Alex Diaconu <a href="https://ably.com/blog/8-fallacies-of-distributed-computing">Navigating the 8 fallacies of distributed computing</a></li>
+<li><a href="https://www.aquasec.com/cloud-native-academy/kubernetes-101/kubernetes-complete-guide/">Kubernetes: Why Use It, How It Works, Options and Alternatives</a></li>
+<li><a href="https://www.aquasec.com/cloud-native-academy/kubernetes-101/kubernetes-nodes/">Kubernetes Nodes: Components and Basic Operations</a></li>
+<li><a href="https://www.rabbitmq.com/partitions.html">Clustering and Network Partitions</a></li>
+<li>Martin Kleppmann <a href="https://arxiv.org/abs/1509.05393">A Critique of the CAP Theorem</a></li>
+<li><a href="https://www.phoronix.com/scan.php?page=article&amp;item=bsd-linux-eo2021&amp;num=1">Benchmarks: FreeBSD 13 vs. NetBSD 9.2 vs. OpenBSD 7 vs. DragonFlyBSD 6 vs. Linux</a></li>
+<li><a href="https://urbit.org">Urbit</a></li>
+<li><a href="https://ethereum.org/en/whitepaper/">Ethereum Whitepaper</a></li>
+<li><a href="https://urbit.org/blog/urbit-for-normies">Urbit for Normies</a></li>
 </ul>
+<p>https://blog.twitter.com/engineering/en_us/topics/insights/2021/simple-scalable-graph-neural-networks
+https://blog.twitter.com/engineering/en_us/topics/insights/2021/fusing-elasticsearch-with-neural-networks-to-identify-data
+https://blog.twitter.com/engineering/en_us/topics/infrastructure/2021/processing-billions-of-events-in-real-time-at-twitter-
+https://blog.twitter.com/engineering/en_us/topics/insights/2021/graph-neural-networks-through-the-lens-of-differential-geometry-
+https://blog.twitter.com/engineering/en_us/topics/insights/2022/graph-machine-learning-with-missing-node-features</p>
+<p>https://blog.twitter.com/engineering/en_us/topics/open-source/2020/hunting-a-linux-kernel-bug</p>
+<p>https://ethereum.org/en/developers/docs/evm/
+https://ethereum.github.io/yellowpaper/paper.pdf
+https://ethereum.org/en/developers/docs/
+https://docs.soliditylang.org/en/v0.6.0/introduction-to-smart-contracts.html#the-ethereum-virtual-machine</p>
+<p>https://habr.com/ru/company/yandex/blog/564510/</p>
+<p>https://robertgreiner.com/cap-theorem-revisited/</p>
 
                     </main>
 
