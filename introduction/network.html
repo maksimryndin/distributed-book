@@ -162,11 +162,24 @@ https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/net/ipv4
 <p>Network latency usually measured from source to destination and back constituting the so called <em>round trip time (RTT)</em> which is rougly speaking a double latency.<sup class="footnote-reference"><a href="#ping">3</a></sup></p>
 <p>Caching, keep-alive connections, geoghraphical proximity to the users are among usual options to decrease latency<sup class="footnote-reference"><a href="#os">4</a></sup>.</p>
 <p><strong>Network partition</strong> happens if some nodes of a cluster in a distributed system cannot communicate due to a network failure but are supposed to.</p>
+<p>Physically nodes (think, computers) in the network are connected by means of <em>network interface</em> controllers (NIC) - a special hardware allowing a computer to connect to the network via a cable (<a href="https://en.wikipedia.org/wiki/Ethernet">Ethernet</a>) or a radio (WiFi). This physical layer is called a <em>link</em> in TCP/IP stack<sup class="footnote-reference"><a href="#tcpip">5</a></sup>. Nodes at the link layer are identified by Media Access Control Address (MAC)</p>
+<p>So we have a network of nodes (also called LAN - local area network). How do we <strong>inter</strong>connect <strong>net</strong>works so that we can send a packet with data (called <strong>datagram</strong>) between two hosts from different networks? Here a <em>routing</em> problem arises. Computers called <em>routers</em><sup class="footnote-reference"><a href="#bridge">6</a></sup> a relays between networks and are relaying datagrams from source to destination. But how do we distinguish a host in one network from a host from another network? We need some <em>addressing</em> at an <em>internet layer</em>. IPv4 addressing assigns each host an IP address of the form xx.xx.xx.xx . But with 2^32 unique IP addresses we cannot mark all hosts so IPv6 was developed. Anyway today we still use IPv4 and IPv4 address exaustion was mitigated by so called Network Address Translation (NAT) and private IPs. NAT - explore practically, p2p networks obstacles, violation of end-to-end principle, STUN, private network ips 10.xx.. and 192.168…., 172…
+Internet layer is independent of the network topology and physical way of hosts connection.</p>
+<p>After we identified a route between to hosts, we can use a <em>transport</em> protocol to, at least, specify <strong>ports</strong> on hosts to connect specific <em>application</em> processes running on hosts involved. Because internet layer is only responsible for routing and for reliability of communication, transport layers protocols can also offer some reliability mechanisms like congestion control, preserves data ordering, eliminate packet loss, provides packet deduplication. Among </p>
+<p>So we have a connection between to hosts and we can exchange </p>
+<p>TCP/IP processing can also be done at NIC coupled with some user-space library offloading CPU and OS kernel.
+https://github.com/Xilinx-CNS/onload.</p>
+<p>Network interface
+MTU
+NAT
+Subnet 
+Network mask
+Broadcasting</p>
 <p>So for a distributed system it is absolutely necessary to handle different network failures (which are quite common):</p>
 <ul>
 <li>meet bandwith requirements and handle network congestion on scaling;</li>
 <li>deal with increased latencies;</li>
-<li>have policies for network partitions: if a network partition creates two and more subclusters and such subclusters can behave independently (situation known as a <em>split-brain</em><sup class="footnote-reference"><a href="#rabbitmq">5</a></sup>), how should the system evolve and finally merge conflicting states? </li>
+<li>have policies for network partitions: if a network partition creates two and more subclusters and such subclusters can behave independently (situation known as a <em>split-brain</em><sup class="footnote-reference"><a href="#rabbitmq">7</a></sup>), how should the system evolve and finally merge conflicting states? </li>
 </ul>
 <div class="footnote-definition" id="osi"><sup class="footnote-definition-label">1</sup>
 <p>Most of us have heard about <a href="https://en.wikipedia.org/wiki/OSI_model">OSI model</a> as a theoretical framework to discuss networking stack.</p>
@@ -180,8 +193,20 @@ https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/net/ipv4
 <div class="footnote-definition" id="os"><sup class="footnote-definition-label">4</sup>
 <p>Analyzing your application stack, CPU/IO profile can also help to choose an appropriate operating system if it is possible - see benchmarks <a href="https://www.phoronix.com/scan.php?page=article&amp;item=bsd-linux-eo2021&amp;num=1">Benchmarks: FreeBSD 13 vs. NetBSD 9.2 vs. OpenBSD 7 vs. DragonFlyBSD 6 vs. Linux</a></p>
 </div>
-<div class="footnote-definition" id="rabbitmq"><sup class="footnote-definition-label">5</sup>
+<div class="footnote-definition" id="rabbitmq"><sup class="footnote-definition-label">7</sup>
 <p><a href="https://www.rabbitmq.com/partitions.html">Clustering and Network Partitions</a></p>
+</div>
+<div class="footnote-definition" id="tcpip"><sup class="footnote-definition-label">5</sup>
+<p>Note that common reference to TCP/IP stack (also called <strong>Internet protocol suite</strong>) includes not only Internet Protocol and Transmission Control Protocol (TCP) but also other protocols such as a User Datagram Protocol (UDP) and QUIC at a transport layer and Internet Protocol Security (IPSec) at an internet layer. TCP/IP stack as a practical network stack predates the OSI theoretical model for general networks.
+Since the adoption of TCP/IP in ARPANET in 1983 several proprietary implementations of the stack for different operating systems emerged. But the TCP/IP popularity increased when the University of California at Berkley had open sourced its implementation for BSD Unix  BSD sockets?? (see <a href="https://en.wikipedia.org/wiki/Internet_protocol_suite">Wikipedia Internet protocol suite</a>).</p>
+</div>
+<div class="footnote-definition" id="private_ips"><sup class="footnote-definition-label">8</sup>
+<p>Private IPs are <a href="https://datatracker.ietf.org/doc/html/rfc1918#section-3">defined</a> to belong to the following subnets: 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16. Number after the slash is the <em>network prefix</em> (<a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">CIDR notation</a>) and denotes number of bits which is common for all hosts in the network. So, for example, 192.168.0.0/16 means that the first 16 bits are the same for all hosts and 192.168 in decimal and the rest 16 bits of total 32 bits define the host (2^16 possible addresses in the network). To be correct, the total number of possible addresses should be decreased by two as all binary zeroes hosts denotes the network itself, while all binary one host is the broadcast address. So when you encounter an ip 192.168.12.134, you already know that this ip is not reachable publicly (from the Internet), it is some internal private host.
+For IPv6 private ip address (called <a href="https://datatracker.ietf.org/doc/html/rfc4193"><em>unique local address</em></a> starts with a prefix <code>fd</code> (8 bits), then 40 bits of global id (choosen randomly by the operator of the network), then 16 bits for a subnet and the rest 64 bits define the host. So with IPv6 local privates ips are essentially globally unique if 40 bits of global id indeed are random.
+Routing protocol experienced revisions 1-4 until becoming well known IPv4 </p>
+</div>
+<div class="footnote-definition" id="bridge"><sup class="footnote-definition-label">6</sup>
+<p>Do not confuse with <a href="https://en.wikipedia.org/wiki/Network_bridge">network bridges</a>. Routers allow spearate networks to communicate while bridges join networks making them a single network.</p>
 </div>
 
                     </main>
