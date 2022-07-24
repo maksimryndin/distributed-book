@@ -33,6 +33,26 @@ Caching, keep-alive connections, geoghraphical proximity to the users are among 
 
 **Network partition** happens if some nodes of a cluster in a distributed system cannot communicate due to a network failure but are supposed to.
 
+Physically nodes (think, computers) in the network are connected by means of *network interface* controllers (NIC) - a special hardware allowing a computer to connect to the network via a cable ([Ethernet](https://en.wikipedia.org/wiki/Ethernet)) or a radio (WiFi). This physical layer is called a *link* in TCP/IP stack[^tcpip]. Nodes at the link layer are identified by Media Access Control Address (MAC)
+
+So we have a network of nodes (also called LAN - local area network). How do we **inter**connect **net**works so that we can send a packet with data (called **datagram**) between two hosts from different networks? Here a *routing* problem arises. Computers called *routers*[^bridge] a relays between networks and are relaying datagrams from source to destination. But how do we distinguish a host in one network from a host from another network? We need some *addressing* at an *internet layer*. IPv4 addressing assigns each host an IP address of the form xx.xx.xx.xx . But with 2^32 unique IP addresses we cannot mark all hosts so IPv6 was developed. Anyway today we still use IPv4 and IPv4 address exaustion was mitigated by so called Network Address Translation (NAT) and private IPs. NAT - explore practically, p2p networks obstacles, violation of end-to-end principle, STUN, private network ips 10.xx.. and 192.168...., 172...
+Internet layer is independent of the network topology and physical way of hosts connection.
+
+After we identified a route between to hosts, we can use a *transport* protocol to, at least, specify **ports** on hosts to connect specific *application* processes running on hosts involved. Because internet layer is only responsible for routing and for reliability of communication, transport layers protocols can also offer some reliability mechanisms like congestion control, preserves data ordering, eliminate packet loss, provides packet deduplication. Among 
+
+So we have a connection between to hosts and we can exchange 
+
+TCP/IP processing can also be done at NIC coupled with some user-space library offloading CPU and OS kernel.
+https://github.com/Xilinx-CNS/onload.
+
+
+Network interface
+MTU
+NAT
+Subnet 
+Network mask
+Broadcasting
+
 
 
 So for a distributed system it is absolutely necessary to handle different network failures (which are quite common):
@@ -49,3 +69,12 @@ So for a distributed system it is absolutely necessary to handle different netwo
 [^os]: Analyzing your application stack, CPU/IO profile can also help to choose an appropriate operating system if it is possible - see benchmarks [Benchmarks: FreeBSD 13 vs. NetBSD 9.2 vs. OpenBSD 7 vs. DragonFlyBSD 6 vs. Linux](https://www.phoronix.com/scan.php?page=article&item=bsd-linux-eo2021&num=1)
 
 [^rabbitmq]: [Clustering and Network Partitions](https://www.rabbitmq.com/partitions.html)
+
+[^tcpip]: Note that common reference to TCP/IP stack (also called **Internet protocol suite**) includes not only Internet Protocol and Transmission Control Protocol (TCP) but also other protocols such as a User Datagram Protocol (UDP) and QUIC at a transport layer and Internet Protocol Security (IPSec) at an internet layer. TCP/IP stack as a practical network stack predates the OSI theoretical model for general networks.
+Since the adoption of TCP/IP in ARPANET in 1983 several proprietary implementations of the stack for different operating systems emerged. But the TCP/IP popularity increased when the University of California at Berkley had open sourced its implementation for BSD Unix  BSD sockets?? (see [Wikipedia Internet protocol suite](https://en.wikipedia.org/wiki/Internet_protocol_suite)).
+
+[^private_ips]: Private IPs are [defined](https://datatracker.ietf.org/doc/html/rfc1918#section-3) to belong to the following subnets: 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16. Number after the slash is the *network prefix* ([CIDR notation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)) and denotes number of bits which is common for all hosts in the network. So, for example, 192.168.0.0/16 means that the first 16 bits are the same for all hosts and 192.168 in decimal and the rest 16 bits of total 32 bits define the host (2^16 possible addresses in the network). To be correct, the total number of possible addresses should be decreased by two as all binary zeroes hosts denotes the network itself, while all binary one host is the broadcast address. So when you encounter an ip 192.168.12.134, you already know that this ip is not reachable publicly (from the Internet), it is some internal private host.
+For IPv6 private ip address (called [*unique local address*](https://datatracker.ietf.org/doc/html/rfc4193) starts with a prefix `fd` (8 bits), then 40 bits of global id (choosen randomly by the operator of the network), then 16 bits for a subnet and the rest 64 bits define the host. So with IPv6 local privates ips are essentially globally unique if 40 bits of global id indeed are random.
+Routing protocol experienced revisions 1-4 until becoming well known IPv4 
+
+[^bridge]: Do not confuse with [network bridges](https://en.wikipedia.org/wiki/Network_bridge). Routers allow spearate networks to communicate while bridges join networks making them a single network.
