@@ -139,7 +139,23 @@
                     <main>
                         <h1 id="unreliable-network"><a class="header" href="#unreliable-network">Unreliable network</a></h1>
 <p>Our <a href="./introduction/overview.html">definition</a> of a distributed system mentions a network as a medium for communication. This medium is a very interesting and complex subject per se but here we only review some core concepts relevant to our study.</p>
-<p>A network of interconnected computers is based on some physical layer (Ethernet cables or radio in case of wireless networks)<sup class="footnote-reference"><a href="#osi">1</a></sup>. The physical layer itself is subject to different disruptions, noisiness, and other problems. So we always have to assume that <strong>the network is unreliable</strong> and implement different <em>retry, ordering, and healthcheck policies</em> in our services.</p>
+<p>Physically nodes (or hosts, think, computers) in the network are connected by means of <em>network interface</em> controllers (NIC, also <em>network adapter</em>) - a special hardware<sup class="footnote-reference"><a href="#virtual_interface">1</a></sup> allowing a computer to connect to the network via a cable (Ethernet) or a radio (WiFi)<sup class="footnote-reference"><a href="#packet_switching">2</a></sup>. This physical layer is called a <em>link</em> in TCP/IP stack<sup class="footnote-reference"><a href="#tcpip">3</a></sup>. Nodes at the link layer are identified by Media Access Control Address (MAC) - a unique hardware identifier of every <strong>network interface</strong> of the host<sup class="footnote-reference"><a href="#mac">4</a></sup>.</p>
+<p>We can use <code>ifconfig</code> utility to manage network interfaces. We just describe the most common data:</p>
+<ul>
+<li><code>&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;</code> means that the interface supports broadcasting and multicasting, is loaded (<code>UP</code> as opposite to <code>DOWN</code>), is ready to accept connections (<code>RUNNING</code>). Other popular options are <code>LOOPBACK</code> (it is a loopback interface) and <code>PROMISC</code> (interface is in the promiscuous mode when it captures all packets in the network).</li>
+<li><code>mtu 1500</code> - Maximum Transmission Unit is 1500 bytes. So IP packet greater than 1500 bytes will be fragmented.</li>
+<li><code>ether bc:d0:74:ec:76:17</code> means MAC is <code>bc:d0:74:ec:76:17</code></li>
+<li><code>inet 192.168.43.174 netmask 0xffffff00 broadcast 192.168.43.255</code> means IPv4 address 192.168.43.174 with network mask 255.255.255.0 so we can have hosts 192.168.43.1-254, 192.168.43.255 is a broadcast address and 192.168.43.0 is the network itself.</li>
+<li><code>inet6 fe80::88f:5ab4:1ad8:eed5 prefixlen 64 secured scopeid 0xe</code> means IPv6 address <code>fe80::88f:5ab4:1ad8:eed5</code></li>
+</ul>
+<p>So we have a network of nodes (also called LAN - local area network). How do we <strong>inter</strong>connect <strong>net</strong>works so that we can send a packet with data (called a <strong>datagram</strong>) between two hosts from different networks? Here a <em>routing</em> problem arises. Computers called <em>routers</em><sup class="footnote-reference"><a href="#bridge">5</a></sup> are relaying datagrams from source to destination accross networks borders<sup class="footnote-reference"><a href="#hop">6</a></sup>. But how do we distinguish a host in one network from a host from another network? We need some <em>addressing</em> at an <em>internet layer</em>. IPv4 addressing assigns each host an IP address of the form xx.xx.xx.xx (4 octets of 8 bits each). But with 2^32 unique IP addresses we cannot mark all hosts so IPv6 was developed (128 bits). Anyway IPv4 address exaustion was mitigated by so called Network Address Translation (NAT) and private IPs<sup class="footnote-reference"><a href="#private_ips">7</a></sup>. NAT - explore practically, p2p networks obstacles, violation of end-to-end principle<sup class="footnote-reference"><a href="#end2end">8</a></sup>, STUN
+Internet layer is independent of the network topology and the physical way of hosts connection.</p>
+<p>Within LAN we need to establish a mapping between an IP addresses of hosts and their corresponding hardware addresses (MAC) to send packet from one host to another. Such a mapping is called ARP table and is filled at each host with an Address Resolution Protocol (ARP) broadcast messages. In Linux/Unix ARP table can be manipulated with an <code>arp</code> utility. </p>
+<p>After we identified a route between to hosts, we can use a <em>transport</em> protocol to, at least, specify <strong>ports</strong> on hosts to connect specific <em>application</em> processes running on hosts involved. Because internet layer is only responsible for routing and for reliability of communication, transport layer’s protocols can also offer some reliability mechanisms like congestion control, preserves data ordering, eliminate packet loss, provides packet deduplication. Among </p>
+<p>So we have a connection between to hosts and we can exchange </p>
+<p>TCP/IP processing can also be done at NIC coupled with some user-space library offloading CPU and OS kernel.
+https://github.com/Xilinx-CNS/onload.</p>
+<p>A network of interconnected computers is based on some physical layer (Ethernet cables or radio in case of wireless networks)<sup class="footnote-reference"><a href="#osi">9</a></sup>. The physical layer itself is subject to different disruptions, noisiness, and other problems. So we always have to assume that <strong>the network is unreliable</strong> and implement different <em>retry, ordering, and healthcheck policies</em> in our services.</p>
 <p>Moreover, network capacity is limited and we should estimate ahead what an amount of data the system under development is going to send through the network.</p>
 <blockquote>
 <p><strong>Network throughput</strong> is an <em>amount of data that can be transferred through a network within a certain time period</em>
@@ -147,7 +163,7 @@
 </blockquote>
 <p>We can measure a network throughput in bits per second (bit/s or bps) or even in data packets per a unit of time.</p>
 <blockquote>
-<p><em>Stop&amp;Think</em>: How do you measure a network throughput? How do you estimate a maximum throughput (also called <em>bandwidth</em> or <em>channel capacity</em>) of a network?<sup class="footnote-reference"><a href="#goodput">2</a></sup></p>
+<p><em>Stop&amp;Think</em>: How do you measure a network throughput? How do you estimate a maximum throughput (also called <em>bandwidth</em> or <em>channel capacity</em>) of a network?<sup class="footnote-reference"><a href="#goodput">10</a></sup></p>
 </blockquote>
 <p>Congestion control algorithms https://cloud.google.com/blog/products/networking/tcp-bbr-congestion-control-comes-to-gcp-your-internet-just-got-faster
 https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/net/ipv4/tcp_bbr.c</p>
@@ -159,54 +175,64 @@ https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/net/ipv4
 <p><strong>Network latency</strong> is <em>the time taken for a given signal or data packet to propagate through a circuit or network from its source point to its destination</em>
 <a href="https://www.oxfordreference.com/search?q=network+latency&amp;searchBtn=Search&amp;isQuickSearch=true">Oxford Dictionary of Electronics and Electrical Engineering (5 ed.)</a></p>
 </blockquote>
-<p>Network latency usually measured from source to destination and back constituting the so called <em>round trip time (RTT)</em> which is rougly speaking a double latency.<sup class="footnote-reference"><a href="#ping">3</a></sup></p>
-<p>Caching, keep-alive connections, geoghraphical proximity to the users are among usual options to decrease latency<sup class="footnote-reference"><a href="#os">4</a></sup>.</p>
+<p>Network latency usually measured from source to destination and back constituting the so called <em>round trip time (RTT)</em> which is rougly speaking a double latency.<sup class="footnote-reference"><a href="#ping">11</a></sup></p>
+<p>Caching, keep-alive connections, geoghraphical proximity to the users are among usual options to decrease latency<sup class="footnote-reference"><a href="#os">12</a></sup>.</p>
 <p><strong>Network partition</strong> happens if some nodes of a cluster in a distributed system cannot communicate due to a network failure but are supposed to.</p>
-<p>Physically nodes (think, computers) in the network are connected by means of <em>network interface</em> controllers (NIC) - a special hardware allowing a computer to connect to the network via a cable (<a href="https://en.wikipedia.org/wiki/Ethernet">Ethernet</a>) or a radio (WiFi). This physical layer is called a <em>link</em> in TCP/IP stack<sup class="footnote-reference"><a href="#tcpip">5</a></sup>. Nodes at the link layer are identified by Media Access Control Address (MAC)</p>
-<p>So we have a network of nodes (also called LAN - local area network). How do we <strong>inter</strong>connect <strong>net</strong>works so that we can send a packet with data (called <strong>datagram</strong>) between two hosts from different networks? Here a <em>routing</em> problem arises. Computers called <em>routers</em><sup class="footnote-reference"><a href="#bridge">6</a></sup> a relays between networks and are relaying datagrams from source to destination. But how do we distinguish a host in one network from a host from another network? We need some <em>addressing</em> at an <em>internet layer</em>. IPv4 addressing assigns each host an IP address of the form xx.xx.xx.xx . But with 2^32 unique IP addresses we cannot mark all hosts so IPv6 was developed. Anyway today we still use IPv4 and IPv4 address exaustion was mitigated by so called Network Address Translation (NAT) and private IPs. NAT - explore practically, p2p networks obstacles, violation of end-to-end principle, STUN, private network ips 10.xx.. and 192.168…., 172…
-Internet layer is independent of the network topology and physical way of hosts connection.</p>
-<p>After we identified a route between to hosts, we can use a <em>transport</em> protocol to, at least, specify <strong>ports</strong> on hosts to connect specific <em>application</em> processes running on hosts involved. Because internet layer is only responsible for routing and for reliability of communication, transport layers protocols can also offer some reliability mechanisms like congestion control, preserves data ordering, eliminate packet loss, provides packet deduplication. Among </p>
-<p>So we have a connection between to hosts and we can exchange </p>
-<p>TCP/IP processing can also be done at NIC coupled with some user-space library offloading CPU and OS kernel.
-https://github.com/Xilinx-CNS/onload.</p>
-<p>Network interface
-MTU
-NAT
-Subnet 
-Network mask
-Broadcasting</p>
 <p>So for a distributed system it is absolutely necessary to handle different network failures (which are quite common):</p>
 <ul>
 <li>meet bandwith requirements and handle network congestion on scaling;</li>
 <li>deal with increased latencies;</li>
-<li>have policies for network partitions: if a network partition creates two and more subclusters and such subclusters can behave independently (situation known as a <em>split-brain</em><sup class="footnote-reference"><a href="#rabbitmq">7</a></sup>), how should the system evolve and finally merge conflicting states? </li>
+<li>have policies for network partitions: if a network partition creates two and more subclusters and such subclusters can behave independently (situation known as a <em>split-brain</em><sup class="footnote-reference"><a href="#rabbitmq">13</a></sup>), how should the system evolve and finally merge conflicting states? </li>
 </ul>
-<div class="footnote-definition" id="osi"><sup class="footnote-definition-label">1</sup>
-<p>Most of us have heard about <a href="https://en.wikipedia.org/wiki/OSI_model">OSI model</a> as a theoretical framework to discuss networking stack.</p>
+<div class="footnote-definition" id="virtual_interface"><sup class="footnote-definition-label">1</sup>
+<p>Network interface can also be virtual to allow userspace applications to intercept raw packets (see <a href="https://www.kernel.org/doc/Documentation/networking/tuntap.txt">Universal TUN/TAP device driver</a>). Also the famous loopback interface (127.0.0.1 for IPv4 and ::1 for IPv6) is virtual.</p>
 </div>
-<div class="footnote-definition" id="goodput"><sup class="footnote-definition-label">2</sup>
+<div class="footnote-definition" id="packet_switching"><sup class="footnote-definition-label">2</sup>
+<p>we consider only <a href="https://en.wikipedia.org/wiki/Packet_switching">packet networks</a> where the same communication channel can be shared between several communication sessions by means of packetizing data. In contrast, in <a href="https://en.wikipedia.org/wiki/Circuit_switching">circuit networks</a> (for example, public switched telephone network, PSTN) the channel capacity is completely used only by a single communication session between two nodes.</p>
+</div>
+<div class="footnote-definition" id="tcpip"><sup class="footnote-definition-label">3</sup>
+<p>Note that common reference to TCP/IP stack (also called <strong>Internet protocol suite</strong>) includes not only Internet Protocol and Transmission Control Protocol (TCP) but also other protocols such as a User Datagram Protocol (UDP) and QUIC at a transport layer and Internet Protocol Security (IPSec) at an internet layer. TCP/IP stack as a practical network stack predates the OSI theoretical model for general networks.
+Since the adoption of TCP/IP in ARPANET in 1983 several proprietary implementations of the stack for different operating systems emerged. But the TCP/IP popularity increased when the University of California at Berkley had open sourced its implementation for BSD Unix becoming famous BSD sockets (see <a href="https://en.wikipedia.org/wiki/Internet_protocol_suite">Wikipedia Internet protocol suite</a>).</p>
+</div>
+<div class="footnote-definition" id="mac"><sup class="footnote-definition-label">4</sup>
+<p>Many network interface controllers allow to overwrite its MAC. In this case the MAC should be unique within the network where the NIC lives. Moreover, software defined MACs are used in VM managed by hypervisors such as QEMU and MAC randomization is gaining popularity to avoid mobile device tracking (see <a href="https://en.wikipedia.org/wiki/MAC_address#Usage_in_hosts">Wikipedia MAC address</a>)</p>
+</div>
+<div class="footnote-definition" id="hop"><sup class="footnote-definition-label">6</sup>
+<p>When a packet crosses a border of networks it is called a <em>hop</em>. The time-to-live (TTL) in IPv4 (and <em>hop limit</em> in IPv6) prevents infinite cycling of an IP packet between networks as it is decreased by 1 at every router the packet visits.</p>
+</div>
+<div class="footnote-definition" id="end2end"><sup class="footnote-definition-label">8</sup>
+<p><a href="https://en.wikipedia.org/wiki/End-to-end_principle">End-to-end principle</a> means that hosts participating in the communication are responsible for communication reliability and security. Lower routing layer is <a href="https://en.wikipedia.org/wiki/Connectionless_communication">connectionless</a>, i.e. each packet goes its own route rather than a prearranged one. Interesting fact: the principle was pioneered by <a href="https://en.wikipedia.org/wiki/CYCLADES">CYCLADES</a> - an INRIA network started the same time as the well-known ARPANET.</p>
+</div>
+<div class="footnote-definition" id="private_ips"><sup class="footnote-definition-label">7</sup>
+<p>Private IPs are <a href="https://datatracker.ietf.org/doc/html/rfc1918#section-3">defined</a> to belong to the following subnets: 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16. Number after the slash is the <em>network prefix</em> (<a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">CIDR notation</a>) and denotes number of bits which is common for all hosts in the network. So, for example, 192.168.0.0/16 means that the first 16 bits are the same for all hosts and 192.168 in decimal and the rest 16 bits of total 32 bits define the host (2^16 possible addresses in the network). To be correct, the total number of possible addresses should be decreased by two as all binary zeroes hosts denotes the network itself, while all binary ones host is the broadcast address. So when you encounter an ip 192.168.12.134, you already know that this ip is not reachable publicly (from the Internet), it is some internal private host.
+For IPv6 private ip address is not desirable because its main goal is to provide globally unique addressing. So for the LAN use a <a href="https://datatracker.ietf.org/doc/html/rfc4193"><em>unique local unicast address</em></a> starts with a prefix <code>fd</code> (8 bits), then 40 bits of global id (choosen randomly by the operator of the network), then 16 bits for a subnet and the rest 64 bits define the host. So with IPv6 local private ips are essentially globally unique if 40 bits of global id indeed are random and this global uniqueness of local addresses allows to merge two networks without reassigning addresses or using NATs. For IPv6 there is no broadcast - there is a multicast - when packets are received only by hosts which declared an interest in specific packets.</p>
+</div>
+<div class="footnote-definition" id="bridge"><sup class="footnote-definition-label">5</sup>
+<p>Do not confuse with <a href="https://en.wikipedia.org/wiki/Network_bridge">network bridges</a>. Routers allow separate networks to communicate while bridges join networks making them a single network. While routers interconnect networks at the internet layer, a <em>gateway</em> is a more general term - gateways can interconnect PSTN (Public switched telephone network) and VoIP network acting as <a href="https://en.wikipedia.org/wiki/VoIP_gateway">VoIP gateway</a> or even the internet and satellites orbiting Earth acting as <a href="https://en.wikipedia.org/wiki/Gateway_(telecommunications)#Internet-to-orbit_gateway">Internet-to-orbit gateway</a>. A default gateway is the destination of IP packets if the destination IP of the packet doesn’t belong to the network mask.</p>
+</div>
+<div class="footnote-definition" id="osi"><sup class="footnote-definition-label">9</sup>
+<p>Most of us have heard about <a href="https://en.wikipedia.org/wiki/OSI_model">OSI model</a> as a theoretical framework to discuss networking stack. Just for reference:</p>
+<ul>
+<li>L1 - Physical layer (bits)</li>
+<li>L2 - Data link (frames)</li>
+<li>L3 - Network (packets)</li>
+<li>L4 - Transport (datagrams)</li>
+<li>L5 - Session (data)</li>
+<li>L6 - Presentation (data)</li>
+<li>L7 - Application (data)</li>
+</ul>
+<div class="footnote-definition" id="goodput"><sup class="footnote-definition-label">10</sup>
 <p>Also note that the maximum throughput is not actually an upper limit for <em>application specific data</em> throughput as there is always an overhead of a latency, protocols, encryption, compression, packet retransmission etc. A <strong>useful</strong> data throughput is sometimes called a <em>goodput</em> (see also <a href="https://en.wikipedia.org/wiki/Goodput">Wikipedia Goodput</a>).</p>
 </div>
-<div class="footnote-definition" id="ping"><sup class="footnote-definition-label">3</sup>
+<div class="footnote-definition" id="ping"><sup class="footnote-definition-label">11</sup>
 <p>An actual latency measurement is complicated by the presence of several nodes in the packet way, queuing (several packets from different sources to the same destination are put in a waiting list to send) on the gateway, processing delays. Tools like a famous <em>ping</em> can use special control protocols (such as ICMP) which differ from those protocols that you actually use for data (such as TCP) so measurements are biased.</p>
 </div>
-<div class="footnote-definition" id="os"><sup class="footnote-definition-label">4</sup>
-<p>Analyzing your application stack, CPU/IO profile can also help to choose an appropriate operating system if it is possible - see benchmarks <a href="https://www.phoronix.com/scan.php?page=article&amp;item=bsd-linux-eo2021&amp;num=1">Benchmarks: FreeBSD 13 vs. NetBSD 9.2 vs. OpenBSD 7 vs. DragonFlyBSD 6 vs. Linux</a></p>
+<div class="footnote-definition" id="os"><sup class="footnote-definition-label">12</sup>
+<p>Analyzing your application stack and CPU/IO profile can also help to choose an appropriate operating system if it is possible - see benchmarks <a href="https://www.phoronix.com/scan.php?page=article&amp;item=bsd-linux-eo2021&amp;num=1">Benchmarks: FreeBSD 13 vs. NetBSD 9.2 vs. OpenBSD 7 vs. DragonFlyBSD 6 vs. Linux</a></p>
 </div>
-<div class="footnote-definition" id="rabbitmq"><sup class="footnote-definition-label">7</sup>
+<div class="footnote-definition" id="rabbitmq"><sup class="footnote-definition-label">13</sup>
 <p><a href="https://www.rabbitmq.com/partitions.html">Clustering and Network Partitions</a></p>
 </div>
-<div class="footnote-definition" id="tcpip"><sup class="footnote-definition-label">5</sup>
-<p>Note that common reference to TCP/IP stack (also called <strong>Internet protocol suite</strong>) includes not only Internet Protocol and Transmission Control Protocol (TCP) but also other protocols such as a User Datagram Protocol (UDP) and QUIC at a transport layer and Internet Protocol Security (IPSec) at an internet layer. TCP/IP stack as a practical network stack predates the OSI theoretical model for general networks.
-Since the adoption of TCP/IP in ARPANET in 1983 several proprietary implementations of the stack for different operating systems emerged. But the TCP/IP popularity increased when the University of California at Berkley had open sourced its implementation for BSD Unix  BSD sockets?? (see <a href="https://en.wikipedia.org/wiki/Internet_protocol_suite">Wikipedia Internet protocol suite</a>).</p>
-</div>
-<div class="footnote-definition" id="private_ips"><sup class="footnote-definition-label">8</sup>
-<p>Private IPs are <a href="https://datatracker.ietf.org/doc/html/rfc1918#section-3">defined</a> to belong to the following subnets: 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16. Number after the slash is the <em>network prefix</em> (<a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">CIDR notation</a>) and denotes number of bits which is common for all hosts in the network. So, for example, 192.168.0.0/16 means that the first 16 bits are the same for all hosts and 192.168 in decimal and the rest 16 bits of total 32 bits define the host (2^16 possible addresses in the network). To be correct, the total number of possible addresses should be decreased by two as all binary zeroes hosts denotes the network itself, while all binary one host is the broadcast address. So when you encounter an ip 192.168.12.134, you already know that this ip is not reachable publicly (from the Internet), it is some internal private host.
-For IPv6 private ip address (called <a href="https://datatracker.ietf.org/doc/html/rfc4193"><em>unique local address</em></a> starts with a prefix <code>fd</code> (8 bits), then 40 bits of global id (choosen randomly by the operator of the network), then 16 bits for a subnet and the rest 64 bits define the host. So with IPv6 local privates ips are essentially globally unique if 40 bits of global id indeed are random.
-Routing protocol experienced revisions 1-4 until becoming well known IPv4 </p>
-</div>
-<div class="footnote-definition" id="bridge"><sup class="footnote-definition-label">6</sup>
-<p>Do not confuse with <a href="https://en.wikipedia.org/wiki/Network_bridge">network bridges</a>. Routers allow spearate networks to communicate while bridges join networks making them a single network.</p>
 </div>
 
                     </main>
