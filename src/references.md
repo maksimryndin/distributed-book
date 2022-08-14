@@ -122,6 +122,38 @@ Here are the list of references to cool articles and books etc I've used to prep
 * [Private IP Address Ranges](https://docs.microfocus.com/NNMi/10.30/Content/Administer/NNMi_Deployment/Advanced_Configurations/Private_IP_Address_Range.htm)
 * [Getting IPv6 private addressing right](https://blog.apnic.net/2020/05/20/getting-ipv6-private-addressing-right/)
 * Robert Greiner [CAP Theorem: Revisited](https://robertgreiner.com/cap-theorem-revisited/)
+* [Wikipedia Public key infrastructure](https://en.wikipedia.org/wiki/Public_key_infrastructure)
+* [Wikipedia Virtual private network](https://en.wikipedia.org/wiki/Virtual_private_network)
+* [Wikipedia Multicast](https://en.wikipedia.org/wiki/Multicast)
+* [Wikipedia IP multicast](https://en.wikipedia.org/wiki/IP_multicast)
+* [Автономный способ обхода DPI и эффективный способ обхода блокировок сайтов по IP-адресу](https://habr.com/ru/post/335436/)
+* [Let's code a TCP/IP stack, 1: Ethernet & ARP](http://www.saminiir.com/lets-code-tcp-ip-stack-1-ethernet-arp/)
+* [Let's code a TCP/IP stack, 2: IPv4 & ICMPv4](http://www.saminiir.com/lets-code-tcp-ip-stack-2-ipv4-icmpv4/)
+* [Let's code a TCP/IP stack, 3: TCP Basics & Handshake](http://www.saminiir.com/lets-code-tcp-ip-stack-3-tcp-handshake/)
+* [Routing traffic through custom tap device en-route to internet on linux](https://superuser.com/questions/1702867/routing-traffic-through-custom-tap-device-en-route-to-internet-on-linux)
+* [Two tap device can't communicate over bridge](https://serverfault.com/questions/1096942/two-tap-device-cant-communicate-over-bridge)
+* [Get the IP address of a network interface in C using SIOCGIFADDR](http://www.microhowto.info/howto/get_the_ip_address_of_a_network_interface_in_c_using_siocgifaddr.html)
+* [How to connect a tap interface to the internet?](https://stackoverflow.com/questions/68423236/how-to-connect-a-tap-interface-to-the-internet)
+* [How to read data from tap interface?](https://unix.stackexchange.com/questions/499548/how-to-read-data-from-tap-interface)
+* Graham Smith [Understanding TUN TAP Interfaces](https://www.naturalborncoder.com/virtualization/2014/10/17/understanding-tun-tap-interfaces/)
+* [What is BGP hijacking?](https://www.cloudflare.com/learning/security/glossary/bgp-hijacking/)
+* [What is routing? | IP routing](https://www.cloudflare.com/learning/network-layer/what-is-routing/)
+* [Wikipedia ioctl](https://en.wikipedia.org/wiki/Ioctl)
+* [IPv6 on Linux tun/tap: NDP not working](https://serverfault.com/questions/949945/ipv6-on-linux-tun-tap-ndp-not-working)
+* Herman J. Radtke III [Working with C unions in Rust FFI](https://hermanradtke.com/2016/03/17/unions-rust-ffi.html/)
+* [Using libc::ioctl to read interface flags](https://users.rust-lang.org/t/using-libc-ioctl-to-read-interface-flags/32506)
+* [what is the meaning of this macro _IOR(MY_MACIG, 0, int)?](https://stackoverflow.com/questions/22496123/what-is-the-meaning-of-this-macro-iormy-macig-0-int)
+* Ivan Ristić [Bulletproof TLS Guide](https://www.feistyduck.com/library/bulletproof-tls-guide/online/)
+* [Ioctl Numbers](https://www.kernel.org/doc/Documentation/ioctl/ioctl-number.txt)
+* [TUN/TAP interface (on Linux)](https://www.gabriel.urdhr.fr/2021/05/08/tuntap/)
+* [The `bindgen` User Guide](https://rust-lang.github.io/rust-bindgen/)
+* Jonathan Corbet, Alessandro Rubini, and Greg Kroah-Hartman [Linux Device Drivers](https://lwn.net/Kernel/LDD3/)
+* [Wikipedia IPX/SPX](https://en.wikipedia.org/wiki/IPX/SPX)
+* [Wikipedia AppleTalk](https://en.wikipedia.org/wiki/AppleTalk)
+* [Linux Capabilities: Why They Exist and How They Work](https://blog.container-solutions.com/linux-capabilities-why-they-exist-and-how-they-work)
+* [Linux Capabilities In Practice](https://blog.container-solutions.com/linux-capabilities-in-practice)
+* [Raw capture capabilities (CAP_NET_RAW, CAP_NET_ADMIN) not working outside /usr/bin and friends for packet capture program using libpcap](https://stackoverflow.com/questions/29099797/raw-capture-capabilities-cap-net-raw-cap-net-admin-not-working-outside-usr-b)
+* Carlos Polop [HackTricks](https://book.hacktricks.xyz/welcome/readme)
 
 https://blog.twitter.com/engineering/en_us/topics/insights/2021/simple-scalable-graph-neural-networks
 https://blog.twitter.com/engineering/en_us/topics/insights/2021/fusing-elasticsearch-with-neural-networks-to-identify-data
@@ -138,3 +170,8 @@ https://docs.soliditylang.org/en/v0.6.0/introduction-to-smart-contracts.html#the
 
 https://habr.com/ru/company/yandex/blog/564510/
 
+https://habr.com/ru/post/273523/
+https://habr.com/ru/post/276831/
+https://habr.com/ru/company/dsec/blog/278335/
+https://habr.com/ru/post/168407/
+https://habr.com/ru/post/430172/

@@ -4,4 +4,4 @@
 
 2. Model packet loss in the network
 
-3. Implement [exponential backoff algorithm](https://en.wikipedia.org/wiki/Exponential_backoff)
+3. Implement interface for TUN device 

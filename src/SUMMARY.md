@@ -3,8 +3,10 @@
 [Preface](./preface.md)
 
 - [Introduction](./introduction/overview.md)
-    - [Unreliable network](./introduction/network.md)
-    - [Measuring network](./introduction/practice.md)
+    - [Network stack](./introduction/network.md)
+    - [Practice: virtual interface](./introduction/tap.md)
+    - [Unreliable network](./introduction/network-properties.md)
+    - [Measuring network](./introduction/measure-network.md)
     - [Availability](./introduction/availability.md)
     - [Distributed vs Decentralized](./introduction/decentralized.md)
     - [Taste of distributed](./introduction/taste-distributed.md)
@@ -21,7 +23,7 @@
 - [Decentralized](./decentralized/overview.md)
     - [p2p networks](./decentralized/p2p.md)
     - [Blockchain](./decentralized/blockchain.md)
-    - [Smart contracts](./decentralized/smart_contracts.md)
+    - [Smart contracts](./decentralized/smart-contracts.md)
 
 
 - [References](./references.md)
