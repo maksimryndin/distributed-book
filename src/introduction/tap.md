@@ -4,14 +4,14 @@ As we already discussed, at the link layer of TCP/IP we have network interfaces 
 
 We create rust workspace (a collection of several packages) to have some experiments with the network in further chapters (you can find all the code in the [netstack repository](https://github.com/maksimryndin/netstack)).
 
-```
+```bash,ignore
 $ mkdir netstack
 $ cd netstack
 ```
 
 In the `netstack` directory we create `Cargo.toml` with the contents:
 
-```
+```toml,ignore
 [workspace]
 
 members = [
@@ -24,7 +24,7 @@ After we create libs running `cargo new --lib virtual-interface` and `cargo new 
 
 Rust provides [libc](https://crates.io/crates/libc) crate as raw ffi bindings for system libraries so we could use [ioctl](https://rust-lang.github.io/libc/aarch64-unknown-linux-gnu/doc/libc/fn.ioctl.html) and some constants but it is missing constants for TUN and TAP devices. So anyway as we need to create some bindings ourselves let use [bindgen](https://crates.io/crates/bindgen) crate to generate bindings for system libraries at the build time. Following [bidngen tutorial](https://rust-lang.github.io/rust-bindgen/tutorial-0.html) we create a `netstack/bindings/wrapper.h` file where we place necessary headers:
 
-```
+```c,ignore
 #include <sys/ioctl.h>
 #include <linux/if.h>
 #include <linux/if_tun.h>
@@ -32,7 +32,7 @@ Rust provides [libc](https://crates.io/crates/libc) crate as raw ffi bindings fo
 
 and create `bindings/build.rs` with the contents
 
-```rust
+```rust,ignore
 extern crate bindgen;
 
 use std::env;
@@ -69,7 +69,7 @@ Run `cargo build` and at `target/debug/build/bindings-.../out/bindings.rs` we ca
 
 In `netstack/bindings/src/lib.rs`
 
-```rust
+```rust,ignore
 include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
 use std::mem;
 use std::os::raw;
@@ -94,7 +94,7 @@ pub const TUNSETIFF: u32 = IOC_WRITE << IOC_DIRSHIFT
 
 Let's add file `netstack/virtual-interface/src/tap.rs` where main things happen
 
-```rust
+```rust,ignore
 use std::ffi;
 use std::fs::{File, OpenOptions};
 use std::io;
@@ -174,13 +174,13 @@ impl VirtualInterface {
 
 and import it inside `netstack/virtual-interface/src/lib.rs`:
 
-```rust
+```rust,ignore
 pub mod tap;
 ```
 
 To test the code let's start with an example `netstack/virtual-interface/examples/read_loop.rs` 
 
-```rust
+```rust,ignore
 use std::io::Read;
 use virtual_interface::tap::VirtualInterface;
 
@@ -196,14 +196,14 @@ fn main() {
 ```
 
 and build and run it:
-```
+```bash,ignore
 $ cargo build --example read_loop
 $ ./target/debug/examples/read_loop
 ```
 
 Oh, no some ioctl error: `thread 'main' panicked at 'called Result::unwrap() on an Err value: IoctlError'`. Let's debug with strace.
 
-```
+```bash,ignore
 $ strace ./target/debug/examples/read_loop
 ...
 ioctl(3, TUNSETIFF, 0xffffce5f30e0)     = -1 EPERM (Operation not permitted)
@@ -215,15 +215,15 @@ So it complains about permissions. Yes, checking `man 7 netdevice` again
 
 So let's try with `sudo ./target/debug/examples/read_loop` and check if the inerface is created in another terminal:
 
-```
+```bash,ignore
 $ ip link show dev0
 dev0: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN mode DEFAULT group default qlen 1000
     link/ether b2:24:f3:9a:71:c1 brd ff:ff:ff:ff:ff:ff
 ```
 
-It works! But how our binary knows how to call `libc` functions and use `libc` structs? Rust dynamically links some system libraries and `libc` is among them:
+It works![^ip_cli] But how our binary knows how to call `libc` functions and use `libc` structs? Rust dynamically links some system libraries and `libc` is among them:
 
-```
+```bash,ignore
 $ ldd ./target/debug/examples/read_loop
 linux-vdso.so.1 (0x0000ffffb2199000)
 libgcc_s.so.1 => /lib/aarch64-linux-gnu/libgcc_s.so.1 (0x0000ffffb20c0000)
@@ -235,7 +235,7 @@ So our `netstack/bindings` works as expected.
 
 Now you can think that giving `sudo` access to the program is probably too much power and you're right. And Linux comes to resque with its capabilities[^capabilities] system allowing to provide grains of superuser power. So we need to provide only `CAP_NET_ADMIN` capability to our program. From `man capabilities`:
 
-```
+```ignore
 CAP_NET_ADMIN
     Perform various network-related operations:
     * interface configuration;
@@ -250,7 +250,7 @@ CAP_NET_ADMIN
 
 Note: if a filesystem with your compiled binary is mounted with `nosuid` flag (for example, a home directory is encrypted - you can check the flag for a home directory with the command `mount | grep $USER`) then you should copy the binary to some other directory which filesystem has not `nosuid` flag.
 
-```
+```bash,ignore
 $ sudo setcap cap_net_admin=eip target/debug/examples/read_loop
 ```
 
@@ -262,3 +262,4 @@ Now let's run our example binary. In another terminal run `ip link show dev0` an
 
 [^capabilities]: Comprehensive overview of Linux capabilities and different related exploits can be found at [Linux Capabilities](https://book.hacktricks.xyz/linux-hardening/privilege-escalation/linux-capabilities) by Carlos Polop.
 
+[^ip_cli]: We could create a TAP device with the command `sudo ip tuntap add dev0 mode tap`. The only difference with our programmatically created device is that our device is not persistent - it lives while our process lives. To make our device persistent we can just add the flag `IFF_PERSIST` to `ifru_flags`.

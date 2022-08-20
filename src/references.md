@@ -154,6 +154,52 @@ Here are the list of references to cool articles and books etc I've used to prep
 * [Linux Capabilities In Practice](https://blog.container-solutions.com/linux-capabilities-in-practice)
 * [Raw capture capabilities (CAP_NET_RAW, CAP_NET_ADMIN) not working outside /usr/bin and friends for packet capture program using libpcap](https://stackoverflow.com/questions/29099797/raw-capture-capabilities-cap-net-raw-cap-net-admin-not-working-outside-usr-b)
 * Carlos Polop [HackTricks](https://book.hacktricks.xyz/welcome/readme)
+* [Неубиваемый P2P-интернет](https://habr.com/ru/company/first/blog/664010/)
+* [Еще одна «критическая» «уязвимость» «VPN» и почему Port Fail — ерунда](https://habr.com/ru/post/273523/)
+* [Shodan собирал IPv6-адреса NTP-клиентов и сканировал их в ответ](https://habr.com/ru/post/276831/)
+* [Как IPv6 помогает роутеры ломать](https://habr.com/ru/post/225539/)
+* [TCP Congestion Control или Почему скорость прыгает](https://habr.com/ru/post/168407/)
+*  Moxie Marlinspike [My first impressions of web3](https://moxie.org/2022/01/07/web3-first-impressions.html)
+* [Cryptocurrency wallets and keys — an introduction to digital asset custody and security](https://www.okx.com/academy/en/what-are-public-and-private-encryption-keys-crypto-wallets-explained)
+* [VPN with Overlapping Networks](https://www.practicalnetworking.net/stand-alone/vpn-overlapping-networks/)
+* [Linux programmatically up/down an interface kernel](https://stackoverflow.com/questions/5858655/linux-programmatically-up-down-an-interface-kernel)
+* [Using ip, what does LOWER_UP mean?](https://stackoverflow.com/questions/36715664/using-ip-what-does-lower-up-mean)
+* [What is SOCK_DGRAM and SOCK_STREAM?](https://stackoverflow.com/questions/5815675/what-is-sock-dgram-and-sock-stream)
+* [What is a generic socket and how does it relate to a network device?](https://unix.stackexchange.com/questions/363730/what-is-a-generic-socket-and-how-does-it-relate-to-a-network-device)
+
+
+https://www.practicalnetworking.net/series/packet-traveling/key-players/
+https://www.practicalnetworking.net/series/arp/arp-in-5-minutes/
+https://www.practicalnetworking.net/series/nat/nat/
+https://www.practicalnetworking.net/series/arp/address-resolution-protocol/
+https://www.practicalnetworking.net/stand-alone/communication-through-multiple-switches/
+https://www.practicalnetworking.net/series/arp/gratuitous-arp/
+https://www.practicalnetworking.net/series/arp/arp-probe-arp-announcement/
+https://www.practicalnetworking.net/series/arp/traditional-arp/
+https://www.practicalnetworking.net/stand-alone/vlans/
+https://www.practicalnetworking.net/stand-alone/eigrp-metric/
+https://www.practicalnetworking.net/series/packet-traveling/packet-traveling/
+https://www.practicalnetworking.net/series/packet-traveling/packet-traveling-series-finale/
+https://www.practicalnetworking.net/series/packet-traveling/host-to-host-through-a-router/
+https://www.practicalnetworking.net/series/packet-traveling/host-to-host/
+https://www.practicalnetworking.net/series/packet-traveling/host-to-host-through-a-switch/
+https://www.practicalnetworking.net/stand-alone/ethernet-wiring/
+
+http://book.itep.ru/4/6/bitcoin.htm
+http://book.itep.ru//4/6/blockchain.htm
+http://book.itep.ru/5/cicl_54.htm
+http://book.itep.ru/6/vlan_62.htm
+http://book.itep.ru/6/fwal_63.htm
+http://book.itep.ru/6/pgp_644.htm
+http://book.itep.ru/6/ipsec.htm
+http://book.itep.ru/10/sem_net.htm
+http://book.itep.ru/4/44/ip6_4411.htm
+http://book.itep.ru/4/44/tun_4412.htm
+http://book.itep.ru/4/44/nd.htm
+http://book.itep.ru/4/44/rtp_4492.htm
+http://book.itep.ru/4/44/rtc_4493.htm
+http://book.itep.ru/4/4/sip.htm
+http://book.itep.ru/4/44/rut_4411.htm
 
 https://blog.twitter.com/engineering/en_us/topics/insights/2021/simple-scalable-graph-neural-networks
 https://blog.twitter.com/engineering/en_us/topics/insights/2021/fusing-elasticsearch-with-neural-networks-to-identify-data
@@ -170,8 +216,6 @@ https://docs.soliditylang.org/en/v0.6.0/introduction-to-smart-contracts.html#the
 
 https://habr.com/ru/company/yandex/blog/564510/
 
-https://habr.com/ru/post/273523/
-https://habr.com/ru/post/276831/
 https://habr.com/ru/company/dsec/blog/278335/
 https://habr.com/ru/post/168407/
 https://habr.com/ru/post/430172/
