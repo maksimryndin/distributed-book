@@ -76,7 +76,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="preface.html">Preface</a></li><li class="chapter-item expanded "><a href="introduction/overview.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="introduction/network.html"><strong aria-hidden="true">1.1.</strong> Unreliable network</a></li><li class="chapter-item expanded "><a href="introduction/practice.html"><strong aria-hidden="true">1.2.</strong> Measuring network</a></li><li class="chapter-item expanded "><a href="introduction/availability.html"><strong aria-hidden="true">1.3.</strong> Availability</a></li><li class="chapter-item expanded "><a href="introduction/decentralized.html"><strong aria-hidden="true">1.4.</strong> Distributed vs Decentralized</a></li><li class="chapter-item expanded "><a href="introduction/taste-distributed.html"><strong aria-hidden="true">1.5.</strong> Taste of distributed</a></li><li class="chapter-item expanded "><a href="introduction/exercises.html"><strong aria-hidden="true">1.6.</strong> Exercises</a></li></ol></li><li class="chapter-item expanded "><a href="established-systems/overview.html"><strong aria-hidden="true">2.</strong> Established systems</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="established-systems/erlang.html"><strong aria-hidden="true">2.1.</strong> Erlang/OTP</a></li></ol></li><li class="chapter-item expanded "><a href="consistency/overview.html"><strong aria-hidden="true">3.</strong> Consistency</a></li><li class="chapter-item expanded "><a href="computing/overview.html"><strong aria-hidden="true">4.</strong> Distributed computing</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="computing/ml_training.html"><strong aria-hidden="true">4.1.</strong> ML training</a></li></ol></li><li class="chapter-item expanded "><a href="decentralized/overview.html"><strong aria-hidden="true">5.</strong> Decentralized</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="decentralized/p2p.html"><strong aria-hidden="true">5.1.</strong> p2p networks</a></li><li class="chapter-item expanded "><a href="decentralized/blockchain.html"><strong aria-hidden="true">5.2.</strong> Blockchain</a></li><li class="chapter-item expanded "><a href="decentralized/smart_contracts.html"><strong aria-hidden="true">5.3.</strong> Smart contracts</a></li></ol></li><li class="chapter-item expanded "><a href="references.html"><strong aria-hidden="true">6.</strong> References</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="preface.html">Preface</a></li><li class="chapter-item expanded "><a href="introduction/overview.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="introduction/network.html"><strong aria-hidden="true">1.1.</strong> Network stack</a></li><li class="chapter-item expanded "><a href="introduction/tap.html"><strong aria-hidden="true">1.2.</strong> Practice: virtual interface</a></li><li class="chapter-item expanded "><a href="introduction/network-properties.html"><strong aria-hidden="true">1.3.</strong> Unreliable network</a></li><li class="chapter-item expanded "><a href="introduction/measure-network.html"><strong aria-hidden="true">1.4.</strong> Measuring network</a></li><li class="chapter-item expanded "><a href="introduction/availability.html"><strong aria-hidden="true">1.5.</strong> Availability</a></li><li class="chapter-item expanded "><a href="introduction/decentralized.html"><strong aria-hidden="true">1.6.</strong> Distributed vs Decentralized</a></li><li class="chapter-item expanded "><a href="introduction/taste-distributed.html"><strong aria-hidden="true">1.7.</strong> Taste of distributed</a></li><li class="chapter-item expanded "><a href="introduction/exercises.html"><strong aria-hidden="true">1.8.</strong> Exercises</a></li></ol></li><li class="chapter-item expanded "><a href="established-systems/overview.html"><strong aria-hidden="true">2.</strong> Established systems</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="established-systems/erlang.html"><strong aria-hidden="true">2.1.</strong> Erlang/OTP</a></li></ol></li><li class="chapter-item expanded "><a href="consistency/overview.html"><strong aria-hidden="true">3.</strong> Consistency</a></li><li class="chapter-item expanded "><a href="computing/overview.html"><strong aria-hidden="true">4.</strong> Distributed computing</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="computing/ml_training.html"><strong aria-hidden="true">4.1.</strong> ML training</a></li></ol></li><li class="chapter-item expanded "><a href="decentralized/overview.html"><strong aria-hidden="true">5.</strong> Decentralized</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="decentralized/p2p.html"><strong aria-hidden="true">5.1.</strong> p2p networks</a></li><li class="chapter-item expanded "><a href="decentralized/blockchain.html"><strong aria-hidden="true">5.2.</strong> Blockchain</a></li><li class="chapter-item expanded "><a href="decentralized/smart-contracts.html"><strong aria-hidden="true">5.3.</strong> Smart contracts</a></li></ol></li><li class="chapter-item expanded "><a href="references.html"><strong aria-hidden="true">6.</strong> References</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -204,10 +204,10 @@ If the web server and the database are running in separate containers and these 
 <div class="footnote-definition" id="graph"><sup class="footnote-definition-label">2</sup>
 <p>In this case we have a complete graph, so every node has connections with other <code>n-1</code> nodes. That’s we have <code>n*(n-1)</code> edges but as we count every edge twice, total number of edges is <code>n*(n-1)/2</code>.</p>
 </div>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="unreliable-network"><a class="header" href="#unreliable-network">Unreliable network</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="network-stack"><a class="header" href="#network-stack">Network stack</a></h1>
 <p>Our <a href="introduction/./introduction/overview.html">definition</a> of a distributed system mentions a network as a medium for communication. This medium is a very interesting and complex subject per se but here we only review some core concepts relevant to our study.</p>
 <p>Physically nodes (or hosts, think, computers) in the network are connected by means of <em>network interface</em> controllers (NIC, also <em>network adapter</em>) - a special hardware<sup class="footnote-reference"><a href="#virtual_interface">1</a></sup> allowing a computer to connect to the network via a cable (Ethernet) or a radio (WiFi)<sup class="footnote-reference"><a href="#packet_switching">2</a></sup>. This physical layer is called a <em>link</em> in TCP/IP stack<sup class="footnote-reference"><a href="#tcpip">3</a></sup>. Nodes at the link layer are identified by Media Access Control Address (MAC) - a unique hardware identifier of every <strong>network interface</strong> of the host<sup class="footnote-reference"><a href="#mac">4</a></sup>.</p>
-<p>We can use <code>ifconfig</code> utility to manage network interfaces. We just describe the most common data:</p>
+<p>We can use <code>ifconfig</code> (or more modern <code>ip addr</code> and <code>ip link show</code>) utility to manage network interfaces. We just describe the most common data:</p>
 <ul>
 <li><code>&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;</code> means that the interface supports broadcasting and multicasting, is loaded (<code>UP</code> as opposite to <code>DOWN</code>), is ready to accept connections (<code>RUNNING</code>). Other popular options are <code>LOOPBACK</code> (it is a loopback interface) and <code>PROMISC</code> (interface is in the promiscuous mode when it captures all packets in the network).</li>
 <li><code>mtu 1500</code> - Maximum Transmission Unit is 1500 bytes. So IP packet greater than 1500 bytes will be fragmented.</li>
@@ -215,14 +215,263 @@ If the web server and the database are running in separate containers and these 
 <li><code>inet 192.168.43.174 netmask 0xffffff00 broadcast 192.168.43.255</code> means IPv4 address 192.168.43.174 with network mask 255.255.255.0 so we can have hosts 192.168.43.1-254, 192.168.43.255 is a broadcast address and 192.168.43.0 is the network itself.</li>
 <li><code>inet6 fe80::88f:5ab4:1ad8:eed5 prefixlen 64 secured scopeid 0xe</code> means IPv6 address <code>fe80::88f:5ab4:1ad8:eed5</code></li>
 </ul>
-<p>So we have a network of nodes (also called LAN - local area network). How do we <strong>inter</strong>connect <strong>net</strong>works so that we can send a packet with data (called a <strong>datagram</strong>) between two hosts from different networks? Here a <em>routing</em> problem arises. Computers called <em>routers</em><sup class="footnote-reference"><a href="#bridge">5</a></sup> are relaying datagrams from source to destination accross networks borders<sup class="footnote-reference"><a href="#hop">6</a></sup>. But how do we distinguish a host in one network from a host from another network? We need some <em>addressing</em> at an <em>internet layer</em>. IPv4 addressing assigns each host an IP address of the form xx.xx.xx.xx (4 octets of 8 bits each). But with 2^32 unique IP addresses we cannot mark all hosts so IPv6 was developed (128 bits). Anyway IPv4 address exaustion was mitigated by so called Network Address Translation (NAT) and private IPs<sup class="footnote-reference"><a href="#private_ips">7</a></sup>. NAT - explore practically, p2p networks obstacles, violation of end-to-end principle<sup class="footnote-reference"><a href="#end2end">8</a></sup>, STUN
+<p>So we have a network of nodes (also called LAN - local area network). How do we <strong>inter</strong>connect <strong>net</strong>works so that we can send a packet with data (called a <strong>datagram</strong>) between two hosts from different networks? Here a <em>routing</em> problem arises. Computers called <em>routers</em><sup class="footnote-reference"><a href="#bridge">5</a></sup> are relaying datagrams from source to destination accross networks borders<sup class="footnote-reference"><a href="#hop">6</a></sup>. But how do we distinguish a host in one network from a host from another network? We need some <em>addressing</em> at an <em>internet layer</em>. IPv4 addressing assigns each host an IP address of the form xx.xx.xx.xx (4 octets of 8 bits each). But with 2^32 unique IP addresses we cannot mark all hosts so IPv6 was developed (128 bits). Anyway IPv4 address exaustion was mitigated by so called Network Address Translation (NAT) and private IPs<sup class="footnote-reference"><a href="#private_ips">7</a></sup> which results in violation of the end-to-end principle<sup class="footnote-reference"><a href="#end2end">8</a></sup>.
 Internet layer is independent of the network topology and the physical way of hosts connection.</p>
 <p>Within LAN we need to establish a mapping between an IP addresses of hosts and their corresponding hardware addresses (MAC) to send packet from one host to another. Such a mapping is called ARP table and is filled at each host with an Address Resolution Protocol (ARP) broadcast messages. In Linux/Unix ARP table can be manipulated with an <code>arp</code> utility. </p>
-<p>After we identified a route between to hosts, we can use a <em>transport</em> protocol to, at least, specify <strong>ports</strong> on hosts to connect specific <em>application</em> processes running on hosts involved. Because internet layer is only responsible for routing and for reliability of communication, transport layer’s protocols can also offer some reliability mechanisms like congestion control, preserves data ordering, eliminate packet loss, provides packet deduplication. Among </p>
-<p>So we have a connection between to hosts and we can exchange </p>
-<p>TCP/IP processing can also be done at NIC coupled with some user-space library offloading CPU and OS kernel.
-https://github.com/Xilinx-CNS/onload.</p>
-<p>A network of interconnected computers is based on some physical layer (Ethernet cables or radio in case of wireless networks)<sup class="footnote-reference"><a href="#osi">9</a></sup>. The physical layer itself is subject to different disruptions, noisiness, and other problems. So we always have to assume that <strong>the network is unreliable</strong> and implement different <em>retry, ordering, and healthcheck policies</em> in our services.</p>
+<p>After we identified a route between to hosts, we can use a <em>transport</em> protocol to, at least, specify <strong>ports</strong> on hosts to connect specific <em>application</em> processes running on hosts involved. Because internet layer is only responsible for routing and for reliability of communication, transport layer’s protocols can also offer some reliability mechanisms like congestion control, preserves data ordering, eliminate packet loss, provides packet deduplication. </p>
+<p>So we have a connection between hosts and we can exchange application data over the transport protocol.</p>
+<div class="footnote-definition" id="virtual_interface"><sup class="footnote-definition-label">1</sup>
+<p>Network interface can also be virtual to allow userspace applications to intercept raw packets (see <a href="https://www.kernel.org/doc/Documentation/networking/tuntap.txt">Universal TUN/TAP device driver</a>). Also the famous loopback interface (127.0.0.1 for IPv4 and ::1 for IPv6) is virtual.</p>
+</div>
+<div class="footnote-definition" id="packet_switching"><sup class="footnote-definition-label">2</sup>
+<p>we consider only <a href="https://en.wikipedia.org/wiki/Packet_switching">packet networks</a> where the same communication channel can be shared between several communication sessions by means of packetizing data. In contrast, in <a href="https://en.wikipedia.org/wiki/Circuit_switching">circuit networks</a> (for example, public switched telephone network, PSTN) the channel capacity is completely used only by a single communication session between two nodes.</p>
+</div>
+<div class="footnote-definition" id="tcpip"><sup class="footnote-definition-label">3</sup>
+<p>Note that common reference to TCP/IP stack (also called <strong>Internet protocol suite</strong>) includes not only Internet Protocol and Transmission Control Protocol (TCP) but also other protocols such as a User Datagram Protocol (UDP) and QUIC at a transport layer and Internet Protocol Security (IPSec) at an internet layer. TCP/IP stack as a practical network stack predates the OSI theoretical model for general networks.
+Since the adoption of TCP/IP in ARPANET in 1983 several proprietary implementations of the stack for different operating systems emerged. But the TCP/IP popularity increased when the University of California at Berkley had open sourced its implementation for BSD Unix becoming famous BSD sockets (see <a href="https://en.wikipedia.org/wiki/Internet_protocol_suite">Wikipedia Internet protocol suite</a>). Among alternatives to TCP/IP were <a href="https://en.wikipedia.org/wiki/IPX/SPX">IPX/SPX</a> and <a href="https://en.wikipedia.org/wiki/AppleTalk">AppleTalk</a>.</p>
+</div>
+<div class="footnote-definition" id="mac"><sup class="footnote-definition-label">4</sup>
+<p>Many network interface controllers allow to overwrite its MAC. In this case the MAC should be unique within the network where the NIC lives. Moreover, software defined MACs are used in VM managed by hypervisors such as QEMU and MAC randomization is gaining popularity to avoid mobile device tracking (see <a href="https://en.wikipedia.org/wiki/MAC_address#Usage_in_hosts">Wikipedia MAC address</a>)</p>
+</div>
+<div class="footnote-definition" id="bridge"><sup class="footnote-definition-label">5</sup>
+<p>Do not confuse with <a href="https://en.wikipedia.org/wiki/Network_bridge">network bridges</a>. Routers allow separate networks to communicate while bridges join networks making them a single network. While routers interconnect networks at the internet layer, a <em>gateway</em> is a more general term - gateways can interconnect PSTN (Public switched telephone network) and VoIP network acting as <a href="https://en.wikipedia.org/wiki/VoIP_gateway">VoIP gateway</a> or even the internet and satellites orbiting Earth acting as <a href="https://en.wikipedia.org/wiki/Gateway_(telecommunications)#Internet-to-orbit_gateway">Internet-to-orbit gateway</a>. A default gateway is the destination of IP packets if the destination IP of the packet doesn’t belong to the network mask.</p>
+</div>
+<div class="footnote-definition" id="hop"><sup class="footnote-definition-label">6</sup>
+<p>When a packet crosses a border of networks it is called a <em>hop</em>. The time-to-live (TTL) in IPv4 (and <em>hop limit</em> in IPv6) prevents infinite cycling of an IP packet between networks as it is decreased by 1 at every router the packet visits.</p>
+</div>
+<div class="footnote-definition" id="private_ips"><sup class="footnote-definition-label">7</sup>
+<p>Private IPs are <a href="https://datatracker.ietf.org/doc/html/rfc1918#section-3">defined</a> to belong to the following subnets: 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16. Number after the slash is the <em>network prefix</em> (<a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">CIDR notation</a>) and denotes number of bits which is common for all hosts in the network. So, for example, 192.168.0.0/16 means that the first 16 bits are the same for all hosts and 192.168 in decimal and the rest 16 bits of total 32 bits define the host (2^16 possible addresses in the network). To be correct, the total number of possible addresses should be decreased by two as all binary zeroes hosts denotes the network itself, while all binary ones host is the broadcast address. So when you encounter an ip 192.168.12.134, you already know that this ip is not reachable publicly (from the Internet), it is some internal private host.
+For IPv6 private ip address is not desirable because its main goal is to provide globally unique addressing. So for the LAN use a <a href="https://datatracker.ietf.org/doc/html/rfc4193"><em>unique local unicast address</em></a> starts with a prefix <code>fd</code> (8 bits), then 40 bits of global id (choosen randomly by the operator of the network), then 16 bits for a subnet and the rest 64 bits define the host. So with IPv6 local private ips are essentially globally unique if 40 bits of global id indeed are random and this global uniqueness of local addresses allows to merge two networks without reassigning addresses or using NATs. For IPv6 there is no broadcast - there is only a multicast - when packets are received only by hosts which declared an interest in specific packets.</p>
+</div>
+<div class="footnote-definition" id="end2end"><sup class="footnote-definition-label">8</sup>
+<p><a href="https://en.wikipedia.org/wiki/End-to-end_principle">End-to-end principle</a> means that end hosts themselves (and not other parties) participating in the communication are responsible for communication reliability and security. Lower routing layer is <a href="https://en.wikipedia.org/wiki/Connectionless_communication">connectionless</a>, i.e. each packet goes its own route rather than a prearranged one. Interesting fact: the principle was pioneered by <a href="https://en.wikipedia.org/wiki/CYCLADES">CYCLADES</a> - an INRIA network started the same time as the well-known ARPANET.</p>
+</div>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="practice-virtual-interface"><a class="header" href="#practice-virtual-interface">Practice: virtual interface</a></h1>
+<p>As we already discussed, at the link layer of TCP/IP we have network interfaces allowing us to interact with a network devices. But this network devices can be completely virtual allowing a userspace program interact with a network<sup class="footnote-reference"><a href="#userspace_tcpip">1</a></sup> at the link layer (TAP device) and the internet layer (TUN device) which is used in different tunneling programs like vpns. You can create such interfaces with console commands (like <code>ip tuntap</code>) but let’s try to create a TAP device programmaticaly. There <a href="https://www.kernel.org/doc/Documentation/networking/tuntap.txt">C examples</a> but let’s do it in Rust from scratch<sup class="footnote-reference"><a href="#tcpip_tutorial">2</a></sup>.</p>
+<p>We create rust workspace (a collection of several packages) to have some experiments with the network in further chapters (you can find all the code in the <a href="https://github.com/maksimryndin/netstack">netstack repository</a>).</p>
+<pre><code class="language-bash ignore">$ mkdir netstack
+$ cd netstack
+</code></pre>
+<p>In the <code>netstack</code> directory we create <code>Cargo.toml</code> with the contents:</p>
+<pre><code class="language-toml ignore">[workspace]
+
+members = [
+    &quot;virtual-interface&quot;,
+    &quot;bindings&quot;,
+]
+</code></pre>
+<p>After we create libs running <code>cargo new --lib virtual-interface</code> and <code>cargo new --lib bindings</code> in the <code>netstack</code> directory. So to create a virtual network device, we need to open for a read-write access file <code>/dev/net/tun</code> and configure it with <code>ioctl</code> - a swiss knife of device management in Unix/Linux. Essentialy, <code>ioctl</code> as a universal system call (please see <code>man ioctl</code>) was created to control different devices and be extensible to manage new types of devices. To achieve this goal <code>ioctl</code> accepts an open file descriptor (device), a request code - unsigned long number which is <a href="https://www.kernel.org/doc/Documentation/ioctl/ioctl-number.txt">unique across devices</a> and it can accept a pointer to some datastructure related to the specific device. In our case of a network device (TAP device) such a control structure is <code>ifreq</code> (<em>interface request</em>, see <code>man 7 netdevice</code>) and a request code is <code>TUNSETIFF</code>.</p>
+<p>Rust provides <a href="https://crates.io/crates/libc">libc</a> crate as raw ffi bindings for system libraries so we could use <a href="https://rust-lang.github.io/libc/aarch64-unknown-linux-gnu/doc/libc/fn.ioctl.html">ioctl</a> and some constants but it is missing constants for TUN and TAP devices. So anyway as we need to create some bindings ourselves let use <a href="https://crates.io/crates/bindgen">bindgen</a> crate to generate bindings for system libraries at the build time. Following <a href="https://rust-lang.github.io/rust-bindgen/tutorial-0.html">bidngen tutorial</a> we create a <code>netstack/bindings/wrapper.h</code> file where we place necessary headers:</p>
+<pre><code class="language-c ignore">#include &lt;sys/ioctl.h&gt;
+#include &lt;linux/if.h&gt;
+#include &lt;linux/if_tun.h&gt;
+</code></pre>
+<p>and create <code>bindings/build.rs</code> with the contents</p>
+<pre><code class="language-rust ignore">extern crate bindgen;
+
+use std::env;
+use std::path::PathBuf;
+
+fn main() {
+    // Tell cargo to invalidate the built crate whenever the wrapper changes
+    println!(&quot;cargo:rerun-if-changed=wrapper.h&quot;);
+
+    // The bindgen::Builder is the main entry point
+    // to bindgen, and lets you build up options for
+    // the resulting bindings.
+    let bindings = bindgen::Builder::default()
+        // The input header we would like to generate
+        // bindings for.
+        .header(&quot;wrapper.h&quot;)
+        // Tell cargo to invalidate the built crate whenever any of the
+        // included header files changed.
+        .parse_callbacks(Box::new(bindgen::CargoCallbacks))
+        // Finish the builder and generate the bindings.
+        .generate()
+        // Unwrap the Result and panic on failure.
+        .expect(&quot;Unable to generate bindings&quot;);
+
+    // Write the bindings to the $OUT_DIR/bindings.rs file.
+    let out_path = PathBuf::from(env::var(&quot;OUT_DIR&quot;).unwrap());
+    bindings
+        .write_to_file(out_path.join(&quot;bindings.rs&quot;))
+        .expect(&quot;Couldn't write bindings!&quot;);
+}
+</code></pre>
+<p>Run <code>cargo build</code> and at <code>target/debug/build/bindings-.../out/bindings.rs</code> we can find needed bindings except <code>TUNSETIFF</code> which is a required request code for <code>ioctl</code> (bindgen <a href="https://github.com/rust-lang/rust-bindgen/issues/753">do not generate bindings for functional macros</a>) so if we check contents of <code>/usr/include/linux/if_tun.h</code> then we see <code>TUNSETIFF</code> is a functional macro <code>#define TUNSETIFF _IOW('T', 202, int)</code> so let’s port the C macro code from <code>/usr/include/asm-generic/ioctl.h</code> where participating macros live.</p>
+<p>In <code>netstack/bindings/src/lib.rs</code></p>
+<pre><code class="language-rust ignore">include!(concat!(env!(&quot;OUT_DIR&quot;), &quot;/bindings.rs&quot;));
+use std::mem;
+use std::os::raw;
+
+// /usr/include/asm-generic/ioctl.h
+const IOC_SIZEBITS: u8 = 14;
+const IOC_NRBITS: u8 = 8;
+const IOC_TYPEBITS: u8 = 8;
+const IOC_NRSHIFT: u8 = 0;
+const IOC_TYPESHIFT: u8 = IOC_NRSHIFT + IOC_NRBITS;
+const IOC_SIZESHIFT: u8 = IOC_TYPESHIFT + IOC_TYPEBITS;
+const IOC_DIRSHIFT: u8 = IOC_SIZESHIFT + IOC_SIZEBITS;
+const IOC_WRITE: u32 = 1;
+
+//#define TUNSETIFF     _IOW('T', 202, int)
+const INT_SIZE: usize = mem::size_of::&lt;raw::c_int&gt;();
+pub const TUNSETIFF: u32 = IOC_WRITE &lt;&lt; IOC_DIRSHIFT
+    | (b'T' as u32) &lt;&lt; IOC_TYPESHIFT
+    | 202 &lt;&lt; IOC_NRSHIFT
+    | (INT_SIZE as u32) &lt;&lt; IOC_SIZESHIFT;
+</code></pre>
+<p>Let’s add file <code>netstack/virtual-interface/src/tap.rs</code> where main things happen</p>
+<pre><code class="language-rust ignore">use std::ffi;
+use std::fs::{File, OpenOptions};
+use std::io;
+use std::mem;
+use std::os::unix::io::{FromRawFd, IntoRawFd};
+
+use bindings;
+
+const VIRTUAL_DEVICE: &amp;str = &quot;/dev/net/tun&quot;;
+
+#[derive(Debug)]
+pub enum VirtualInterfaceError {
+    IoError(io::Error),
+    IoctlError,
+    DeviceNameTooLong,
+    DeviceNameContainsNulByte(ffi::NulError),
+}
+
+impl From&lt;io::Error&gt; for VirtualInterfaceError {
+    fn from(error: io::Error) -&gt; Self {
+        VirtualInterfaceError::IoError(error)
+    }
+}
+
+impl From&lt;ffi::NulError&gt; for VirtualInterfaceError {
+    fn from(error: ffi::NulError) -&gt; Self {
+        VirtualInterfaceError::DeviceNameContainsNulByte(error)
+    }
+}
+
+pub struct VirtualInterface {
+    device: File,
+}
+
+impl VirtualInterface {
+    pub fn create(name: &amp;str) -&gt; Result&lt;Self, VirtualInterfaceError&gt; {
+        // reserve 1 byte for '\0'
+        if name.len() &gt;= bindings::IFNAMSIZ as usize {
+            return Err(VirtualInterfaceError::DeviceNameTooLong);
+        }
+        // We have to check that the device name has no zero bytes in the middle
+        let device_name = ffi::CString::new(name)?.into_bytes_with_nul();
+        let device = OpenOptions::new()
+            .read(true)
+            .write(true)
+            .open(VIRTUAL_DEVICE)?;
+        // ifreq is a structure to control network device (see man 7 netdevice)
+        let mut ifr: bindings::ifreq = unsafe { mem::zeroed() };
+
+        // create stack allocated array to hold the device name
+        let mut name_buffer = [0_u8; bindings::IFNAMSIZ as usize];
+        // and copy name bytes to it
+        for (i, b) in device_name.into_iter().enumerate() {
+            name_buffer[i] = b;
+        }
+        ifr.ifr_ifrn.ifrn_name = name_buffer;
+        // IFF_TAP - tap device
+        // IFF_NO_PI - no additional info for Ethernet package
+        // IFF_TUN_EXCL - prevent creation of duplicates
+        ifr.ifr_ifru.ifru_flags = (bindings::IFF_TAP | bindings::IFF_NO_PI | bindings::IFF_TUN_EXCL)
+            as std::os::raw::c_short;
+
+        let raw_fd = device.into_raw_fd();
+        if unsafe { bindings::ioctl(raw_fd, bindings::TUNSETIFF as u64, &amp;mut ifr as *mut _) } == -1
+        {
+            return Err(VirtualInterfaceError::IoctlError);
+        }
+        let device = unsafe { File::from_raw_fd(raw_fd) };
+        Ok(Self { device })
+    }
+
+    pub fn device(&amp;mut self) -&gt; &amp;mut File {
+        &amp;mut self.device
+    }
+}
+</code></pre>
+<p>and import it inside <code>netstack/virtual-interface/src/lib.rs</code>:</p>
+<pre><code class="language-rust ignore">pub mod tap;
+</code></pre>
+<p>To test the code let’s start with an example <code>netstack/virtual-interface/examples/read_loop.rs</code> </p>
+<pre><code class="language-rust ignore">use std::io::Read;
+use virtual_interface::tap::VirtualInterface;
+
+fn main() {
+    let mut interface = VirtualInterface::create(&quot;dev0&quot;).unwrap();
+    let mut buffer = [0; 4096];
+    println!(&quot;starting read loop for device `dev0`&quot;);
+    loop {
+        let n = interface.device().read(&amp;mut buffer[..]).unwrap();
+        println!(&quot;The bytes: {:?}&quot;, &amp;buffer[..n]);
+    }
+}
+</code></pre>
+<p>and build and run it:</p>
+<pre><code class="language-bash ignore">$ cargo build --example read_loop
+$ ./target/debug/examples/read_loop
+</code></pre>
+<p>Oh, no some ioctl error: <code>thread 'main' panicked at 'called Result::unwrap() on an Err value: IoctlError'</code>. Let’s debug with strace.</p>
+<pre><code class="language-bash ignore">$ strace ./target/debug/examples/read_loop
+...
+ioctl(3, TUNSETIFF, 0xffffce5f30e0)     = -1 EPERM (Operation not permitted)
+...
+</code></pre>
+<p>So it complains about permissions. Yes, checking <code>man 7 netdevice</code> again</p>
+<blockquote>
+<p>If an ioctl is marked as privileged, then using it requires an effective user ID of 0  or  the CAP_NET_ADMIN capability.  If this is not the case, EPERM will be returned.</p>
+</blockquote>
+<p>So let’s try with <code>sudo ./target/debug/examples/read_loop</code> and check if the inerface is created in another terminal:</p>
+<pre><code class="language-bash ignore">$ ip link show dev0
+dev0: &lt;BROADCAST,MULTICAST&gt; mtu 1500 qdisc noop state DOWN mode DEFAULT group default qlen 1000
+    link/ether b2:24:f3:9a:71:c1 brd ff:ff:ff:ff:ff:ff
+</code></pre>
+<p>It works<sup class="footnote-reference"><a href="#ip_cli">3</a></sup> But how our binary knows how to call <code>libc</code> functions and use <code>libc</code> structs? Rust dynamically links some system libraries and <code>libc</code> is among them:</p>
+<pre><code class="language-bash ignore">$ ldd ./target/debug/examples/read_loop
+linux-vdso.so.1 (0x0000ffffb2199000)
+libgcc_s.so.1 =&gt; /lib/aarch64-linux-gnu/libgcc_s.so.1 (0x0000ffffb20c0000)
+libc.so.6 =&gt; /lib/aarch64-linux-gnu/libc.so.6 (0x0000ffffb1f10000)
+/lib/ld-linux-aarch64.so.1 (0x0000ffffb2160000)
+</code></pre>
+<p>So our <code>netstack/bindings</code> works as expected.</p>
+<p>Now you can think that giving <code>sudo</code> access to the program is probably too much power and you’re right. And Linux comes to resque with its capabilities<sup class="footnote-reference"><a href="#capabilities">4</a></sup> system allowing to provide grains of superuser power. So we need to provide only <code>CAP_NET_ADMIN</code> capability to our program. From <code>man capabilities</code>:</p>
+<pre><code class="language-ignore">CAP_NET_ADMIN
+    Perform various network-related operations:
+    * interface configuration;
+    * administration of IP firewall, masquerading, and accounting;
+    * modify routing tables;
+    * bind to any address for transparent proxying;
+    * set type-of-service (TOS);
+    * clear driver statistics;
+    * set promiscuous mode;
+    * enabling multicasting;
+</code></pre>
+<p>Note: if a filesystem with your compiled binary is mounted with <code>nosuid</code> flag (for example, a home directory is encrypted - you can check the flag for a home directory with the command <code>mount | grep $USER</code>) then you should copy the binary to some other directory which filesystem has not <code>nosuid</code> flag.</p>
+<pre><code class="language-bash ignore">$ sudo setcap cap_net_admin=eip target/debug/examples/read_loop
+</code></pre>
+<p>Now let’s run our example binary. In another terminal run <code>ip link show dev0</code> and check that the interface is down, so let’s make it up with <code>sudo ip link set dev0 up</code>. Now we can see some bytes in the console and our next task is to decode them.</p>
+<div class="footnote-definition" id="userspace_tcpip"><sup class="footnote-definition-label">1</sup>
+<p>Actually offloading network stack to a userspace in traditional heavy-kernel OSes (as opposed to so called microkernel OSes) can bring performance boost - see for example <a href="https://github.com/Xilinx-CNS/onload">OpenOnload</a>.</p>
+</div>
+<div class="footnote-definition" id="tcpip_tutorial"><sup class="footnote-definition-label">2</sup>
+<p>Many of the practice in this chapter is inspired by an excellent <a href="http://www.saminiir.com/lets-code-tcp-ip-stack-1-ethernet-arp/">Let’s code a TCP/IP stack, 1: Ethernet &amp; ARP</a> tutorial by <a href="https://github.com/saminiir">Sami Niiranen</a>.</p>
+</div>
+<div class="footnote-definition" id="capabilities"><sup class="footnote-definition-label">4</sup>
+<p>Comprehensive overview of Linux capabilities and different related exploits can be found at <a href="https://book.hacktricks.xyz/linux-hardening/privilege-escalation/linux-capabilities">Linux Capabilities</a> by Carlos Polop.</p>
+</div>
+<div class="footnote-definition" id="ip_cli"><sup class="footnote-definition-label">3</sup>
+<p>We could create a TAP device with the command <code>sudo ip tuntap add dev0 mode tap</code>. The only difference with our programmatically created device is that our device is not persistent - it lives while our process lives. To make our device persistent we can just add the flag <code>IFF_PERSIST</code> to <code>ifru_flags</code>.</p>
+</div>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="unreliable-network"><a class="header" href="#unreliable-network">Unreliable network</a></h1>
+<p>A network of interconnected computers is based on some physical layer (Ethernet cables or radio in case of wireless networks)<sup class="footnote-reference"><a href="#osi">1</a></sup>. The physical layer itself is subject to different disruptions, noisiness, and other problems. So we always have to assume that <strong>the network is unreliable</strong> and implement different <em>retry, ordering, and healthcheck policies</em> in our services.</p>
 <p>Moreover, network capacity is limited and we should estimate ahead what an amount of data the system under development is going to send through the network.</p>
 <blockquote>
 <p><strong>Network throughput</strong> is an <em>amount of data that can be transferred through a network within a certain time period</em>
@@ -230,7 +479,7 @@ https://github.com/Xilinx-CNS/onload.</p>
 </blockquote>
 <p>We can measure a network throughput in bits per second (bit/s or bps) or even in data packets per a unit of time.</p>
 <blockquote>
-<p><em>Stop&amp;Think</em>: How do you measure a network throughput? How do you estimate a maximum throughput (also called <em>bandwidth</em> or <em>channel capacity</em>) of a network?<sup class="footnote-reference"><a href="#goodput">10</a></sup></p>
+<p><em>Stop&amp;Think</em>: How do you measure a network throughput? How do you estimate a maximum throughput (also called <em>bandwidth</em> or <em>channel capacity</em>) of a network?<sup class="footnote-reference"><a href="#goodput">2</a></sup></p>
 </blockquote>
 <p>Congestion control algorithms https://cloud.google.com/blog/products/networking/tcp-bbr-congestion-control-comes-to-gcp-your-internet-just-got-faster
 https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/net/ipv4/tcp_bbr.c</p>
@@ -242,42 +491,16 @@ https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/net/ipv4
 <p><strong>Network latency</strong> is <em>the time taken for a given signal or data packet to propagate through a circuit or network from its source point to its destination</em>
 <a href="https://www.oxfordreference.com/search?q=network+latency&amp;searchBtn=Search&amp;isQuickSearch=true">Oxford Dictionary of Electronics and Electrical Engineering (5 ed.)</a></p>
 </blockquote>
-<p>Network latency usually measured from source to destination and back constituting the so called <em>round trip time (RTT)</em> which is rougly speaking a double latency.<sup class="footnote-reference"><a href="#ping">11</a></sup></p>
-<p>Caching, keep-alive connections, geoghraphical proximity to the users are among usual options to decrease latency<sup class="footnote-reference"><a href="#os">12</a></sup>.</p>
+<p>Network latency usually measured from source to destination and back constituting the so called <em>round trip time (RTT)</em> which is rougly speaking a double latency.<sup class="footnote-reference"><a href="#ping">3</a></sup></p>
+<p>Caching, keep-alive connections, geoghraphical proximity to the users are among usual options to decrease latency<sup class="footnote-reference"><a href="#os">4</a></sup>.</p>
 <p><strong>Network partition</strong> happens if some nodes of a cluster in a distributed system cannot communicate due to a network failure but are supposed to.</p>
 <p>So for a distributed system it is absolutely necessary to handle different network failures (which are quite common):</p>
 <ul>
 <li>meet bandwith requirements and handle network congestion on scaling;</li>
 <li>deal with increased latencies;</li>
-<li>have policies for network partitions: if a network partition creates two and more subclusters and such subclusters can behave independently (situation known as a <em>split-brain</em><sup class="footnote-reference"><a href="#rabbitmq">13</a></sup>), how should the system evolve and finally merge conflicting states? </li>
+<li>have policies for network partitions: if a network partition creates two and more subclusters and such subclusters can behave independently (situation known as a <em>split-brain</em><sup class="footnote-reference"><a href="#rabbitmq">5</a></sup>), how should the system evolve and finally merge conflicting states? </li>
 </ul>
-<div class="footnote-definition" id="virtual_interface"><sup class="footnote-definition-label">1</sup>
-<p>Network interface can also be virtual to allow userspace applications to intercept raw packets (see <a href="https://www.kernel.org/doc/Documentation/networking/tuntap.txt">Universal TUN/TAP device driver</a>). Also the famous loopback interface (127.0.0.1 for IPv4 and ::1 for IPv6) is virtual.</p>
-</div>
-<div class="footnote-definition" id="packet_switching"><sup class="footnote-definition-label">2</sup>
-<p>we consider only <a href="https://en.wikipedia.org/wiki/Packet_switching">packet networks</a> where the same communication channel can be shared between several communication sessions by means of packetizing data. In contrast, in <a href="https://en.wikipedia.org/wiki/Circuit_switching">circuit networks</a> (for example, public switched telephone network, PSTN) the channel capacity is completely used only by a single communication session between two nodes.</p>
-</div>
-<div class="footnote-definition" id="tcpip"><sup class="footnote-definition-label">3</sup>
-<p>Note that common reference to TCP/IP stack (also called <strong>Internet protocol suite</strong>) includes not only Internet Protocol and Transmission Control Protocol (TCP) but also other protocols such as a User Datagram Protocol (UDP) and QUIC at a transport layer and Internet Protocol Security (IPSec) at an internet layer. TCP/IP stack as a practical network stack predates the OSI theoretical model for general networks.
-Since the adoption of TCP/IP in ARPANET in 1983 several proprietary implementations of the stack for different operating systems emerged. But the TCP/IP popularity increased when the University of California at Berkley had open sourced its implementation for BSD Unix becoming famous BSD sockets (see <a href="https://en.wikipedia.org/wiki/Internet_protocol_suite">Wikipedia Internet protocol suite</a>).</p>
-</div>
-<div class="footnote-definition" id="mac"><sup class="footnote-definition-label">4</sup>
-<p>Many network interface controllers allow to overwrite its MAC. In this case the MAC should be unique within the network where the NIC lives. Moreover, software defined MACs are used in VM managed by hypervisors such as QEMU and MAC randomization is gaining popularity to avoid mobile device tracking (see <a href="https://en.wikipedia.org/wiki/MAC_address#Usage_in_hosts">Wikipedia MAC address</a>)</p>
-</div>
-<div class="footnote-definition" id="hop"><sup class="footnote-definition-label">6</sup>
-<p>When a packet crosses a border of networks it is called a <em>hop</em>. The time-to-live (TTL) in IPv4 (and <em>hop limit</em> in IPv6) prevents infinite cycling of an IP packet between networks as it is decreased by 1 at every router the packet visits.</p>
-</div>
-<div class="footnote-definition" id="end2end"><sup class="footnote-definition-label">8</sup>
-<p><a href="https://en.wikipedia.org/wiki/End-to-end_principle">End-to-end principle</a> means that hosts participating in the communication are responsible for communication reliability and security. Lower routing layer is <a href="https://en.wikipedia.org/wiki/Connectionless_communication">connectionless</a>, i.e. each packet goes its own route rather than a prearranged one. Interesting fact: the principle was pioneered by <a href="https://en.wikipedia.org/wiki/CYCLADES">CYCLADES</a> - an INRIA network started the same time as the well-known ARPANET.</p>
-</div>
-<div class="footnote-definition" id="private_ips"><sup class="footnote-definition-label">7</sup>
-<p>Private IPs are <a href="https://datatracker.ietf.org/doc/html/rfc1918#section-3">defined</a> to belong to the following subnets: 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16. Number after the slash is the <em>network prefix</em> (<a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">CIDR notation</a>) and denotes number of bits which is common for all hosts in the network. So, for example, 192.168.0.0/16 means that the first 16 bits are the same for all hosts and 192.168 in decimal and the rest 16 bits of total 32 bits define the host (2^16 possible addresses in the network). To be correct, the total number of possible addresses should be decreased by two as all binary zeroes hosts denotes the network itself, while all binary ones host is the broadcast address. So when you encounter an ip 192.168.12.134, you already know that this ip is not reachable publicly (from the Internet), it is some internal private host.
-For IPv6 private ip address is not desirable because its main goal is to provide globally unique addressing. So for the LAN use a <a href="https://datatracker.ietf.org/doc/html/rfc4193"><em>unique local unicast address</em></a> starts with a prefix <code>fd</code> (8 bits), then 40 bits of global id (choosen randomly by the operator of the network), then 16 bits for a subnet and the rest 64 bits define the host. So with IPv6 local private ips are essentially globally unique if 40 bits of global id indeed are random and this global uniqueness of local addresses allows to merge two networks without reassigning addresses or using NATs. For IPv6 there is no broadcast - there is a multicast - when packets are received only by hosts which declared an interest in specific packets.</p>
-</div>
-<div class="footnote-definition" id="bridge"><sup class="footnote-definition-label">5</sup>
-<p>Do not confuse with <a href="https://en.wikipedia.org/wiki/Network_bridge">network bridges</a>. Routers allow separate networks to communicate while bridges join networks making them a single network. While routers interconnect networks at the internet layer, a <em>gateway</em> is a more general term - gateways can interconnect PSTN (Public switched telephone network) and VoIP network acting as <a href="https://en.wikipedia.org/wiki/VoIP_gateway">VoIP gateway</a> or even the internet and satellites orbiting Earth acting as <a href="https://en.wikipedia.org/wiki/Gateway_(telecommunications)#Internet-to-orbit_gateway">Internet-to-orbit gateway</a>. A default gateway is the destination of IP packets if the destination IP of the packet doesn’t belong to the network mask.</p>
-</div>
-<div class="footnote-definition" id="osi"><sup class="footnote-definition-label">9</sup>
+<div class="footnote-definition" id="osi"><sup class="footnote-definition-label">1</sup>
 <p>Most of us have heard about <a href="https://en.wikipedia.org/wiki/OSI_model">OSI model</a> as a theoretical framework to discuss networking stack. Just for reference:</p>
 <ul>
 <li>L1 - Physical layer (bits)</li>
@@ -288,16 +511,16 @@ For IPv6 private ip address is not desirable because its main goal is to provide
 <li>L6 - Presentation (data)</li>
 <li>L7 - Application (data)</li>
 </ul>
-<div class="footnote-definition" id="goodput"><sup class="footnote-definition-label">10</sup>
+<div class="footnote-definition" id="goodput"><sup class="footnote-definition-label">2</sup>
 <p>Also note that the maximum throughput is not actually an upper limit for <em>application specific data</em> throughput as there is always an overhead of a latency, protocols, encryption, compression, packet retransmission etc. A <strong>useful</strong> data throughput is sometimes called a <em>goodput</em> (see also <a href="https://en.wikipedia.org/wiki/Goodput">Wikipedia Goodput</a>).</p>
 </div>
-<div class="footnote-definition" id="ping"><sup class="footnote-definition-label">11</sup>
+<div class="footnote-definition" id="ping"><sup class="footnote-definition-label">3</sup>
 <p>An actual latency measurement is complicated by the presence of several nodes in the packet way, queuing (several packets from different sources to the same destination are put in a waiting list to send) on the gateway, processing delays. Tools like a famous <em>ping</em> can use special control protocols (such as ICMP) which differ from those protocols that you actually use for data (such as TCP) so measurements are biased.</p>
 </div>
-<div class="footnote-definition" id="os"><sup class="footnote-definition-label">12</sup>
+<div class="footnote-definition" id="os"><sup class="footnote-definition-label">4</sup>
 <p>Analyzing your application stack and CPU/IO profile can also help to choose an appropriate operating system if it is possible - see benchmarks <a href="https://www.phoronix.com/scan.php?page=article&amp;item=bsd-linux-eo2021&amp;num=1">Benchmarks: FreeBSD 13 vs. NetBSD 9.2 vs. OpenBSD 7 vs. DragonFlyBSD 6 vs. Linux</a></p>
 </div>
-<div class="footnote-definition" id="rabbitmq"><sup class="footnote-definition-label">13</sup>
+<div class="footnote-definition" id="rabbitmq"><sup class="footnote-definition-label">5</sup>
 <p><a href="https://www.rabbitmq.com/partitions.html">Clustering and Network Partitions</a></p>
 </div>
 </div>
@@ -345,7 +568,7 @@ SLO also determines your <em>error budget</em>, i.e. duration of the <a href="ht
 <p>Model packet loss in the network</p>
 </li>
 <li>
-<p>Implement <a href="https://en.wikipedia.org/wiki/Exponential_backoff">exponential backoff algorithm</a></p>
+<p>Implement interface for TUN device </p>
 </li>
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="established-systems"><a class="header" href="#established-systems">Established systems</a></h1>
@@ -657,7 +880,82 @@ Or you should invent your own blockchain</li>
 <li><a href="https://docs.microfocus.com/NNMi/10.30/Content/Administer/NNMi_Deployment/Advanced_Configurations/Private_IP_Address_Range.htm">Private IP Address Ranges</a></li>
 <li><a href="https://blog.apnic.net/2020/05/20/getting-ipv6-private-addressing-right/">Getting IPv6 private addressing right</a></li>
 <li>Robert Greiner <a href="https://robertgreiner.com/cap-theorem-revisited/">CAP Theorem: Revisited</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Public_key_infrastructure">Wikipedia Public key infrastructure</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Virtual_private_network">Wikipedia Virtual private network</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Multicast">Wikipedia Multicast</a></li>
+<li><a href="https://en.wikipedia.org/wiki/IP_multicast">Wikipedia IP multicast</a></li>
+<li><a href="https://habr.com/ru/post/335436/">Автономный способ обхода DPI и эффективный способ обхода блокировок сайтов по IP-адресу</a></li>
+<li><a href="http://www.saminiir.com/lets-code-tcp-ip-stack-1-ethernet-arp/">Let’s code a TCP/IP stack, 1: Ethernet &amp; ARP</a></li>
+<li><a href="http://www.saminiir.com/lets-code-tcp-ip-stack-2-ipv4-icmpv4/">Let’s code a TCP/IP stack, 2: IPv4 &amp; ICMPv4</a></li>
+<li><a href="http://www.saminiir.com/lets-code-tcp-ip-stack-3-tcp-handshake/">Let’s code a TCP/IP stack, 3: TCP Basics &amp; Handshake</a></li>
+<li><a href="https://superuser.com/questions/1702867/routing-traffic-through-custom-tap-device-en-route-to-internet-on-linux">Routing traffic through custom tap device en-route to internet on linux</a></li>
+<li><a href="https://serverfault.com/questions/1096942/two-tap-device-cant-communicate-over-bridge">Two tap device can’t communicate over bridge</a></li>
+<li><a href="http://www.microhowto.info/howto/get_the_ip_address_of_a_network_interface_in_c_using_siocgifaddr.html">Get the IP address of a network interface in C using SIOCGIFADDR</a></li>
+<li><a href="https://stackoverflow.com/questions/68423236/how-to-connect-a-tap-interface-to-the-internet">How to connect a tap interface to the internet?</a></li>
+<li><a href="https://unix.stackexchange.com/questions/499548/how-to-read-data-from-tap-interface">How to read data from tap interface?</a></li>
+<li>Graham Smith <a href="https://www.naturalborncoder.com/virtualization/2014/10/17/understanding-tun-tap-interfaces/">Understanding TUN TAP Interfaces</a></li>
+<li><a href="https://www.cloudflare.com/learning/security/glossary/bgp-hijacking/">What is BGP hijacking?</a></li>
+<li><a href="https://www.cloudflare.com/learning/network-layer/what-is-routing/">What is routing? | IP routing</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Ioctl">Wikipedia ioctl</a></li>
+<li><a href="https://serverfault.com/questions/949945/ipv6-on-linux-tun-tap-ndp-not-working">IPv6 on Linux tun/tap: NDP not working</a></li>
+<li>Herman J. Radtke III <a href="https://hermanradtke.com/2016/03/17/unions-rust-ffi.html/">Working with C unions in Rust FFI</a></li>
+<li><a href="https://users.rust-lang.org/t/using-libc-ioctl-to-read-interface-flags/32506">Using libc::ioctl to read interface flags</a></li>
+<li><a href="https://stackoverflow.com/questions/22496123/what-is-the-meaning-of-this-macro-iormy-macig-0-int">what is the meaning of this macro _IOR(MY_MACIG, 0, int)?</a></li>
+<li>Ivan Ristić <a href="https://www.feistyduck.com/library/bulletproof-tls-guide/online/">Bulletproof TLS Guide</a></li>
+<li><a href="https://www.kernel.org/doc/Documentation/ioctl/ioctl-number.txt">Ioctl Numbers</a></li>
+<li><a href="https://www.gabriel.urdhr.fr/2021/05/08/tuntap/">TUN/TAP interface (on Linux)</a></li>
+<li><a href="https://rust-lang.github.io/rust-bindgen/">The <code>bindgen</code> User Guide</a></li>
+<li>Jonathan Corbet, Alessandro Rubini, and Greg Kroah-Hartman <a href="https://lwn.net/Kernel/LDD3/">Linux Device Drivers</a></li>
+<li><a href="https://en.wikipedia.org/wiki/IPX/SPX">Wikipedia IPX/SPX</a></li>
+<li><a href="https://en.wikipedia.org/wiki/AppleTalk">Wikipedia AppleTalk</a></li>
+<li><a href="https://blog.container-solutions.com/linux-capabilities-why-they-exist-and-how-they-work">Linux Capabilities: Why They Exist and How They Work</a></li>
+<li><a href="https://blog.container-solutions.com/linux-capabilities-in-practice">Linux Capabilities In Practice</a></li>
+<li><a href="https://stackoverflow.com/questions/29099797/raw-capture-capabilities-cap-net-raw-cap-net-admin-not-working-outside-usr-b">Raw capture capabilities (CAP_NET_RAW, CAP_NET_ADMIN) not working outside /usr/bin and friends for packet capture program using libpcap</a></li>
+<li>Carlos Polop <a href="https://book.hacktricks.xyz/welcome/readme">HackTricks</a></li>
+<li><a href="https://habr.com/ru/company/first/blog/664010/">Неубиваемый P2P-интернет</a></li>
+<li><a href="https://habr.com/ru/post/273523/">Еще одна «критическая» «уязвимость» «VPN» и почему Port Fail — ерунда</a></li>
+<li><a href="https://habr.com/ru/post/276831/">Shodan собирал IPv6-адреса NTP-клиентов и сканировал их в ответ</a></li>
+<li><a href="https://habr.com/ru/post/225539/">Как IPv6 помогает роутеры ломать</a></li>
+<li><a href="https://habr.com/ru/post/168407/">TCP Congestion Control или Почему скорость прыгает</a></li>
+<li>Moxie Marlinspike <a href="https://moxie.org/2022/01/07/web3-first-impressions.html">My first impressions of web3</a></li>
+<li><a href="https://www.okx.com/academy/en/what-are-public-and-private-encryption-keys-crypto-wallets-explained">Cryptocurrency wallets and keys — an introduction to digital asset custody and security</a></li>
+<li><a href="https://www.practicalnetworking.net/stand-alone/vpn-overlapping-networks/">VPN with Overlapping Networks</a></li>
+<li><a href="https://stackoverflow.com/questions/5858655/linux-programmatically-up-down-an-interface-kernel">Linux programmatically up/down an interface kernel</a></li>
+<li><a href="https://stackoverflow.com/questions/36715664/using-ip-what-does-lower-up-mean">Using ip, what does LOWER_UP mean?</a></li>
+<li><a href="https://stackoverflow.com/questions/5815675/what-is-sock-dgram-and-sock-stream">What is SOCK_DGRAM and SOCK_STREAM?</a></li>
+<li><a href="https://unix.stackexchange.com/questions/363730/what-is-a-generic-socket-and-how-does-it-relate-to-a-network-device">What is a generic socket and how does it relate to a network device?</a></li>
 </ul>
+<p>https://www.practicalnetworking.net/series/packet-traveling/key-players/
+https://www.practicalnetworking.net/series/arp/arp-in-5-minutes/
+https://www.practicalnetworking.net/series/nat/nat/
+https://www.practicalnetworking.net/series/arp/address-resolution-protocol/
+https://www.practicalnetworking.net/stand-alone/communication-through-multiple-switches/
+https://www.practicalnetworking.net/series/arp/gratuitous-arp/
+https://www.practicalnetworking.net/series/arp/arp-probe-arp-announcement/
+https://www.practicalnetworking.net/series/arp/traditional-arp/
+https://www.practicalnetworking.net/stand-alone/vlans/
+https://www.practicalnetworking.net/stand-alone/eigrp-metric/
+https://www.practicalnetworking.net/series/packet-traveling/packet-traveling/
+https://www.practicalnetworking.net/series/packet-traveling/packet-traveling-series-finale/
+https://www.practicalnetworking.net/series/packet-traveling/host-to-host-through-a-router/
+https://www.practicalnetworking.net/series/packet-traveling/host-to-host/
+https://www.practicalnetworking.net/series/packet-traveling/host-to-host-through-a-switch/
+https://www.practicalnetworking.net/stand-alone/ethernet-wiring/</p>
+<p>http://book.itep.ru/4/6/bitcoin.htm
+http://book.itep.ru//4/6/blockchain.htm
+http://book.itep.ru/5/cicl_54.htm
+http://book.itep.ru/6/vlan_62.htm
+http://book.itep.ru/6/fwal_63.htm
+http://book.itep.ru/6/pgp_644.htm
+http://book.itep.ru/6/ipsec.htm
+http://book.itep.ru/10/sem_net.htm
+http://book.itep.ru/4/44/ip6_4411.htm
+http://book.itep.ru/4/44/tun_4412.htm
+http://book.itep.ru/4/44/nd.htm
+http://book.itep.ru/4/44/rtp_4492.htm
+http://book.itep.ru/4/44/rtc_4493.htm
+http://book.itep.ru/4/4/sip.htm
+http://book.itep.ru/4/44/rut_4411.htm</p>
 <p>https://blog.twitter.com/engineering/en_us/topics/insights/2021/simple-scalable-graph-neural-networks
 https://blog.twitter.com/engineering/en_us/topics/insights/2021/fusing-elasticsearch-with-neural-networks-to-identify-data
 https://blog.twitter.com/engineering/en_us/topics/infrastructure/2021/processing-billions-of-events-in-real-time-at-twitter-
@@ -669,6 +967,9 @@ https://ethereum.github.io/yellowpaper/paper.pdf
 https://ethereum.org/en/developers/docs/
 https://docs.soliditylang.org/en/v0.6.0/introduction-to-smart-contracts.html#the-ethereum-virtual-machine</p>
 <p>https://habr.com/ru/company/yandex/blog/564510/</p>
+<p>https://habr.com/ru/company/dsec/blog/278335/
+https://habr.com/ru/post/168407/
+https://habr.com/ru/post/430172/</p>
 
                     </main>
 
