@@ -166,16 +166,72 @@ Here are the list of references to cool articles and books etc I've used to prep
 * [Using ip, what does LOWER_UP mean?](https://stackoverflow.com/questions/36715664/using-ip-what-does-lower-up-mean)
 * [What is SOCK_DGRAM and SOCK_STREAM?](https://stackoverflow.com/questions/5815675/what-is-sock-dgram-and-sock-stream)
 * [What is a generic socket and how does it relate to a network device?](https://unix.stackexchange.com/questions/363730/what-is-a-generic-socket-and-how-does-it-relate-to-a-network-device)
+* Семенов Ю.А. [4.4.11 Протоколы маршрутизации (обзор, таблицы маршрутизации, вектор расстояния)](http://book.itep.ru/4/44/rut_4411.htm)
+* Семенов Ю.А. [4.4.11.1 Внутренний протокол маршрутизации RIP](http://book.itep.ru/4/44/rip44111.htm)
+* [“Tell me everything that happens when you type google.com into a web browser”](https://www.practicalnetworking.net/stand-alone/tell-me-everything-that-happens-when-you-type-google-com-into-a-web-browser/)
+* [How Data moves through the Internet - Networking Fundamentals](https://www.youtube.com/watch?v=YJGGYKAV4pA)
+* [Что происходит, когда вводишь url, или как работает интернет](https://habr.com/ru/company/karuna/blog/568702/)
+* Ed Harmoush [What happens when...](https://github.com/alex/what-happens-when)
+* Ed Harmoush [Key Players](https://www.practicalnetworking.net/series/packet-traveling/key-players/)
+* Ed Harmoush [ARP in 5 Minutes](https://www.youtube.com/watch?v=QPi5Nvxaosw)
+* Ed Harmoush [Traditional ARP](https://www.practicalnetworking.net/series/arp/traditional-arp/)
+* Ed Harmoush [Proxy ARP](https://www.practicalnetworking.net/series/arp/proxy-arp/)
+* Ed Harmoush [What is Subnetting? - Subnetting Mastery - Part 1 of 7](https://www.youtube.com/watch?v=BWZ-MHIhqjM)
+* Ed Harmoush [Drawing the Cheat Sheet - Subnetting Mastery - Part 2 of 7](https://www.youtube.com/watch?v=ljS07YTEJ2I)
+* Ed Harmoush [How to solve ANY Subnetting Problems in 60 seconds or less - Subnetting Mastery - Part 3 of 7](https://www.youtube.com/watch?v=5-wlfAdcmFQ)
+* Ed Harmoush [Practice Examples - Subnetting Mastery - Part 4 of 7](https://www.youtube.com/watch?v=SM0kdVfhxZ0)
+* Ed Harmoush []()
+* Ed Harmoush []()
+* Ed Harmoush []()
+* Ed Harmoush []()
+* Ed Harmoush []()
+* Ed Harmoush []()
+* Ed Harmoush []()
+* [Protocol Buffers - Google's data interchange format](https://github.com/protocolbuffers/protobuf)
+* [Scapy](https://github.com/secdev/scapy)
+* [Cap'n Proto](https://capnproto.org)
+* [FlatBuffers](https://google.github.io/flatbuffers/)
+* [Improving Facebook’s performance on Android with FlatBuffers](https://engineering.fb.com/2015/07/31/android/improving-facebook-s-performance-on-android-with-flatbuffers/)
+* [FlexBuffers](https://google.github.io/flatbuffers/flexbuffers.html)
+* [Serde](https://serde.rs/)
+* [Сравнение гетерогенных блокчейнов (Cosmos, Polkadot, Avalanche)](https://habr.com/ru/post/673110/)
+* [Wikipedia Атака Сивиллы](https://ru.wikipedia.org/wiki/%D0%90%D1%82%D0%B0%D0%BA%D0%B0_%D0%A1%D0%B8%D0%B2%D0%B8%D0%BB%D0%BB%D1%8B)
+* [Ethereum Whitepaper](https://ethereum.org/en/whitepaper/)
+* [Wikipedia Reed's law](https://en.wikipedia.org/wiki/Reed%27s_law)
+* [Как работает Wi-fi. Часть 1. История беспроводных сетей](https://habr.com/ru/company/timeweb/blog/672494/)
+* [Как работает Wi-fi. Часть 2. Физический уровень](https://habr.com/ru/company/timeweb/blog/677452/)
+* [What Everyone Gets Wrong About Blockchains](https://blog.chain.link/blockchain-trust-model/)
+* [Что такое слои блокчейна L0, L1, L2 и L3 и зачем они нужны](https://habr.com/ru/post/688076/)
+* [About Staking on Ethereum](https://chorus.one/networks/ethereum/)
+* [Заблуждения программистов о времени](https://habr.com/ru/post/703360/)
+* [Urbit Reference](https://developers.urbit.org/reference)
+* [Opentelemetry Concepts](https://opentelemetry.io/docs/concepts/)
+* [TCP — плохой вариант для дата-центров. Встречайте новый протокол Homa](https://habr.com/ru/company/dcmiran/blog/699024/)
+* [Snap: a Microkernel Approach to Host Networking](https://research.google/pubs/pub48630/)
+* [Mastering Ethereum, by Andreas M. Antonopoulos, Gavin Wood](https://github.com/ethereumbook/ethereumbook)
+* [Running A Full Node](https://bitcoin.org/en/full-node)
+* Andy Pavlo [Databases in 2022: A Year in Review](https://ottertune.com/blog/2022-databases-retrospective/)
+* [Blockchain Fails to Gain Traction in the Enterprise](https://www.wsj.com/articles/blockchain-fails-to-gain-traction-in-the-enterprise-11671057528)
+* [Fast and Transparent Interbank Reconciliation Powered by Distributed Ledger Technology](https://www.r3.com/case-studies/spunta/)
+* [Что такое блокчейн-мост и какие риски он в себе таит?](https://habr.com/ru/post/709216/)
+* [VPN Gate, или — неубиваемая Великим Китайским Файрволом распределённая сеть VPN](https://habr.com/ru/post/709312/)
+* Melissa E. O’Neill [PCG: A Family of Simple Fast Space-Efficient Statistically Good Algorithms for Random Number Generation](https://www.pcg-random.org/pdf/hmc-cs-2014-0905.pdf)
+* [Fast and Transparent Interbank Reconciliation Powered by Distributed Ledger Technology](https://www.r3.com/case-studies/spunta/)
+* [Random Number Generation (Entropy)](https://cyberlab.pacific.edu/courses/cybr200/resources/08.09-cryptography-rng-entropy.pdf)
+* [Understanding random number generators, and their limitations, in Linux](https://www.redhat.com/en/blog/understanding-random-number-generators-and-their-limitations-linux)
+* [How does a true random number generator collect entropy data?](https://www.quora.com/How-does-a-true-random-number-generator-collect-entropy-data)
+* Nick Sullivan [Ensuring Randomness with Linux's Random Number Generator](https://blog.cloudflare.com/ensuring-randomness-with-linuxs-random-number-generator/)
+* Igor Adamenko [Basics of the Internet](https://uploadcare.com/blog/basics-of-the-internet/)
+* Igor Adamenko [TCP & UDP, or the two pillars of the Internet](https://uploadcare.com/blog/tcp-udp/)
+* Igor Adamenko [Internet addressing](https://uploadcare.com/blog/ip/)
+* Igor Adamenko [Where are the borders in the Internet?](https://uploadcare.com/blog/bgp/)
+* Igor Adamenko [How DNS servers and resolvers work](https://uploadcare.com/blog/dns/)
 
-
-https://www.practicalnetworking.net/series/packet-traveling/key-players/
-https://www.practicalnetworking.net/series/arp/arp-in-5-minutes/
 https://www.practicalnetworking.net/series/nat/nat/
 https://www.practicalnetworking.net/series/arp/address-resolution-protocol/
 https://www.practicalnetworking.net/stand-alone/communication-through-multiple-switches/
 https://www.practicalnetworking.net/series/arp/gratuitous-arp/
 https://www.practicalnetworking.net/series/arp/arp-probe-arp-announcement/
-https://www.practicalnetworking.net/series/arp/traditional-arp/
 https://www.practicalnetworking.net/stand-alone/vlans/
 https://www.practicalnetworking.net/stand-alone/eigrp-metric/
 https://www.practicalnetworking.net/series/packet-traveling/packet-traveling/
@@ -184,6 +240,9 @@ https://www.practicalnetworking.net/series/packet-traveling/host-to-host-through
 https://www.practicalnetworking.net/series/packet-traveling/host-to-host/
 https://www.practicalnetworking.net/series/packet-traveling/host-to-host-through-a-switch/
 https://www.practicalnetworking.net/stand-alone/ethernet-wiring/
+https://habr.com/ru/post/684524/
+https://habr.com/ru/post/675812/
+https://habr.com/ru/post/686230/
 
 http://book.itep.ru/4/6/bitcoin.htm
 http://book.itep.ru//4/6/blockchain.htm

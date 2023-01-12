@@ -40,6 +40,15 @@ Or you should invent your own blockchain
 
 Buterin suggested EVM to 
 
+Classical consenus requires all nodes to participates which prevents scalability.
+So either some nodes (called validators) are selected to validate transactions or another way of consensus is suggested (probabilistic consensus of Bitcoin called Nakamoto consensus, probabilistic Avalanche consensus).
+Or the topology of network is changed
+- it is sharded by feature (DeFi blockchain, smart contracts etc) (Cosmos blockchain)
+- centralization - when there is central network to validate (Polkadot)
+
+In case of validators pool with classic consensus we need some voting mechanism to allow for more even participation (quadratic voting, https://wiki.polkadot.network/docs/learn-phragmen)
+
+
 
 [^validators]: [https://forums.solana.com/t/validator-information-thread/577/51](https://forums.solana.com/t/validator-information-thread/577/51)
 

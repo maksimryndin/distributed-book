@@ -262,4 +262,4 @@ Now let's run our example binary. In another terminal run `ip link show dev0` an
 
 [^capabilities]: Comprehensive overview of Linux capabilities and different related exploits can be found at [Linux Capabilities](https://book.hacktricks.xyz/linux-hardening/privilege-escalation/linux-capabilities) by Carlos Polop.
 
-[^ip_cli]: We could create a TAP device with the command `sudo ip tuntap add dev0 mode tap`. The only difference with our programmatically created device is that our device is not persistent - it lives while our process lives. To make our device persistent we can just add the flag `IFF_PERSIST` to `ifru_flags`.
+[^ip_cli]: We could create a TAP device with the command `sudo ip tuntap add dev0 mode tap`. The only difference with our programmatically created device is that our device is not persistent - it lives while our process lives. To make our device persistent we could just add the flag `IFF_PERSIST` to `ifru_flags`.
