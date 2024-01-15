@@ -1,14 +1,16 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js light">
+<html lang="en" class="light" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Preface - Distributed systems for busy engineer</title>
+
+
         <!-- Custom HTML head -->
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#ffffff">
 
         <link rel="icon" href="favicon.svg">
         <link rel="shortcut icon" href="favicon.png">
@@ -16,25 +18,29 @@
         <link rel="stylesheet" href="css/general.css">
         <link rel="stylesheet" href="css/chrome.css">
         <link rel="stylesheet" href="css/print.css" media="print">
+
         <!-- Fonts -->
         <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
         <link rel="stylesheet" href="fonts/fonts.css">
+
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="highlight.css">
         <link rel="stylesheet" href="tomorrow-night.css">
         <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
+
     </head>
-    <body>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+        <script>
             var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -50,50 +56,81 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        <script>
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
             var html = document.querySelector('html');
-            html.classList.remove('no-js')
             html.classList.remove('light')
             html.classList.add(theme);
-            html.classList.add('js');
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
         </script>
 
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
-            var html = document.querySelector('html');
-            var sidebar = 'hidden';
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
             }
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
                 <ol class="chapter"><li class="chapter-item expanded affix "><a href="preface.html" class="active">Preface</a></li><li class="chapter-item expanded "><a href="introduction/overview.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="introduction/network.html"><strong aria-hidden="true">1.1.</strong> Network stack</a></li><li class="chapter-item expanded "><a href="introduction/tap.html"><strong aria-hidden="true">1.2.</strong> Practice: virtual interface</a></li><li class="chapter-item expanded "><a href="introduction/network-properties.html"><strong aria-hidden="true">1.3.</strong> Unreliable network</a></li><li class="chapter-item expanded "><a href="introduction/measure-network.html"><strong aria-hidden="true">1.4.</strong> Measuring network</a></li><li class="chapter-item expanded "><a href="introduction/availability.html"><strong aria-hidden="true">1.5.</strong> Availability</a></li><li class="chapter-item expanded "><a href="introduction/decentralized.html"><strong aria-hidden="true">1.6.</strong> Distributed vs Decentralized</a></li><li class="chapter-item expanded "><a href="introduction/taste-distributed.html"><strong aria-hidden="true">1.7.</strong> Taste of distributed</a></li><li class="chapter-item expanded "><a href="introduction/exercises.html"><strong aria-hidden="true">1.8.</strong> Exercises</a></li></ol></li><li class="chapter-item expanded "><a href="established-systems/overview.html"><strong aria-hidden="true">2.</strong> Established systems</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="established-systems/erlang.html"><strong aria-hidden="true">2.1.</strong> Erlang/OTP</a></li></ol></li><li class="chapter-item expanded "><a href="consistency/overview.html"><strong aria-hidden="true">3.</strong> Consistency</a></li><li class="chapter-item expanded "><a href="computing/overview.html"><strong aria-hidden="true">4.</strong> Distributed computing</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="computing/ml_training.html"><strong aria-hidden="true">4.1.</strong> ML training</a></li></ol></li><li class="chapter-item expanded "><a href="decentralized/overview.html"><strong aria-hidden="true">5.</strong> Decentralized</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="decentralized/p2p.html"><strong aria-hidden="true">5.1.</strong> p2p networks</a></li><li class="chapter-item expanded "><a href="decentralized/blockchain.html"><strong aria-hidden="true">5.2.</strong> Blockchain</a></li><li class="chapter-item expanded "><a href="decentralized/smart-contracts.html"><strong aria-hidden="true">5.3.</strong> Smart contracts</a></li></ol></li><li class="chapter-item expanded "><a href="references.html"><strong aria-hidden="true">6.</strong> References</a></li></ol>
             </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
         </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
-                        </button>
+                        </label>
                         <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
@@ -113,6 +150,7 @@
                         <a href="https://github.com/maksimryndin/distributed-book" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
                         </a>
+
                     </div>
                 </div>
 
@@ -126,8 +164,9 @@
                         </ul>
                     </div>
                 </div>
+
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -153,7 +192,7 @@
 </ul>
 <p>All above mentioned books have their own view on what topics and at what level should be covered. Martin Kleppman’s outstanding book (highly recommended) obviously focuses on data-related topics.</p>
 <p>Despite I’ve read the books above, I had no clear mental picture and systematic view of Raft Algorithm, Lamport clocks and other distributed buzzwords. So this book tries to cover important topics (choice is subjective, of course) and to serve as a practical guide for busy engineers striving to grasp core concepts in a timely manner.</p>
-<p>True understanding comes with real doing, so practice through exercises is a necessary part of learning. I have chosen Rust as a language to use throughout the book as I believe that Rust incorporates modern best practices and solid theoretical achievements. Experienced developers will dive without further ado. But for those who like more gradual involvement I could recommend the following excellent free resources to start with:</p>
+<p>True understanding comes with real doing, so practice through exercises is a necessary part of learning. I have chosen Rust<sup class="footnote-reference"><a href="#disclaimer">1</a></sup> as a language to use throughout the book as I believe that Rust incorporates modern best practices and solid theoretical achievements. Experienced developers will dive without further ado. But for those who like more gradual involvement I could recommend the following excellent free resources to start with:</p>
 <ul>
 <li><a href="https://dhghomon.github.io/easy_rust/">Easy Rust</a></li>
 <li><a href="https://doc.rust-lang.org/rust-by-example/">Rust by example</a></li>
@@ -161,7 +200,7 @@
 <h2 id="why-should-we-learn-about-distributed-systems"><a class="header" href="#why-should-we-learn-about-distributed-systems">Why should we learn about distributed systems?</a></h2>
 <p>I admit that you already know the answer if you’ve started reading the book. But for the sake of completeness let’s enlist some points:</p>
 <ul>
-<li>modern scalable products inevitably rely on concepts discussed further. So if you want to get working experience in modern tech companies or even build your own product with highload and fault-tolerance in mind, you should grasp the basics<sup class="footnote-reference"><a href="#note">1</a></sup>;</li>
+<li>modern scalable products inevitably rely on concepts discussed further. So if you want to get working experience in modern tech companies or even build your own product with highload and fault-tolerance in mind, you should grasp the basics<sup class="footnote-reference"><a href="#note">2</a></sup>;</li>
 <li>expecting your software being distributed at some point in the future can radically improve your architecture decisions and even determine your preferred stack of technologies to use;</li>
 <li>emerging <a href="https://en.wikipedia.org/wiki/Web3">Web 3.0</a> is build around an idea of <em>decentralization</em> which is tightly connected with <em>distributed</em>. So at least you will be able to understand underlying technologies and explore them deeper.</li>
 </ul>
@@ -170,11 +209,14 @@
 <p>I am not a native English speaker so I will be glad to get any feedback on a correct usage of English grammar and phrases. 
 Also any suggestions, improvements, fixes are welcome. You can provide merge requests at book’s Github repository or email me at <em>{auhtor’s name}.{author’s last name}@gmail.com</em>.</p>
 <h2 id="acknowledgments"><a class="header" href="#acknowledgments">Acknowledgments</a></h2>
-<p>I would like to tell many kind words to people who influenced me as a software engineer during my career. First of all, the friend of mine, <a href="https://github.com/Farit">Farit Sadykov</a>, who helped me a lot to become a developer. Also my colleagues, especially <a href="https://github.com/softzilla">Pavel Antonov</a>, <a href="https://github.com/dbz-legacy">Nikolay Yurov</a>, <a href="https://github.com/lan-pnz">Vladimir Galkin</a>, Pavel Gorbunov, <a href="https://github.com/andybelov">Andrey Belov</a>, Evgeny Orlov, <a href="https://otus.ru/teacher/1300/">Ilya Zhigalko</a>, Slava Cheremushkin, <a href="https://github.com/kazhuravlev">Kirill Zhuravlev</a>, <a href="https://github.com/scherbakoviv">Ilya Scherbakov</a>.</p>
+<p>I would like to tell many kind words to people who influenced me as a software engineer during my career. First of all, the friend of mine, <a href="https://github.com/Farit">Farit Sadykov</a>, who helped me a lot to become a developer. Also my colleagues, especially <a href="https://github.com/softzilla">Pavel Antonov</a>, <a href="https://github.com/dbz-legacy">Nikolay Yurov</a>, <a href="https://github.com/lan-pnz">Vladimir Galkin</a>, Pavel Gorbunov, <a href="https://github.com/andybelov">Andrey Belov</a>, Evgeny Orlov, <a href="https://otus.ru/teacher/1300/">Ilya Zhigalko</a>, Slava Cheremushkin, <a href="https://github.com/kazhuravlev">Kirill Zhuravlev</a>, <a href="https://github.com/scherbakoviv">Ilya Scherbakov</a>, <a href="https://github.com/QAston">Dariusz Antoniuk</a>, <a href="https://github.com/ruuda">Ruud van Asseldonk</a>, <a href="https://github.com/cmm">Michael Livshin</a>.</p>
 <p>Also many thanks to open source enthusiasts creating wonderful products, books, and articles, generously sharing knowledge with the rest of the world. We truly stand on the shoulders of giants.</p>
 <p><em>Maksim Ryndin</em></p>
 <p><em>Montenegro, 2022.</em></p>
-<div class="footnote-definition" id="note"><sup class="footnote-definition-label">1</sup>
+<div class="footnote-definition" id="disclaimer"><sup class="footnote-definition-label">1</sup>
+<p>This book is not affiliated with <a href="https://foundation.rust-lang.org/">Rust Foundation</a></p>
+</div>
+<div class="footnote-definition" id="note"><sup class="footnote-definition-label">2</sup>
 <p>Being scalable doesn’t only mean software and infrastructure while adding more servers. It’s also about your team being ready to grow with growing traffic. So being prepared to go distributed is a must-have for every team member in terms of some introductory learning experience, automated pipelines and merge reviews etc.
 Please watch very informative <a href="https://www.youtube.com/watch?v=hnpzNAPiC0E">presentation</a> by Lisa Guo on scaling Instagram.</p>
 </div>
@@ -183,32 +225,44 @@ Please watch very informative <a href="https://www.youtube.com/watch?v=hnpzNAPiC
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="next" href="introduction/overview.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+
+                            <a rel="next prefetch" href="introduction/overview.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
+
                         <div style="clear: both"></div>
                     </nav>
                 </div>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="next" href="introduction/overview.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+
+                    <a rel="next prefetch" href="introduction/overview.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
 
         </div>
 
-        <script type="text/javascript">
+
+
+
+        <script>
             window.playground_copyable = true;
         </script>
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
 
         <!-- Custom JS scripts -->
+
+
+    </div>
     </body>
 </html>

@@ -1,15 +1,17 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js light">
+<html lang="en" class="light" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Distributed systems for busy engineer</title>
-        <meta name="robots" content="noindex" />
+        <meta name="robots" content="noindex">
+
+
         <!-- Custom HTML head -->
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#ffffff">
 
         <link rel="icon" href="favicon.svg">
         <link rel="shortcut icon" href="favicon.png">
@@ -17,25 +19,29 @@
         <link rel="stylesheet" href="css/general.css">
         <link rel="stylesheet" href="css/chrome.css">
         <link rel="stylesheet" href="css/print.css" media="print">
+
         <!-- Fonts -->
         <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
         <link rel="stylesheet" href="fonts/fonts.css">
+
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="highlight.css">
         <link rel="stylesheet" href="tomorrow-night.css">
         <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
+
     </head>
-    <body>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+        <script>
             var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -51,50 +57,81 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        <script>
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
             var html = document.querySelector('html');
-            html.classList.remove('no-js')
             html.classList.remove('light')
             html.classList.add(theme);
-            html.classList.add('js');
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
         </script>
 
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
-            var html = document.querySelector('html');
-            var sidebar = 'hidden';
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
             }
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
                 <ol class="chapter"><li class="chapter-item expanded affix "><a href="preface.html">Preface</a></li><li class="chapter-item expanded "><a href="introduction/overview.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="introduction/network.html"><strong aria-hidden="true">1.1.</strong> Network stack</a></li><li class="chapter-item expanded "><a href="introduction/tap.html"><strong aria-hidden="true">1.2.</strong> Practice: virtual interface</a></li><li class="chapter-item expanded "><a href="introduction/network-properties.html"><strong aria-hidden="true">1.3.</strong> Unreliable network</a></li><li class="chapter-item expanded "><a href="introduction/measure-network.html"><strong aria-hidden="true">1.4.</strong> Measuring network</a></li><li class="chapter-item expanded "><a href="introduction/availability.html"><strong aria-hidden="true">1.5.</strong> Availability</a></li><li class="chapter-item expanded "><a href="introduction/decentralized.html"><strong aria-hidden="true">1.6.</strong> Distributed vs Decentralized</a></li><li class="chapter-item expanded "><a href="introduction/taste-distributed.html"><strong aria-hidden="true">1.7.</strong> Taste of distributed</a></li><li class="chapter-item expanded "><a href="introduction/exercises.html"><strong aria-hidden="true">1.8.</strong> Exercises</a></li></ol></li><li class="chapter-item expanded "><a href="established-systems/overview.html"><strong aria-hidden="true">2.</strong> Established systems</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="established-systems/erlang.html"><strong aria-hidden="true">2.1.</strong> Erlang/OTP</a></li></ol></li><li class="chapter-item expanded "><a href="consistency/overview.html"><strong aria-hidden="true">3.</strong> Consistency</a></li><li class="chapter-item expanded "><a href="computing/overview.html"><strong aria-hidden="true">4.</strong> Distributed computing</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="computing/ml_training.html"><strong aria-hidden="true">4.1.</strong> ML training</a></li></ol></li><li class="chapter-item expanded "><a href="decentralized/overview.html"><strong aria-hidden="true">5.</strong> Decentralized</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="decentralized/p2p.html"><strong aria-hidden="true">5.1.</strong> p2p networks</a></li><li class="chapter-item expanded "><a href="decentralized/blockchain.html"><strong aria-hidden="true">5.2.</strong> Blockchain</a></li><li class="chapter-item expanded "><a href="decentralized/smart-contracts.html"><strong aria-hidden="true">5.3.</strong> Smart contracts</a></li></ol></li><li class="chapter-item expanded "><a href="references.html"><strong aria-hidden="true">6.</strong> References</a></li></ol>
             </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
         </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
-                        </button>
+                        </label>
                         <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
@@ -114,6 +151,7 @@
                         <a href="https://github.com/maksimryndin/distributed-book" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
                         </a>
+
                     </div>
                 </div>
 
@@ -127,8 +165,9 @@
                         </ul>
                     </div>
                 </div>
+
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -154,7 +193,7 @@
 </ul>
 <p>All above mentioned books have their own view on what topics and at what level should be covered. Martin Kleppman’s outstanding book (highly recommended) obviously focuses on data-related topics.</p>
 <p>Despite I’ve read the books above, I had no clear mental picture and systematic view of Raft Algorithm, Lamport clocks and other distributed buzzwords. So this book tries to cover important topics (choice is subjective, of course) and to serve as a practical guide for busy engineers striving to grasp core concepts in a timely manner.</p>
-<p>True understanding comes with real doing, so practice through exercises is a necessary part of learning. I have chosen Rust as a language to use throughout the book as I believe that Rust incorporates modern best practices and solid theoretical achievements. Experienced developers will dive without further ado. But for those who like more gradual involvement I could recommend the following excellent free resources to start with:</p>
+<p>True understanding comes with real doing, so practice through exercises is a necessary part of learning. I have chosen Rust<sup class="footnote-reference"><a href="#disclaimer">1</a></sup> as a language to use throughout the book as I believe that Rust incorporates modern best practices and solid theoretical achievements. Experienced developers will dive without further ado. But for those who like more gradual involvement I could recommend the following excellent free resources to start with:</p>
 <ul>
 <li><a href="https://dhghomon.github.io/easy_rust/">Easy Rust</a></li>
 <li><a href="https://doc.rust-lang.org/rust-by-example/">Rust by example</a></li>
@@ -162,7 +201,7 @@
 <h2 id="why-should-we-learn-about-distributed-systems"><a class="header" href="#why-should-we-learn-about-distributed-systems">Why should we learn about distributed systems?</a></h2>
 <p>I admit that you already know the answer if you’ve started reading the book. But for the sake of completeness let’s enlist some points:</p>
 <ul>
-<li>modern scalable products inevitably rely on concepts discussed further. So if you want to get working experience in modern tech companies or even build your own product with highload and fault-tolerance in mind, you should grasp the basics<sup class="footnote-reference"><a href="#note">1</a></sup>;</li>
+<li>modern scalable products inevitably rely on concepts discussed further. So if you want to get working experience in modern tech companies or even build your own product with highload and fault-tolerance in mind, you should grasp the basics<sup class="footnote-reference"><a href="#note">2</a></sup>;</li>
 <li>expecting your software being distributed at some point in the future can radically improve your architecture decisions and even determine your preferred stack of technologies to use;</li>
 <li>emerging <a href="https://en.wikipedia.org/wiki/Web3">Web 3.0</a> is build around an idea of <em>decentralization</em> which is tightly connected with <em>distributed</em>. So at least you will be able to understand underlying technologies and explore them deeper.</li>
 </ul>
@@ -171,11 +210,14 @@
 <p>I am not a native English speaker so I will be glad to get any feedback on a correct usage of English grammar and phrases. 
 Also any suggestions, improvements, fixes are welcome. You can provide merge requests at book’s Github repository or email me at <em>{auhtor’s name}.{author’s last name}@gmail.com</em>.</p>
 <h2 id="acknowledgments"><a class="header" href="#acknowledgments">Acknowledgments</a></h2>
-<p>I would like to tell many kind words to people who influenced me as a software engineer during my career. First of all, the friend of mine, <a href="https://github.com/Farit">Farit Sadykov</a>, who helped me a lot to become a developer. Also my colleagues, especially <a href="https://github.com/softzilla">Pavel Antonov</a>, <a href="https://github.com/dbz-legacy">Nikolay Yurov</a>, <a href="https://github.com/lan-pnz">Vladimir Galkin</a>, Pavel Gorbunov, <a href="https://github.com/andybelov">Andrey Belov</a>, Evgeny Orlov, <a href="https://otus.ru/teacher/1300/">Ilya Zhigalko</a>, Slava Cheremushkin, <a href="https://github.com/kazhuravlev">Kirill Zhuravlev</a>, <a href="https://github.com/scherbakoviv">Ilya Scherbakov</a>.</p>
+<p>I would like to tell many kind words to people who influenced me as a software engineer during my career. First of all, the friend of mine, <a href="https://github.com/Farit">Farit Sadykov</a>, who helped me a lot to become a developer. Also my colleagues, especially <a href="https://github.com/softzilla">Pavel Antonov</a>, <a href="https://github.com/dbz-legacy">Nikolay Yurov</a>, <a href="https://github.com/lan-pnz">Vladimir Galkin</a>, Pavel Gorbunov, <a href="https://github.com/andybelov">Andrey Belov</a>, Evgeny Orlov, <a href="https://otus.ru/teacher/1300/">Ilya Zhigalko</a>, Slava Cheremushkin, <a href="https://github.com/kazhuravlev">Kirill Zhuravlev</a>, <a href="https://github.com/scherbakoviv">Ilya Scherbakov</a>, <a href="https://github.com/QAston">Dariusz Antoniuk</a>, <a href="https://github.com/ruuda">Ruud van Asseldonk</a>, <a href="https://github.com/cmm">Michael Livshin</a>.</p>
 <p>Also many thanks to open source enthusiasts creating wonderful products, books, and articles, generously sharing knowledge with the rest of the world. We truly stand on the shoulders of giants.</p>
 <p><em>Maksim Ryndin</em></p>
 <p><em>Montenegro, 2022.</em></p>
-<div class="footnote-definition" id="note"><sup class="footnote-definition-label">1</sup>
+<div class="footnote-definition" id="disclaimer"><sup class="footnote-definition-label">1</sup>
+<p>This book is not affiliated with <a href="https://foundation.rust-lang.org/">Rust Foundation</a></p>
+</div>
+<div class="footnote-definition" id="note"><sup class="footnote-definition-label">2</sup>
 <p>Being scalable doesn’t only mean software and infrastructure while adding more servers. It’s also about your team being ready to grow with growing traffic. So being prepared to go distributed is a must-have for every team member in terms of some introductory learning experience, automated pipelines and merge reviews etc.
 Please watch very informative <a href="https://www.youtube.com/watch?v=hnpzNAPiC0E">presentation</a> by Lisa Guo on scaling Instagram.</p>
 </div>
@@ -215,9 +257,10 @@ If the web server and the database are running in separate containers and these 
 <li><code>inet 192.168.43.174 netmask 0xffffff00 broadcast 192.168.43.255</code> means IPv4 address 192.168.43.174 with network mask 255.255.255.0 so we can have hosts 192.168.43.1-254, 192.168.43.255 is a broadcast address and 192.168.43.0 is the network itself.</li>
 <li><code>inet6 fe80::88f:5ab4:1ad8:eed5 prefixlen 64 secured scopeid 0xe</code> means IPv6 address <code>fe80::88f:5ab4:1ad8:eed5</code></li>
 </ul>
-<p>So we have a network of nodes (also called LAN - local area network). How do we <strong>inter</strong>connect <strong>net</strong>works so that we can send a packet with data (called a <strong>datagram</strong>) between two hosts from different networks? Here a <em>routing</em> problem arises. Computers called <em>routers</em><sup class="footnote-reference"><a href="#bridge">5</a></sup> are relaying datagrams from source to destination accross networks borders<sup class="footnote-reference"><a href="#hop">6</a></sup>. But how do we distinguish a host in one network from a host from another network? We need some <em>addressing</em> at an <em>internet layer</em>. IPv4 addressing assigns each host an IP address of the form xx.xx.xx.xx (4 octets of 8 bits each). But with 2^32 unique IP addresses we cannot mark all hosts so IPv6 was developed (128 bits). Anyway IPv4 address exaustion was mitigated by so called Network Address Translation (NAT) and private IPs<sup class="footnote-reference"><a href="#private_ips">7</a></sup> which results in violation of the end-to-end principle<sup class="footnote-reference"><a href="#end2end">8</a></sup>.
+<p>So we have a network of nodes (also called LAN - local area network). How do we <strong>inter</strong>connect <strong>net</strong>works so that we can send a packet with data (called a <strong>datagram</strong>) between two hosts from different networks? Here a <em>routing</em> problem arises. Computers called <em>routers</em><sup class="footnote-reference"><a href="#bridge">5</a></sup> are relaying datagrams from source to destination accross networks borders<sup class="footnote-reference"><a href="#hop">6</a></sup>. But how do we distinguish a host in one network from a host from another network? We need some <em>addressing</em> at an <em>internet layer</em>. IPv4 addressing assigns each host an IP address of the form xx.xx.xx.xx (4 octets of 8 bits each). But with 2^32 unique IP addresses we cannot mark all hosts so IPv6 was developed (128 bits). IPv4 address exaustion was partially mitigated by so called Network Address Translation (NAT) and private IPs<sup class="footnote-reference"><a href="#private_ips">7</a></sup> which results in violation of the end-to-end principle<sup class="footnote-reference"><a href="#end2end">8</a></sup>. Current adoption of IPv6 you can check with <a href="https://www.google.com/intl/en/ipv6/statistics.html">Google data</a>.
 Internet layer is independent of the network topology and the physical way of hosts connection.</p>
-<p>Within LAN we need to establish a mapping between an IP addresses of hosts and their corresponding hardware addresses (MAC) to send packet from one host to another. Such a mapping is called ARP table and is filled at each host with an Address Resolution Protocol (ARP) broadcast messages. In Linux/Unix ARP table can be manipulated with an <code>arp</code> utility. </p>
+<p>Within LAN we need to establish a mapping between an IP addresses of hosts and their corresponding hardware addresses (MAC) to send packet from one host to another. Such a mapping is called ARP table (or ARP cache) and is filled at each host with an Address Resolution Protocol (ARP) broadcast messages. In Linux/Unix ARP table can be manipulated with an <code>arp</code> utility.</p>
+<p>Routing is mapping of IP addresses to interfaces and can be displayed with <code>netstat -rn</code>. You can trace packet path with <code>tracepath</code>.</p>
 <p>After we identified a route between to hosts, we can use a <em>transport</em> protocol to, at least, specify <strong>ports</strong> on hosts to connect specific <em>application</em> processes running on hosts involved. Because internet layer is only responsible for routing and for reliability of communication, transport layer’s protocols can also offer some reliability mechanisms like congestion control, preserves data ordering, eliminate packet loss, provides packet deduplication. </p>
 <p>So we have a connection between hosts and we can exchange application data over the transport protocol.</p>
 <div class="footnote-definition" id="virtual_interface"><sup class="footnote-definition-label">1</sup>
@@ -296,8 +339,7 @@ fn main() {
     bindings
         .write_to_file(out_path.join(&quot;bindings.rs&quot;))
         .expect(&quot;Couldn't write bindings!&quot;);
-}
-</code></pre>
+}</code></pre>
 <p>Run <code>cargo build</code> and at <code>target/debug/build/bindings-.../out/bindings.rs</code> we can find needed bindings except <code>TUNSETIFF</code> which is a required request code for <code>ioctl</code> (bindgen <a href="https://github.com/rust-lang/rust-bindgen/issues/753">do not generate bindings for functional macros</a>) so if we check contents of <code>/usr/include/linux/if_tun.h</code> then we see <code>TUNSETIFF</code> is a functional macro <code>#define TUNSETIFF _IOW('T', 202, int)</code> so let’s port the C macro code from <code>/usr/include/asm-generic/ioctl.h</code> where participating macros live.</p>
 <p>In <code>netstack/bindings/src/lib.rs</code></p>
 <pre><code class="language-rust ignore">include!(concat!(env!(&quot;OUT_DIR&quot;), &quot;/bindings.rs&quot;));
@@ -319,8 +361,7 @@ const INT_SIZE: usize = mem::size_of::&lt;raw::c_int&gt;();
 pub const TUNSETIFF: u32 = IOC_WRITE &lt;&lt; IOC_DIRSHIFT
     | (b'T' as u32) &lt;&lt; IOC_TYPESHIFT
     | 202 &lt;&lt; IOC_NRSHIFT
-    | (INT_SIZE as u32) &lt;&lt; IOC_SIZESHIFT;
-</code></pre>
+    | (INT_SIZE as u32) &lt;&lt; IOC_SIZESHIFT;</code></pre>
 <p>Let’s add file <code>netstack/virtual-interface/src/tap.rs</code> where main things happen</p>
 <pre><code class="language-rust ignore">use std::ffi;
 use std::fs::{File, OpenOptions};
@@ -396,11 +437,9 @@ impl VirtualInterface {
     pub fn device(&amp;mut self) -&gt; &amp;mut File {
         &amp;mut self.device
     }
-}
-</code></pre>
+}</code></pre>
 <p>and import it inside <code>netstack/virtual-interface/src/lib.rs</code>:</p>
-<pre><code class="language-rust ignore">pub mod tap;
-</code></pre>
+<pre><code class="language-rust ignore">pub mod tap;</code></pre>
 <p>To test the code let’s start with an example <code>netstack/virtual-interface/examples/read_loop.rs</code> </p>
 <pre><code class="language-rust ignore">use std::io::Read;
 use virtual_interface::tap::VirtualInterface;
@@ -413,8 +452,7 @@ fn main() {
         let n = interface.device().read(&amp;mut buffer[..]).unwrap();
         println!(&quot;The bytes: {:?}&quot;, &amp;buffer[..n]);
     }
-}
-</code></pre>
+}</code></pre>
 <p>and build and run it:</p>
 <pre><code class="language-bash ignore">$ cargo build --example read_loop
 $ ./target/debug/examples/read_loop
@@ -468,7 +506,7 @@ libc.so.6 =&gt; /lib/aarch64-linux-gnu/libc.so.6 (0x0000ffffb1f10000)
 <p>Comprehensive overview of Linux capabilities and different related exploits can be found at <a href="https://book.hacktricks.xyz/linux-hardening/privilege-escalation/linux-capabilities">Linux Capabilities</a> by Carlos Polop.</p>
 </div>
 <div class="footnote-definition" id="ip_cli"><sup class="footnote-definition-label">3</sup>
-<p>We could create a TAP device with the command <code>sudo ip tuntap add dev0 mode tap</code>. The only difference with our programmatically created device is that our device is not persistent - it lives while our process lives. To make our device persistent we can just add the flag <code>IFF_PERSIST</code> to <code>ifru_flags</code>.</p>
+<p>We could create a TAP device with the command <code>sudo ip tuntap add dev0 mode tap</code>. The only difference with our programmatically created device is that our device is not persistent - it lives while our process lives. To make our device persistent we could just add the flag <code>IFF_PERSIST</code> to <code>ifru_flags</code>.</p>
 </div>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="unreliable-network"><a class="header" href="#unreliable-network">Unreliable network</a></h1>
 <p>A network of interconnected computers is based on some physical layer (Ethernet cables or radio in case of wireless networks)<sup class="footnote-reference"><a href="#osi">1</a></sup>. The physical layer itself is subject to different disruptions, noisiness, and other problems. So we always have to assume that <strong>the network is unreliable</strong> and implement different <em>retry, ordering, and healthcheck policies</em> in our services.</p>
@@ -498,7 +536,8 @@ https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/net/ipv4
 <ul>
 <li>meet bandwith requirements and handle network congestion on scaling;</li>
 <li>deal with increased latencies;</li>
-<li>have policies for network partitions: if a network partition creates two and more subclusters and such subclusters can behave independently (situation known as a <em>split-brain</em><sup class="footnote-reference"><a href="#rabbitmq">5</a></sup>), how should the system evolve and finally merge conflicting states? </li>
+<li>have policies for network partitions: if a network partition creates two and more subclusters and such subclusters can behave independently (situation known as a <em>split-brain</em><sup class="footnote-reference"><a href="#rabbitmq">5</a></sup>), how should the system evolve and finally merge conflicting states?</li>
+<li>implement backpressure</li>
 </ul>
 <div class="footnote-definition" id="osi"><sup class="footnote-definition-label">1</sup>
 <p>Most of us have heard about <a href="https://en.wikipedia.org/wiki/OSI_model">OSI model</a> as a theoretical framework to discuss networking stack. Just for reference:</p>
@@ -527,7 +566,7 @@ https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/net/ipv4
 <div style="break-before: page; page-break-before: always;"></div><h1 id="create-your-own-tool-to-measure-network-throughput"><a class="header" href="#create-your-own-tool-to-measure-network-throughput">Create your own tool to measure network throughput</a></h1>
 <p>Here we will create our own Rust version of iperf3 to better understand concepts around network</p>
 <p>https://github.com/esnet/iperf</p>
-<p>Wireshark to analyze packets</p>
+<p>Wireshark/ to analyze packets</p>
 <p>Write our own DPI (nDPI, goodbyeDPI)</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="availability"><a class="header" href="#availability">Availability</a></h1>
 <p>Availability in the common practice is understood as a metric rather than a property of the system. While in the theory of distributed systems (especially, CAP theorem<sup class="footnote-reference"><a href="#kleppmann">1</a></sup>) it is more about property leading to confusion.</p>
@@ -542,12 +581,28 @@ https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/net/ipv4
 <p>Service Level Agreement (SLA) declares your commitment to satisfy SLO.
 SLO also determines your <em>error budget</em>, i.e. duration of the <a href="https://uptime.is/">allowed downtime</a> within different time periods</p>
 <p>Going distributed is just one of the ways to strengthen availability via adding scalabity and redundancy.</p>
-<p>Clever design (including API), code quality assurance, proper algorithms, performance tuning, application monitoring, best DevSecOps practices, business and tech metrics collection significantly improves availability and should be considered first before introducing complexity of a distribution.</p>
+<p>While network being a primary source of failures for distributed systems, we should also take into consideration other resources related to a single node:</p>
+<ul>
+<li>Storage (disks are corrupted, drivers contain bugs, various filesystems have different memory orderings models and are mounted with different policies<sup class="footnote-reference"><a href="#files-are-hard">3</a></sup>)</li>
+<li>CPU (processes are stopped while VM is migrated, system clocks may drift etc, cpu usage patterns, align with branch prediction and caches sizes)</li>
+<li>Memory (can be corrupted, defragmentated, what are the memory usage patterns)</li>
+</ul>
+<p>So we should define <em>fault models</em> for different resources in our distributed system<sup class="footnote-reference"><a href="#tigerbeetle">4</a></sup>, i.e. a specification of how our application handles different failures.</p>
+<p>Clever design (including API), code quality assurance (including configuration changes tests<sup class="footnote-reference"><a href="#configuration">5</a></sup>), proper algorithms, performance tuning, application monitoring, best DevSecOps practices, business and tech metrics collection significantly improves availability and should be considered first before introducing complexity of a distribution.</p>
 <div class="footnote-definition" id="kleppmann"><sup class="footnote-definition-label">1</sup>
 <p>Martin Kleppmann <a href="https://arxiv.org/abs/1509.05393">A Critique of the CAP Theorem</a></p>
 </div>
 <div class="footnote-definition" id="gcp"><sup class="footnote-definition-label">2</sup>
 <p>Google Cloud Architecture Framework <a href="https://cloud.google.com/architecture/framework/reliability/principles">Reliability principles</a></p>
+</div>
+<div class="footnote-definition" id="files-are-hard"><sup class="footnote-definition-label">3</sup>
+<p>An eyes opening reading for the author was <a href="https://danluu.com/deconstruct-files/">Files are fraught with peril</a> by Dan Luu - how difficult and error-prone is to use File API and how weak in terms of error-handling many filesystems are. General advice is to rely on already robust and battle-tested products like SQLite (which handles different edge cases) if you need some local persistent storage.</p>
+</div>
+<div class="footnote-definition" id="tigerbeetle"><sup class="footnote-definition-label">4</sup>
+<p>See for an example the <a href="https://github.com/tigerbeetledb/tigerbeetle/blob/main/docs/DESIGN.md#fault-models">Design Document</a> of TigerBeetle.</p>
+</div>
+<div class="footnote-definition" id="configuration"><sup class="footnote-definition-label">5</sup>
+<p>see Dan Luu’s <a href="https://danluu.com/postmortem-lessons/">Reading postmortems</a></p>
 </div>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="distributed-vs-decentralized"><a class="header" href="#distributed-vs-decentralized">Distributed vs Decentralized</a></h1>
 <blockquote>
@@ -577,6 +632,12 @@ SLO also determines your <em>error budget</em>, i.e. duration of the <a href="ht
 Roger Johansson, creator of ProtoActor</p>
 </blockquote>
 <p>Implementing distributed systems right way is <a href="https://ferd.ca/lessons-learned-while-working-on-large-scale-server-software.html">hard</a>. In most cases we can compose our software within well established distributed systems. Of course, the goal of the book is to learn how to implement such systems from scratch. But we should be familiar with other options. Some are listed below in the order of decreasing technology lock-in.</p>
+<ul>
+<li>Erlang/OTP</li>
+<li>ETCD</li>
+<li>Tendermint</li>
+<li>Kubernetes</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="battle-tested-erlangotp"><a class="header" href="#battle-tested-erlangotp">Battle-tested Erlang/OTP</a></h1>
 <blockquote>
 <p><em>Any sufficiently complicated concurrent program in another language contains an ad hoc informally-specified bug-ridden slow implementation of half of Erlang.</em>
@@ -602,6 +663,7 @@ Every Erlang VM is started with a predefined name and then it’s enough to regi
 <li>communication is asynchronous so no node has to wait any acknowledgement that its message was received by another one;</li>
 <li>message passing is location transparent (the code to send message to local Erlang process is the same as for sending to a process on another node in the cluster – at a cost of more RAM and time to <code>memcpy</code> as every message is deeply copied);</li>
 <li>maintaining global mutable data (namespace of lightweight processes in case of Erlang) and full connectivity severely limits scalability.</li>
+<li>fail-fast - correctness is more important than availability (of course, depends on the startup time). Erlang philosophy denies defensive programming (when you try to recover from all errors). So assertions in the production code are beneficial - they declare negative flow and don’t allow the distributed system (which is designed to be fault tolerant) to behave incorrectly<sup class="footnote-reference"><a href="#tigerbeetle">13</a></sup>.</li>
 </ul>
 <div class="footnote-definition" id="klarna"><sup class="footnote-definition-label">1</sup>
 <p>For example, Swedish fintech Klarna uses Erlang as it’s core platform handling 2 million transactions per day - look at their <a href="https://jobs.lever.co/klarna?team=Engineering">job descriptions</a>.</p>
@@ -638,6 +700,9 @@ Every Erlang VM is started with a predefined name and then it’s enough to regi
 </div>
 <div class="footnote-definition" id="erlang_scale"><sup class="footnote-definition-label">12</sup>
 <p>See <a href="https://arxiv.org/pdf/1704.07234.pdf">Scaling Reliably: Improving the Scalability of the Erlang Distributed Actor Platform</a>, <a href="https://www.infoq.com/presentations/erland-scale-10000-nodes/">Scaling Erlang Cluster to 10,000 Nodes</a>, <a href="https://stackoverflow.com/questions/5044574/how-scalable-is-distributed-erlang">Stackoverflow question</a></p>
+</div>
+<div class="footnote-definition" id="tigerbeetle"><sup class="footnote-definition-label">13</sup>
+<p>See also Joran Dirk Greef <a href="https://www.youtube.com/watch?v=w3WYdYyjek4">TigerStyle! (Or How To Design Safer Systems in Less Time)</a></p>
 </div>
 <div style="break-before: page; page-break-before: always;"></div><p>Martin Kleppman Critique CAP</p>
 <p>latency-sensitivity framework</p>
@@ -722,11 +787,14 @@ fn train_first_layer() {
 </div>
 <div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><h1 id="blockchain"><a class="header" href="#blockchain">Blockchain</a></h1>
 <p>Permissioned vs permisionless</p>
+<p>TODO: Focus on consensus (POW, POS) as a lesson for the book purposes</p>
 <p>TPS (transactions per second)</p>
 <p>Blockchain network (also called cluster) is p2p network of nodes (called validators in Solana) exchanging with a copy of a ledger (blockchain). Typically 10 - 50 validators totaling 1000-2000 nodes<sup class="footnote-reference"><a href="#validators">1</a></sup></p>
 <ul>
 <li>distributed state transition requires consensus</li>
 </ul>
+<p>Replicated state machine, state transition is recorded as a block. The first state is the genesis block. State transition is done via applying a transaction. Several state transitions (i.e. transactions) are usually combined in a single block for time and space efficiency.
+When several competing chains exist, we need to choose one (called <em>canonical chain</em>) via a consensus mechanism (PoW, PoS, PoA). Notion of finality.</p>
 <p>Smart contracts are run on VM (Sealevel for Solana, EVM for Ethereum)</p>
 <p>Client is a program communicating with a cluster via transactions (composed of several intructions in terms of solana). </p>
 <p>Transactions are signed by the client by means of Public Key cryptography.</p>
@@ -747,6 +815,31 @@ To make stakes usually separate stake accounts are used. Solana: Tokens on the s
 Or you should invent your own blockchain</li>
 </ul>
 <p>Buterin suggested EVM to </p>
+<p>Classical consenus requires all nodes to participates which prevents scalability.
+So either some nodes (called validators) are selected to validate transactions or another way of consensus is suggested (probabilistic consensus of Bitcoin called Nakamoto consensus, probabilistic Avalanche consensus).
+Or the topology of network is changed</p>
+<ul>
+<li>it is sharded by feature (DeFi blockchain, smart contracts etc) (Cosmos blockchain)</li>
+<li>centralization - when there is central network to validate (Polkadot)</li>
+</ul>
+<p>In case of validators pool with classic consensus we need some voting mechanism to allow for more even participation (quadratic voting, https://wiki.polkadot.network/docs/learn-phragmen)</p>
+<p>Byzantine Fault Tolerance (BFT, Tendermint) and Byzantine Agreement-based (Algorand) =&gt; limit the number of validators</p>
+<p>Permisionneless (public) blockchains</p>
+<ul>
+<li>Ethereum</li>
+<li>Monero</li>
+<li>Bitcoin
+etc</li>
+</ul>
+<p>Permissioned blockchains to create CBDC (Cetral Bank Digital Currency, Interbanking communication - like SWIFT traditionally does)</p>
+<ul>
+<li>HyperledgerFabric by IBM/Linux Foundation</li>
+<li>Corda by R3</li>
+<li>atop Ethereum https://github.com/Consensys/quorum</li>
+<li>with Polkadot Substrate</li>
+<li>with Avalanche Evergreen</li>
+</ul>
+<p>Problem - grows of the blockchain data. Notion of the succint blockchain (example of Mina)</p>
 <div class="footnote-definition" id="validators"><sup class="footnote-definition-label">1</sup>
 <p><a href="https://forums.solana.com/t/validator-information-thread/577/51">https://forums.solana.com/t/validator-information-thread/577/51</a></p>
 </div>
@@ -755,6 +848,9 @@ Or you should invent your own blockchain</li>
 </div>
 <div class="footnote-definition" id="buterin"><sup class="footnote-definition-label">2</sup>
 <p>(https://ethereum.org/en/whitepaper/)</p>
+</div>
+<div class="footnote-definition" id="projects"><sup class="footnote-definition-label">4</sup>
+<p>https://courses.cfte.education/blockchain-and-defi-projects/</p>
 </div>
 <div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><p>Here are the list of references to cool articles and books etc I’ve used to prepare this book.</p>
 <ul>
@@ -924,15 +1020,106 @@ Or you should invent your own blockchain</li>
 <li><a href="https://stackoverflow.com/questions/36715664/using-ip-what-does-lower-up-mean">Using ip, what does LOWER_UP mean?</a></li>
 <li><a href="https://stackoverflow.com/questions/5815675/what-is-sock-dgram-and-sock-stream">What is SOCK_DGRAM and SOCK_STREAM?</a></li>
 <li><a href="https://unix.stackexchange.com/questions/363730/what-is-a-generic-socket-and-how-does-it-relate-to-a-network-device">What is a generic socket and how does it relate to a network device?</a></li>
+<li>Семенов Ю.А. <a href="http://book.itep.ru/4/44/rut_4411.htm">4.4.11 Протоколы маршрутизации (обзор, таблицы маршрутизации, вектор расстояния)</a></li>
+<li>Семенов Ю.А. <a href="http://book.itep.ru/4/44/rip44111.htm">4.4.11.1 Внутренний протокол маршрутизации RIP</a></li>
+<li><a href="https://www.practicalnetworking.net/stand-alone/tell-me-everything-that-happens-when-you-type-google-com-into-a-web-browser/">“Tell me everything that happens when you type google.com into a web browser”</a></li>
+<li><a href="https://www.youtube.com/watch?v=YJGGYKAV4pA">How Data moves through the Internet - Networking Fundamentals</a></li>
+<li><a href="https://habr.com/ru/company/karuna/blog/568702/">Что происходит, когда вводишь url, или как работает интернет</a></li>
+<li><a href="https://launchpad.ethereum.org/en/faq">Validator FAQs</a></li>
+<li><a href="https://github.com/tigerbeetledb/tigerbeetle/blob/main/docs/DESIGN.md">Design Document</a></li>
+<li>Ed Harmoush <a href="https://github.com/alex/what-happens-when">What happens when…</a></li>
+<li>Ed Harmoush <a href="https://www.practicalnetworking.net/series/packet-traveling/key-players/">Key Players</a></li>
+<li>Ed Harmoush <a href="https://www.youtube.com/watch?v=QPi5Nvxaosw">ARP in 5 Minutes</a></li>
+<li>Ed Harmoush <a href="https://www.practicalnetworking.net/series/arp/traditional-arp/">Traditional ARP</a></li>
+<li>Ed Harmoush <a href="https://www.practicalnetworking.net/series/arp/proxy-arp/">Proxy ARP</a></li>
+<li>Ed Harmoush <a href="https://www.youtube.com/watch?v=BWZ-MHIhqjM">What is Subnetting? - Subnetting Mastery - Part 1 of 7</a></li>
+<li>Ed Harmoush <a href="https://www.youtube.com/watch?v=ljS07YTEJ2I">Drawing the Cheat Sheet - Subnetting Mastery - Part 2 of 7</a></li>
+<li>Ed Harmoush <a href="https://www.youtube.com/watch?v=5-wlfAdcmFQ">How to solve ANY Subnetting Problems in 60 seconds or less - Subnetting Mastery - Part 3 of 7</a></li>
+<li>Ed Harmoush <a href="https://www.youtube.com/watch?v=SM0kdVfhxZ0">Practice Examples - Subnetting Mastery - Part 4 of 7</a></li>
+<li>Ed Harmoush <a href=""></a></li>
+<li>Ed Harmoush <a href=""></a></li>
+<li>Ed Harmoush <a href=""></a></li>
+<li>Ed Harmoush <a href=""></a></li>
+<li>Ed Harmoush <a href=""></a></li>
+<li>Ed Harmoush <a href=""></a></li>
+<li>Ed Harmoush <a href=""></a></li>
+<li><a href="https://github.com/protocolbuffers/protobuf">Protocol Buffers - Google’s data interchange format</a></li>
+<li><a href="https://github.com/secdev/scapy">Scapy</a></li>
+<li><a href="https://capnproto.org">Cap’n Proto</a></li>
+<li><a href="https://google.github.io/flatbuffers/">FlatBuffers</a></li>
+<li><a href="https://engineering.fb.com/2015/07/31/android/improving-facebook-s-performance-on-android-with-flatbuffers/">Improving Facebook’s performance on Android with FlatBuffers</a></li>
+<li><a href="https://google.github.io/flatbuffers/flexbuffers.html">FlexBuffers</a></li>
+<li><a href="https://serde.rs/">Serde</a></li>
+<li><a href="https://habr.com/ru/post/673110/">Сравнение гетерогенных блокчейнов (Cosmos, Polkadot, Avalanche)</a></li>
+<li><a href="https://ru.wikipedia.org/wiki/%D0%90%D1%82%D0%B0%D0%BA%D0%B0_%D0%A1%D0%B8%D0%B2%D0%B8%D0%BB%D0%BB%D1%8B">Wikipedia Атака Сивиллы</a></li>
+<li><a href="https://ethereum.org/en/whitepaper/">Ethereum Whitepaper</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Reed%27s_law">Wikipedia Reed’s law</a></li>
+<li><a href="https://habr.com/ru/company/timeweb/blog/672494/">Как работает Wi-fi. Часть 1. История беспроводных сетей</a></li>
+<li><a href="https://habr.com/ru/company/timeweb/blog/677452/">Как работает Wi-fi. Часть 2. Физический уровень</a></li>
+<li><a href="https://blog.chain.link/blockchain-trust-model/">What Everyone Gets Wrong About Blockchains</a></li>
+<li><a href="https://habr.com/ru/post/688076/">Что такое слои блокчейна L0, L1, L2 и L3 и зачем они нужны</a></li>
+<li><a href="https://chorus.one/networks/ethereum/">About Staking on Ethereum</a></li>
+<li><a href="https://habr.com/ru/post/703360/">Заблуждения программистов о времени</a></li>
+<li><a href="https://developers.urbit.org/reference">Urbit Reference</a></li>
+<li><a href="https://opentelemetry.io/docs/concepts/">Opentelemetry Concepts</a></li>
+<li><a href="https://habr.com/ru/company/dcmiran/blog/699024/">TCP — плохой вариант для дата-центров. Встречайте новый протокол Homa</a></li>
+<li><a href="https://research.google/pubs/pub48630/">Snap: a Microkernel Approach to Host Networking</a></li>
+<li><a href="https://github.com/ethereumbook/ethereumbook">Mastering Ethereum, by Andreas M. Antonopoulos, Gavin Wood</a></li>
+<li><a href="https://bitcoin.org/en/full-node">Running A Full Node</a></li>
+<li>Andy Pavlo <a href="https://ottertune.com/blog/2022-databases-retrospective/">Databases in 2022: A Year in Review</a></li>
+<li><a href="https://www.wsj.com/articles/blockchain-fails-to-gain-traction-in-the-enterprise-11671057528">Blockchain Fails to Gain Traction in the Enterprise</a></li>
+<li><a href="https://www.r3.com/case-studies/spunta/">Fast and Transparent Interbank Reconciliation Powered by Distributed Ledger Technology</a></li>
+<li><a href="https://habr.com/ru/post/709216/">Что такое блокчейн-мост и какие риски он в себе таит?</a></li>
+<li><a href="https://habr.com/ru/post/709312/">VPN Gate, или — неубиваемая Великим Китайским Файрволом распределённая сеть VPN</a></li>
+<li>Melissa E. O’Neill <a href="https://www.pcg-random.org/pdf/hmc-cs-2014-0905.pdf">PCG: A Family of Simple Fast Space-Efficient Statistically Good Algorithms for Random Number Generation</a></li>
+<li><a href="https://www.r3.com/case-studies/spunta/">Fast and Transparent Interbank Reconciliation Powered by Distributed Ledger Technology</a></li>
+<li><a href="https://cyberlab.pacific.edu/courses/cybr200/resources/08.09-cryptography-rng-entropy.pdf">Random Number Generation (Entropy)</a></li>
+<li><a href="https://www.redhat.com/en/blog/understanding-random-number-generators-and-their-limitations-linux">Understanding random number generators, and their limitations, in Linux</a></li>
+<li><a href="https://www.quora.com/How-does-a-true-random-number-generator-collect-entropy-data">How does a true random number generator collect entropy data?</a></li>
+<li>Nick Sullivan <a href="https://blog.cloudflare.com/ensuring-randomness-with-linuxs-random-number-generator/">Ensuring Randomness with Linux’s Random Number Generator</a></li>
+<li>Igor Adamenko <a href="https://uploadcare.com/blog/basics-of-the-internet/">Basics of the Internet</a></li>
+<li>Igor Adamenko <a href="https://uploadcare.com/blog/tcp-udp/">TCP &amp; UDP, or the two pillars of the Internet</a></li>
+<li>Igor Adamenko <a href="https://uploadcare.com/blog/ip/">Internet addressing</a></li>
+<li>Igor Adamenko <a href="https://uploadcare.com/blog/bgp/">Where are the borders in the Internet?</a></li>
+<li>Igor Adamenko <a href="https://uploadcare.com/blog/dns/">How DNS servers and resolvers work</a></li>
+<li><a href="https://www.2uo.de/myths-about-urandom/">Myths about /dev/urandom</a></li>
+<li><a href="https://habr.com/ru/post/710606/">SSU2 — транспортный протокол I2P нового поколения на базе UDP</a></li>
+<li><a href="https://docs.victoriametrics.com/keyConcepts.html">VictoriaMetrics Key concepts</a></li>
+<li><a href="https://dzone.com/articles/distributed-sql-an-alternative-to-sharding">Distributed SQL: An Alternative to Database Sharding</a></li>
+<li>Marc Brooker <a href="https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/">Exponential Backoff And Jitter</a></li>
+<li><a href="https://hackmd.io/@prysmaticlabs/finality">What Happens After Finality in ETH2?</a></li>
+<li>Ognyan Chikov <a href="https://www.infoq.com/articles/creating-decentralized-apps/">The Process of Creating Decentralized Apps (dApps)</a></li>
+<li>Dan Luu <a href="https://danluu.com/file-consistency/">Files are hard</a></li>
+<li>Dan Luu <a href="https://danluu.com/deconstruct-files/">Files are fraught with peril</a></li>
+<li>Dan Luu <a href="https://danluu.com/postmortem-lessons/">Reading postmortems</a></li>
+<li>Dan Luu <a href="https://danluu.com/concurrency-bugs/">Notes on concurrency bugs</a></li>
+<li><a href="https://ethos.dev/beacon-chain">The Beacon Chain Ethereum 2.0 explainer you need to read first</a></li>
+<li><a href="https://www.youtube.com/watch?v=BH2jvJ74npM">TigerBeetle - A Million Financial Transactions per Second in Zig</a></li>
+<li>Joran Dirk Greef <a href="https://www.youtube.com/watch?v=w3WYdYyjek4">TigerStyle! (Or How To Design Safer Systems in Less Time)</a></li>
+<li><a href="https://www.youtube.com/watch?v=J1OaBRTV2vs">Interledger Community Call - 25 November 2020</a></li>
+<li>Martin Thompson <a href="https://www.infoq.com/presentations/financial-exchange-architecture/">Evolution of Financial Exchange Architectures</a></li>
+<li><a href="https://habr.com/ru/articles/683270/">Как концептуально работает Tornado Cash, который «забанили» власти США</a></li>
+<li><a href="https://habr.com/ru/companies/pt/articles/735756/">Перехват трафика как вектор атаки на пользователей блокчейн-проектов</a></li>
+<li>Preethi Kasireddy <a href="https://www.preethikasireddy.com/post/how-does-ethereum-work-anyway">How does Ethereum work, anyway?</a></li>
+<li>Preethi Kasireddy <a href="https://www.preethikasireddy.com/post/how-does-the-new-ethereum-work">How does the NEW Ethereum work?</a></li>
+<li><a href="https://ethereum.org/en/staking/dvt/">Distributed validator technology</a></li>
+<li><a href="https://habr.com/ru/articles/743878/">Ethereum Contract ABI Specification. Взаимодействие с контрактом</a></li>
+<li>Anton Ilinchik, Vishal Varshney <a href="https://engineering.zalando.com/posts/2023/07/all-you-need-to-know-about-timeouts.html">All you need to know about timeouts</a></li>
+<li>Konstantinos Tsiaras <a href="https://dspace.lib.ntua.gr/xmlui/bitstream/handle/123456789/57592/Tsiaras_thesis.pdf?sequence=1">Study and Resource Analysis of Ethereum Execution Client Bootstrapping</a></li>
+<li><a href="https://minaprotocol.com/blog/proof-of-work-vs-proof-of-stake">Proof-of-Work vs Proof-of-Stake</a></li>
+<li><a href="https://minaprotocol.com/blog/how-ouroboros-samasika-upholds-minas-goals-of-decentralization">How Ouroboros Samasika Upholds Mina’s Goals of Decentralization</a></li>
+<li>Brad Cohn, Evan Shapiro, and Emre Tekişalp <a href="https://minaprotocol.com/wp-content/uploads/economicsWhitepaper-2.pdf">Mina: Economics and Monetary Policy</a></li>
+<li>Jeff Hodges <a href="https://www.somethingsimilar.com/2013/01/14/notes-on-distributed-systems-for-young-bloods/">Notes on Distributed Systems for Young Bloods</a></li>
+<li><a href="https://courses.cfte.education/blockchain-and-defi-projects/">Blockchain and Digital Asset projects worldwide in 2023</a></li>
+<li><a href="https://wiki.polkadot.network/docs">Polkadot documentation</a></li>
+<li><a href="https://assets.polkadot.network/Polkadot-lightpaper.pdf">Polkadot light paper</a></li>
+<li><a href="https://docs.substrate.io/">Substrate Documentation</a></li>
 </ul>
-<p>https://www.practicalnetworking.net/series/packet-traveling/key-players/
-https://www.practicalnetworking.net/series/arp/arp-in-5-minutes/
-https://www.practicalnetworking.net/series/nat/nat/
+<p>https://www.practicalnetworking.net/series/nat/nat/
 https://www.practicalnetworking.net/series/arp/address-resolution-protocol/
 https://www.practicalnetworking.net/stand-alone/communication-through-multiple-switches/
 https://www.practicalnetworking.net/series/arp/gratuitous-arp/
 https://www.practicalnetworking.net/series/arp/arp-probe-arp-announcement/
-https://www.practicalnetworking.net/series/arp/traditional-arp/
 https://www.practicalnetworking.net/stand-alone/vlans/
 https://www.practicalnetworking.net/stand-alone/eigrp-metric/
 https://www.practicalnetworking.net/series/packet-traveling/packet-traveling/
@@ -940,7 +1127,10 @@ https://www.practicalnetworking.net/series/packet-traveling/packet-traveling-ser
 https://www.practicalnetworking.net/series/packet-traveling/host-to-host-through-a-router/
 https://www.practicalnetworking.net/series/packet-traveling/host-to-host/
 https://www.practicalnetworking.net/series/packet-traveling/host-to-host-through-a-switch/
-https://www.practicalnetworking.net/stand-alone/ethernet-wiring/</p>
+https://www.practicalnetworking.net/stand-alone/ethernet-wiring/
+https://habr.com/ru/post/684524/
+https://habr.com/ru/post/675812/
+https://habr.com/ru/post/686230/</p>
 <p>http://book.itep.ru/4/6/bitcoin.htm
 http://book.itep.ru//4/6/blockchain.htm
 http://book.itep.ru/5/cicl_54.htm
@@ -975,31 +1165,43 @@ https://habr.com/ru/post/430172/</p>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+
+
                         <div style="clear: both"></div>
                     </nav>
                 </div>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
             </nav>
 
         </div>
 
-        <script type="text/javascript">
+
+
+
+        <script>
             window.playground_copyable = true;
         </script>
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
 
         <!-- Custom JS scripts -->
-        <script type="text/javascript">
+
+        <script>
         window.addEventListener('load', function() {
             window.setTimeout(window.print, 100);
         });
         </script>
+
+    </div>
     </body>
 </html>

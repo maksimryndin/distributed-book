@@ -1,14 +1,16 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js light">
+<html lang="en" class="light" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>References - Distributed systems for busy engineer</title>
+
+
         <!-- Custom HTML head -->
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#ffffff">
 
         <link rel="icon" href="favicon.svg">
         <link rel="shortcut icon" href="favicon.png">
@@ -16,25 +18,29 @@
         <link rel="stylesheet" href="css/general.css">
         <link rel="stylesheet" href="css/chrome.css">
         <link rel="stylesheet" href="css/print.css" media="print">
+
         <!-- Fonts -->
         <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
         <link rel="stylesheet" href="fonts/fonts.css">
+
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="highlight.css">
         <link rel="stylesheet" href="tomorrow-night.css">
         <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
+
     </head>
-    <body>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+        <script>
             var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -50,50 +56,81 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        <script>
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
             var html = document.querySelector('html');
-            html.classList.remove('no-js')
             html.classList.remove('light')
             html.classList.add(theme);
-            html.classList.add('js');
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
         </script>
 
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
-            var html = document.querySelector('html');
-            var sidebar = 'hidden';
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
             }
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
                 <ol class="chapter"><li class="chapter-item expanded affix "><a href="preface.html">Preface</a></li><li class="chapter-item expanded "><a href="introduction/overview.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="introduction/network.html"><strong aria-hidden="true">1.1.</strong> Network stack</a></li><li class="chapter-item expanded "><a href="introduction/tap.html"><strong aria-hidden="true">1.2.</strong> Practice: virtual interface</a></li><li class="chapter-item expanded "><a href="introduction/network-properties.html"><strong aria-hidden="true">1.3.</strong> Unreliable network</a></li><li class="chapter-item expanded "><a href="introduction/measure-network.html"><strong aria-hidden="true">1.4.</strong> Measuring network</a></li><li class="chapter-item expanded "><a href="introduction/availability.html"><strong aria-hidden="true">1.5.</strong> Availability</a></li><li class="chapter-item expanded "><a href="introduction/decentralized.html"><strong aria-hidden="true">1.6.</strong> Distributed vs Decentralized</a></li><li class="chapter-item expanded "><a href="introduction/taste-distributed.html"><strong aria-hidden="true">1.7.</strong> Taste of distributed</a></li><li class="chapter-item expanded "><a href="introduction/exercises.html"><strong aria-hidden="true">1.8.</strong> Exercises</a></li></ol></li><li class="chapter-item expanded "><a href="established-systems/overview.html"><strong aria-hidden="true">2.</strong> Established systems</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="established-systems/erlang.html"><strong aria-hidden="true">2.1.</strong> Erlang/OTP</a></li></ol></li><li class="chapter-item expanded "><a href="consistency/overview.html"><strong aria-hidden="true">3.</strong> Consistency</a></li><li class="chapter-item expanded "><a href="computing/overview.html"><strong aria-hidden="true">4.</strong> Distributed computing</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="computing/ml_training.html"><strong aria-hidden="true">4.1.</strong> ML training</a></li></ol></li><li class="chapter-item expanded "><a href="decentralized/overview.html"><strong aria-hidden="true">5.</strong> Decentralized</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="decentralized/p2p.html"><strong aria-hidden="true">5.1.</strong> p2p networks</a></li><li class="chapter-item expanded "><a href="decentralized/blockchain.html"><strong aria-hidden="true">5.2.</strong> Blockchain</a></li><li class="chapter-item expanded "><a href="decentralized/smart-contracts.html"><strong aria-hidden="true">5.3.</strong> Smart contracts</a></li></ol></li><li class="chapter-item expanded "><a href="references.html" class="active"><strong aria-hidden="true">6.</strong> References</a></li></ol>
             </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
         </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
-                        </button>
+                        </label>
                         <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
@@ -113,6 +150,7 @@
                         <a href="https://github.com/maksimryndin/distributed-book" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
                         </a>
+
                     </div>
                 </div>
 
@@ -126,8 +164,9 @@
                         </ul>
                     </div>
                 </div>
+
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -305,15 +344,106 @@
 <li><a href="https://stackoverflow.com/questions/36715664/using-ip-what-does-lower-up-mean">Using ip, what does LOWER_UP mean?</a></li>
 <li><a href="https://stackoverflow.com/questions/5815675/what-is-sock-dgram-and-sock-stream">What is SOCK_DGRAM and SOCK_STREAM?</a></li>
 <li><a href="https://unix.stackexchange.com/questions/363730/what-is-a-generic-socket-and-how-does-it-relate-to-a-network-device">What is a generic socket and how does it relate to a network device?</a></li>
+<li>Семенов Ю.А. <a href="http://book.itep.ru/4/44/rut_4411.htm">4.4.11 Протоколы маршрутизации (обзор, таблицы маршрутизации, вектор расстояния)</a></li>
+<li>Семенов Ю.А. <a href="http://book.itep.ru/4/44/rip44111.htm">4.4.11.1 Внутренний протокол маршрутизации RIP</a></li>
+<li><a href="https://www.practicalnetworking.net/stand-alone/tell-me-everything-that-happens-when-you-type-google-com-into-a-web-browser/">“Tell me everything that happens when you type google.com into a web browser”</a></li>
+<li><a href="https://www.youtube.com/watch?v=YJGGYKAV4pA">How Data moves through the Internet - Networking Fundamentals</a></li>
+<li><a href="https://habr.com/ru/company/karuna/blog/568702/">Что происходит, когда вводишь url, или как работает интернет</a></li>
+<li><a href="https://launchpad.ethereum.org/en/faq">Validator FAQs</a></li>
+<li><a href="https://github.com/tigerbeetledb/tigerbeetle/blob/main/docs/DESIGN.md">Design Document</a></li>
+<li>Ed Harmoush <a href="https://github.com/alex/what-happens-when">What happens when…</a></li>
+<li>Ed Harmoush <a href="https://www.practicalnetworking.net/series/packet-traveling/key-players/">Key Players</a></li>
+<li>Ed Harmoush <a href="https://www.youtube.com/watch?v=QPi5Nvxaosw">ARP in 5 Minutes</a></li>
+<li>Ed Harmoush <a href="https://www.practicalnetworking.net/series/arp/traditional-arp/">Traditional ARP</a></li>
+<li>Ed Harmoush <a href="https://www.practicalnetworking.net/series/arp/proxy-arp/">Proxy ARP</a></li>
+<li>Ed Harmoush <a href="https://www.youtube.com/watch?v=BWZ-MHIhqjM">What is Subnetting? - Subnetting Mastery - Part 1 of 7</a></li>
+<li>Ed Harmoush <a href="https://www.youtube.com/watch?v=ljS07YTEJ2I">Drawing the Cheat Sheet - Subnetting Mastery - Part 2 of 7</a></li>
+<li>Ed Harmoush <a href="https://www.youtube.com/watch?v=5-wlfAdcmFQ">How to solve ANY Subnetting Problems in 60 seconds or less - Subnetting Mastery - Part 3 of 7</a></li>
+<li>Ed Harmoush <a href="https://www.youtube.com/watch?v=SM0kdVfhxZ0">Practice Examples - Subnetting Mastery - Part 4 of 7</a></li>
+<li>Ed Harmoush <a href=""></a></li>
+<li>Ed Harmoush <a href=""></a></li>
+<li>Ed Harmoush <a href=""></a></li>
+<li>Ed Harmoush <a href=""></a></li>
+<li>Ed Harmoush <a href=""></a></li>
+<li>Ed Harmoush <a href=""></a></li>
+<li>Ed Harmoush <a href=""></a></li>
+<li><a href="https://github.com/protocolbuffers/protobuf">Protocol Buffers - Google’s data interchange format</a></li>
+<li><a href="https://github.com/secdev/scapy">Scapy</a></li>
+<li><a href="https://capnproto.org">Cap’n Proto</a></li>
+<li><a href="https://google.github.io/flatbuffers/">FlatBuffers</a></li>
+<li><a href="https://engineering.fb.com/2015/07/31/android/improving-facebook-s-performance-on-android-with-flatbuffers/">Improving Facebook’s performance on Android with FlatBuffers</a></li>
+<li><a href="https://google.github.io/flatbuffers/flexbuffers.html">FlexBuffers</a></li>
+<li><a href="https://serde.rs/">Serde</a></li>
+<li><a href="https://habr.com/ru/post/673110/">Сравнение гетерогенных блокчейнов (Cosmos, Polkadot, Avalanche)</a></li>
+<li><a href="https://ru.wikipedia.org/wiki/%D0%90%D1%82%D0%B0%D0%BA%D0%B0_%D0%A1%D0%B8%D0%B2%D0%B8%D0%BB%D0%BB%D1%8B">Wikipedia Атака Сивиллы</a></li>
+<li><a href="https://ethereum.org/en/whitepaper/">Ethereum Whitepaper</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Reed%27s_law">Wikipedia Reed’s law</a></li>
+<li><a href="https://habr.com/ru/company/timeweb/blog/672494/">Как работает Wi-fi. Часть 1. История беспроводных сетей</a></li>
+<li><a href="https://habr.com/ru/company/timeweb/blog/677452/">Как работает Wi-fi. Часть 2. Физический уровень</a></li>
+<li><a href="https://blog.chain.link/blockchain-trust-model/">What Everyone Gets Wrong About Blockchains</a></li>
+<li><a href="https://habr.com/ru/post/688076/">Что такое слои блокчейна L0, L1, L2 и L3 и зачем они нужны</a></li>
+<li><a href="https://chorus.one/networks/ethereum/">About Staking on Ethereum</a></li>
+<li><a href="https://habr.com/ru/post/703360/">Заблуждения программистов о времени</a></li>
+<li><a href="https://developers.urbit.org/reference">Urbit Reference</a></li>
+<li><a href="https://opentelemetry.io/docs/concepts/">Opentelemetry Concepts</a></li>
+<li><a href="https://habr.com/ru/company/dcmiran/blog/699024/">TCP — плохой вариант для дата-центров. Встречайте новый протокол Homa</a></li>
+<li><a href="https://research.google/pubs/pub48630/">Snap: a Microkernel Approach to Host Networking</a></li>
+<li><a href="https://github.com/ethereumbook/ethereumbook">Mastering Ethereum, by Andreas M. Antonopoulos, Gavin Wood</a></li>
+<li><a href="https://bitcoin.org/en/full-node">Running A Full Node</a></li>
+<li>Andy Pavlo <a href="https://ottertune.com/blog/2022-databases-retrospective/">Databases in 2022: A Year in Review</a></li>
+<li><a href="https://www.wsj.com/articles/blockchain-fails-to-gain-traction-in-the-enterprise-11671057528">Blockchain Fails to Gain Traction in the Enterprise</a></li>
+<li><a href="https://www.r3.com/case-studies/spunta/">Fast and Transparent Interbank Reconciliation Powered by Distributed Ledger Technology</a></li>
+<li><a href="https://habr.com/ru/post/709216/">Что такое блокчейн-мост и какие риски он в себе таит?</a></li>
+<li><a href="https://habr.com/ru/post/709312/">VPN Gate, или — неубиваемая Великим Китайским Файрволом распределённая сеть VPN</a></li>
+<li>Melissa E. O’Neill <a href="https://www.pcg-random.org/pdf/hmc-cs-2014-0905.pdf">PCG: A Family of Simple Fast Space-Efficient Statistically Good Algorithms for Random Number Generation</a></li>
+<li><a href="https://www.r3.com/case-studies/spunta/">Fast and Transparent Interbank Reconciliation Powered by Distributed Ledger Technology</a></li>
+<li><a href="https://cyberlab.pacific.edu/courses/cybr200/resources/08.09-cryptography-rng-entropy.pdf">Random Number Generation (Entropy)</a></li>
+<li><a href="https://www.redhat.com/en/blog/understanding-random-number-generators-and-their-limitations-linux">Understanding random number generators, and their limitations, in Linux</a></li>
+<li><a href="https://www.quora.com/How-does-a-true-random-number-generator-collect-entropy-data">How does a true random number generator collect entropy data?</a></li>
+<li>Nick Sullivan <a href="https://blog.cloudflare.com/ensuring-randomness-with-linuxs-random-number-generator/">Ensuring Randomness with Linux’s Random Number Generator</a></li>
+<li>Igor Adamenko <a href="https://uploadcare.com/blog/basics-of-the-internet/">Basics of the Internet</a></li>
+<li>Igor Adamenko <a href="https://uploadcare.com/blog/tcp-udp/">TCP &amp; UDP, or the two pillars of the Internet</a></li>
+<li>Igor Adamenko <a href="https://uploadcare.com/blog/ip/">Internet addressing</a></li>
+<li>Igor Adamenko <a href="https://uploadcare.com/blog/bgp/">Where are the borders in the Internet?</a></li>
+<li>Igor Adamenko <a href="https://uploadcare.com/blog/dns/">How DNS servers and resolvers work</a></li>
+<li><a href="https://www.2uo.de/myths-about-urandom/">Myths about /dev/urandom</a></li>
+<li><a href="https://habr.com/ru/post/710606/">SSU2 — транспортный протокол I2P нового поколения на базе UDP</a></li>
+<li><a href="https://docs.victoriametrics.com/keyConcepts.html">VictoriaMetrics Key concepts</a></li>
+<li><a href="https://dzone.com/articles/distributed-sql-an-alternative-to-sharding">Distributed SQL: An Alternative to Database Sharding</a></li>
+<li>Marc Brooker <a href="https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/">Exponential Backoff And Jitter</a></li>
+<li><a href="https://hackmd.io/@prysmaticlabs/finality">What Happens After Finality in ETH2?</a></li>
+<li>Ognyan Chikov <a href="https://www.infoq.com/articles/creating-decentralized-apps/">The Process of Creating Decentralized Apps (dApps)</a></li>
+<li>Dan Luu <a href="https://danluu.com/file-consistency/">Files are hard</a></li>
+<li>Dan Luu <a href="https://danluu.com/deconstruct-files/">Files are fraught with peril</a></li>
+<li>Dan Luu <a href="https://danluu.com/postmortem-lessons/">Reading postmortems</a></li>
+<li>Dan Luu <a href="https://danluu.com/concurrency-bugs/">Notes on concurrency bugs</a></li>
+<li><a href="https://ethos.dev/beacon-chain">The Beacon Chain Ethereum 2.0 explainer you need to read first</a></li>
+<li><a href="https://www.youtube.com/watch?v=BH2jvJ74npM">TigerBeetle - A Million Financial Transactions per Second in Zig</a></li>
+<li>Joran Dirk Greef <a href="https://www.youtube.com/watch?v=w3WYdYyjek4">TigerStyle! (Or How To Design Safer Systems in Less Time)</a></li>
+<li><a href="https://www.youtube.com/watch?v=J1OaBRTV2vs">Interledger Community Call - 25 November 2020</a></li>
+<li>Martin Thompson <a href="https://www.infoq.com/presentations/financial-exchange-architecture/">Evolution of Financial Exchange Architectures</a></li>
+<li><a href="https://habr.com/ru/articles/683270/">Как концептуально работает Tornado Cash, который «забанили» власти США</a></li>
+<li><a href="https://habr.com/ru/companies/pt/articles/735756/">Перехват трафика как вектор атаки на пользователей блокчейн-проектов</a></li>
+<li>Preethi Kasireddy <a href="https://www.preethikasireddy.com/post/how-does-ethereum-work-anyway">How does Ethereum work, anyway?</a></li>
+<li>Preethi Kasireddy <a href="https://www.preethikasireddy.com/post/how-does-the-new-ethereum-work">How does the NEW Ethereum work?</a></li>
+<li><a href="https://ethereum.org/en/staking/dvt/">Distributed validator technology</a></li>
+<li><a href="https://habr.com/ru/articles/743878/">Ethereum Contract ABI Specification. Взаимодействие с контрактом</a></li>
+<li>Anton Ilinchik, Vishal Varshney <a href="https://engineering.zalando.com/posts/2023/07/all-you-need-to-know-about-timeouts.html">All you need to know about timeouts</a></li>
+<li>Konstantinos Tsiaras <a href="https://dspace.lib.ntua.gr/xmlui/bitstream/handle/123456789/57592/Tsiaras_thesis.pdf?sequence=1">Study and Resource Analysis of Ethereum Execution Client Bootstrapping</a></li>
+<li><a href="https://minaprotocol.com/blog/proof-of-work-vs-proof-of-stake">Proof-of-Work vs Proof-of-Stake</a></li>
+<li><a href="https://minaprotocol.com/blog/how-ouroboros-samasika-upholds-minas-goals-of-decentralization">How Ouroboros Samasika Upholds Mina’s Goals of Decentralization</a></li>
+<li>Brad Cohn, Evan Shapiro, and Emre Tekişalp <a href="https://minaprotocol.com/wp-content/uploads/economicsWhitepaper-2.pdf">Mina: Economics and Monetary Policy</a></li>
+<li>Jeff Hodges <a href="https://www.somethingsimilar.com/2013/01/14/notes-on-distributed-systems-for-young-bloods/">Notes on Distributed Systems for Young Bloods</a></li>
+<li><a href="https://courses.cfte.education/blockchain-and-defi-projects/">Blockchain and Digital Asset projects worldwide in 2023</a></li>
+<li><a href="https://wiki.polkadot.network/docs">Polkadot documentation</a></li>
+<li><a href="https://assets.polkadot.network/Polkadot-lightpaper.pdf">Polkadot light paper</a></li>
+<li><a href="https://docs.substrate.io/">Substrate Documentation</a></li>
 </ul>
-<p>https://www.practicalnetworking.net/series/packet-traveling/key-players/
-https://www.practicalnetworking.net/series/arp/arp-in-5-minutes/
-https://www.practicalnetworking.net/series/nat/nat/
+<p>https://www.practicalnetworking.net/series/nat/nat/
 https://www.practicalnetworking.net/series/arp/address-resolution-protocol/
 https://www.practicalnetworking.net/stand-alone/communication-through-multiple-switches/
 https://www.practicalnetworking.net/series/arp/gratuitous-arp/
 https://www.practicalnetworking.net/series/arp/arp-probe-arp-announcement/
-https://www.practicalnetworking.net/series/arp/traditional-arp/
 https://www.practicalnetworking.net/stand-alone/vlans/
 https://www.practicalnetworking.net/stand-alone/eigrp-metric/
 https://www.practicalnetworking.net/series/packet-traveling/packet-traveling/
@@ -321,7 +451,10 @@ https://www.practicalnetworking.net/series/packet-traveling/packet-traveling-ser
 https://www.practicalnetworking.net/series/packet-traveling/host-to-host-through-a-router/
 https://www.practicalnetworking.net/series/packet-traveling/host-to-host/
 https://www.practicalnetworking.net/series/packet-traveling/host-to-host-through-a-switch/
-https://www.practicalnetworking.net/stand-alone/ethernet-wiring/</p>
+https://www.practicalnetworking.net/stand-alone/ethernet-wiring/
+https://habr.com/ru/post/684524/
+https://habr.com/ru/post/675812/
+https://habr.com/ru/post/686230/</p>
 <p>http://book.itep.ru/4/6/bitcoin.htm
 http://book.itep.ru//4/6/blockchain.htm
 http://book.itep.ru/5/cicl_54.htm
@@ -359,6 +492,8 @@ https://habr.com/ru/post/430172/</p>
                             <a rel="prev" href="decentralized/smart-contracts.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
+
+
                         <div style="clear: both"></div>
                     </nav>
                 </div>
@@ -368,20 +503,30 @@ https://habr.com/ru/post/430172/</p>
                     <a rel="prev" href="decentralized/smart-contracts.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
+
             </nav>
 
         </div>
 
-        <script type="text/javascript">
+
+
+
+        <script>
             window.playground_copyable = true;
         </script>
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
 
         <!-- Custom JS scripts -->
+
+
+    </div>
     </body>
 </html>
