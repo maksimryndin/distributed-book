@@ -34,7 +34,8 @@ Caching, keep-alive connections, geoghraphical proximity to the users are among 
 So for a distributed system it is absolutely necessary to handle different network failures (which are quite common):
 * meet bandwith requirements and handle network congestion on scaling;
 * deal with increased latencies;
-* have policies for network partitions: if a network partition creates two and more subclusters and such subclusters can behave independently (situation known as a *split-brain*[^rabbitmq]), how should the system evolve and finally merge conflicting states? 
+* have policies for network partitions: if a network partition creates two and more subclusters and such subclusters can behave independently (situation known as a *split-brain*[^rabbitmq]), how should the system evolve and finally merge conflicting states?
+* implement backpressure
 
 [^osi]: Most of us have heard about [OSI model](https://en.wikipedia.org/wiki/OSI_model) as a theoretical framework to discuss networking stack. Just for reference:
 * L1 - Physical layer (bits)

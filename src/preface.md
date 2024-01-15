@@ -22,7 +22,7 @@ All above mentioned books have their own view on what topics and at what level s
 
 Despite I've read the books above, I had no clear mental picture and systematic view of Raft Algorithm, Lamport clocks and other distributed buzzwords. So this book tries to cover important topics (choice is subjective, of course) and to serve as a practical guide for busy engineers striving to grasp core concepts in a timely manner.
 
-True understanding comes with real doing, so practice through exercises is a necessary part of learning. I have chosen Rust as a language to use throughout the book as I believe that Rust incorporates modern best practices and solid theoretical achievements. Experienced developers will dive without further ado. But for those who like more gradual involvement I could recommend the following excellent free resources to start with:
+True understanding comes with real doing, so practice through exercises is a necessary part of learning. I have chosen Rust[^disclaimer] as a language to use throughout the book as I believe that Rust incorporates modern best practices and solid theoretical achievements. Experienced developers will dive without further ado. But for those who like more gradual involvement I could recommend the following excellent free resources to start with:
 * [Easy Rust](https://dhghomon.github.io/easy_rust/)
 * [Rust by example](https://doc.rust-lang.org/rust-by-example/)
 
@@ -43,7 +43,7 @@ Also any suggestions, improvements, fixes are welcome. You can provide merge req
 
 ## Acknowledgments
 
-I would like to tell many kind words to people who influenced me as a software engineer during my career. First of all, the friend of mine, [Farit Sadykov](https://github.com/Farit), who helped me a lot to become a developer. Also my colleagues, especially [Pavel Antonov](https://github.com/softzilla), [Nikolay Yurov](https://github.com/dbz-legacy), [Vladimir Galkin](https://github.com/lan-pnz), Pavel Gorbunov, [Andrey Belov](https://github.com/andybelov), Evgeny Orlov, [Ilya Zhigalko](https://otus.ru/teacher/1300/), Slava Cheremushkin, [Kirill Zhuravlev](https://github.com/kazhuravlev), [Ilya Scherbakov](https://github.com/scherbakoviv).
+I would like to tell many kind words to people who influenced me as a software engineer during my career. First of all, the friend of mine, [Farit Sadykov](https://github.com/Farit), who helped me a lot to become a developer. Also my colleagues, especially [Pavel Antonov](https://github.com/softzilla), [Nikolay Yurov](https://github.com/dbz-legacy), [Vladimir Galkin](https://github.com/lan-pnz), Pavel Gorbunov, [Andrey Belov](https://github.com/andybelov), Evgeny Orlov, [Ilya Zhigalko](https://otus.ru/teacher/1300/), Slava Cheremushkin, [Kirill Zhuravlev](https://github.com/kazhuravlev), [Ilya Scherbakov](https://github.com/scherbakoviv), [Dariusz Antoniuk](https://github.com/QAston), [Ruud van Asseldonk](https://github.com/ruuda), [Michael Livshin](https://github.com/cmm).
 
 Also many thanks to open source enthusiasts creating wonderful products, books, and articles, generously sharing knowledge with the rest of the world. We truly stand on the shoulders of giants.
 
@@ -52,6 +52,8 @@ Also many thanks to open source enthusiasts creating wonderful products, books, 
 
 *Montenegro, 2022.*
 
+
+[^disclaimer]: This book is not affiliated with [Rust Foundation](https://foundation.rust-lang.org/)
 
 [^note]: Being scalable doesn't only mean software and infrastructure while adding more servers. It's also about your team being ready to grow with growing traffic. So being prepared to go distributed is a must-have for every team member in terms of some introductory learning experience, automated pipelines and merge reviews etc.
 Please watch very informative [presentation](https://www.youtube.com/watch?v=hnpzNAPiC0E) by Lisa Guo on scaling Instagram.

@@ -33,6 +33,7 @@ Erlang is actively modernized and continuosly developed. So it's a solid foundat
 * communication is asynchronous so no node has to wait any acknowledgement that its message was received by another one;
 * message passing is location transparent (the code to send message to local Erlang process is the same as for sending to a process on another node in the cluster -- at a cost of more RAM and time to `memcpy` as every message is deeply copied);
 * maintaining global mutable data (namespace of lightweight processes in case of Erlang) and full connectivity severely limits scalability.
+* fail-fast - correctness is more important than availability (of course, depends on the startup time). Erlang philosophy denies defensive programming (when you try to recover from all errors). So assertions in the production code are beneficial - they declare negative flow and don't allow the distributed system (which is designed to be fault tolerant) to behave incorrectly[^tigerbeetle].
 
 
 [^klarna]: For example, Swedish fintech Klarna uses Erlang as it's core platform handling 2 million transactions per day - look at their [job descriptions](https://jobs.lever.co/klarna?team=Engineering).
@@ -58,3 +59,5 @@ Erlang is actively modernized and continuosly developed. So it's a solid foundat
 [^erlang_nodes]: [Scaling Reliably: Improving the Scalability of the Erlang Distributed Actor Platform](https://arxiv.org/pdf/1704.07234.pdf)
 
 [^erlang_scale]: See [Scaling Reliably: Improving the Scalability of the Erlang Distributed Actor Platform](https://arxiv.org/pdf/1704.07234.pdf), [Scaling Erlang Cluster to 10,000 Nodes](https://www.infoq.com/presentations/erland-scale-10000-nodes/), [Stackoverflow question](https://stackoverflow.com/questions/5044574/how-scalable-is-distributed-erlang)
+
+[^tigerbeetle]: See also Joran Dirk Greef [TigerStyle! (Or How To Design Safer Systems in Less Time)](https://www.youtube.com/watch?v=w3WYdYyjek4)

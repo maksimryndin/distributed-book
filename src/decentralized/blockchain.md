@@ -2,11 +2,16 @@
 
 Permissioned vs permisionless
 
+TODO: Focus on consensus (POW, POS) as a lesson for the book purposes
+
 TPS (transactions per second)
 
 Blockchain network (also called cluster) is p2p network of nodes (called validators in Solana) exchanging with a copy of a ledger (blockchain). Typically 10 - 50 validators totaling 1000-2000 nodes[^validators]
 
 * distributed state transition requires consensus
+
+Replicated state machine, state transition is recorded as a block. The first state is the genesis block. State transition is done via applying a transaction. Several state transitions (i.e. transactions) are usually combined in a single block for time and space efficiency.
+When several competing chains exist, we need to choose one (called *canonical chain*) via a consensus mechanism (PoW, PoS, PoA). Notion of finality.
 
 
 Smart contracts are run on VM (Sealevel for Solana, EVM for Ethereum)
@@ -48,10 +53,29 @@ Or the topology of network is changed
 
 In case of validators pool with classic consensus we need some voting mechanism to allow for more even participation (quadratic voting, https://wiki.polkadot.network/docs/learn-phragmen)
 
+Byzantine Fault Tolerance (BFT, Tendermint) and Byzantine Agreement-based (Algorand) => limit the number of validators
 
+
+
+Permisionneless (public) blockchains
+- Ethereum
+- Monero
+- Bitcoin
+etc
+
+Permissioned blockchains to create CBDC (Cetral Bank Digital Currency, Interbanking communication - like SWIFT traditionally does)
+- HyperledgerFabric by IBM/Linux Foundation
+- Corda by R3
+- atop Ethereum https://github.com/Consensys/quorum
+- with Polkadot Substrate
+- with Avalanche Evergreen
+
+Problem - grows of the blockchain data. Notion of the succint blockchain (example of Mina)
 
 [^validators]: [https://forums.solana.com/t/validator-information-thread/577/51](https://forums.solana.com/t/validator-information-thread/577/51)
 
 [^validators oligopoly]: See, for example, Solana's validators market shares and commissions [https://solanabeach.io/validators](https://solanabeach.io/validators)
 
 [^buterin]: (https://ethereum.org/en/whitepaper/)
+
+[^projects]: https://courses.cfte.education/blockchain-and-defi-projects/
