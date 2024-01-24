@@ -260,6 +260,7 @@ Here are the list of references to cool articles and books etc I've used to prep
 * [Polkadot documentation](https://wiki.polkadot.network/docs)
 * [Polkadot light paper](https://assets.polkadot.network/Polkadot-lightpaper.pdf)
 * [Substrate Documentation](https://docs.substrate.io/)
+* Dr. Gavin Wood [POLKADOT: VISION FOR A HETEROGENEOUS MULTI-CHAIN FRAMEWORK](https://assets.polkadot.network/Polkadot-whitepaper.pdf)
 
 https://www.practicalnetworking.net/series/nat/nat/
 https://www.practicalnetworking.net/series/arp/address-resolution-protocol/
