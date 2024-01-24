@@ -178,13 +178,14 @@
                     <main>
                         <h1 id="blockchain"><a class="header" href="#blockchain">Blockchain</a></h1>
 <p>Permissioned vs permisionless</p>
-<p>TODO: Focus on consensus (POW, POS) as a lesson for the book purposes</p>
+<p>TODO: Focus on consensus (POW, POS, POH) as a lesson for the book purposes</p>
 <p>TPS (transactions per second)</p>
+<p>A permissioneless blockchain as a solution to BFT</p>
 <p>Blockchain network (also called cluster) is p2p network of nodes (called validators in Solana) exchanging with a copy of a ledger (blockchain). Typically 10 - 50 validators totaling 1000-2000 nodes<sup class="footnote-reference"><a href="#validators">1</a></sup></p>
 <ul>
 <li>distributed state transition requires consensus</li>
 </ul>
-<p>Replicated state machine, state transition is recorded as a block. The first state is the genesis block. State transition is done via applying a transaction. Several state transitions (i.e. transactions) are usually combined in a single block for time and space efficiency.
+<p>Replicated state machine, state transition is recorded as a block. The first state is the genesis block. State transition is done via applying a transaction. Several state transitions (i.e. transactions) are usually combined into a single block for time and space efficiency.
 When several competing chains exist, we need to choose one (called <em>canonical chain</em>) via a consensus mechanism (PoW, PoS, PoA). Notion of finality.</p>
 <p>Smart contracts are run on VM (Sealevel for Solana, EVM for Ethereum)</p>
 <p>Client is a program communicating with a cluster via transactions (composed of several intructions in terms of solana). </p>
@@ -215,6 +216,7 @@ Or the topology of network is changed</p>
 </ul>
 <p>In case of validators pool with classic consensus we need some voting mechanism to allow for more even participation (quadratic voting, https://wiki.polkadot.network/docs/learn-phragmen)</p>
 <p>Byzantine Fault Tolerance (BFT, Tendermint) and Byzantine Agreement-based (Algorand) =&gt; limit the number of validators</p>
+<p>POW and POS tend to created concentrated pools which contradicts to decentralization</p>
 <p>Permisionneless (public) blockchains</p>
 <ul>
 <li>Ethereum</li>
@@ -222,7 +224,7 @@ Or the topology of network is changed</p>
 <li>Bitcoin
 etc</li>
 </ul>
-<p>Permissioned blockchains to create CBDC (Cetral Bank Digital Currency, Interbanking communication - like SWIFT traditionally does)</p>
+<p>Permissioned blockchains to create CBDC (Cetral Bank Digital Currency, Interbanking communication - like SWIFT traditionally does) (not about decentralization)</p>
 <ul>
 <li>HyperledgerFabric by IBM/Linux Foundation</li>
 <li>Corda by R3</li>
