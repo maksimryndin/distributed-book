@@ -261,6 +261,14 @@ Here are the list of references to cool articles and books etc I've used to prep
 * [Polkadot light paper](https://assets.polkadot.network/Polkadot-lightpaper.pdf)
 * [Substrate Documentation](https://docs.substrate.io/)
 * Dr. Gavin Wood [POLKADOT: VISION FOR A HETEROGENEOUS MULTI-CHAIN FRAMEWORK](https://assets.polkadot.network/Polkadot-whitepaper.pdf)
+* Alvaro Videla [Failure modes in distributed systems](https://alvaro-videla.com/2013/12/failure-modes-in-distributed-systems.html)
+* Vaidehi Joshi [Modes of Failure (Part 1)](https://medium.com/baseds/modes-of-failure-part-1-6687504bfed6)
+* Vaidehi Joshi [Modes of Failure (Part 2)](https://medium.com/baseds/modes-of-failure-part-2-4d050794be2f)
+* Leslie Lamport [Time, Clocks, and the Ordering of Events in a Distributed System](https://amturing.acm.org/p558-lamport.pdf)
+* [Wikipedia Vector clock](https://en.wikipedia.org/wiki/Vector_clock)
+* Bryan Fink [Why Vector Clocks are Easy](https://riak.com/why-vector-clocks-are-easy/)
+* Justin Sheehy [Why Vector Clocks Are Hard](https://riak.com/why-vector-clocks-are-hard/)
+
 
 https://www.practicalnetworking.net/series/nat/nat/
 https://www.practicalnetworking.net/series/arp/address-resolution-protocol/
