@@ -52,6 +52,7 @@ So either some nodes (called validators) are selected to validate transactions o
 Or the topology of network is changed
 - it is sharded by feature (DeFi blockchain, smart contracts etc) (Cosmos blockchain)
 - centralization - when there is central network to validate (Polkadot)
+[A Foray Into Blockchain Scalability](https://jumpcrypto.com/writing/foray-into-scalability/)
 
 In case of validators pool with classic consensus we need some voting mechanism to allow for more even participation (quadratic voting, https://wiki.polkadot.network/docs/learn-phragmen)
 

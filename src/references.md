@@ -268,7 +268,21 @@ Here are the list of references to cool articles and books etc I've used to prep
 * [Wikipedia Vector clock](https://en.wikipedia.org/wiki/Vector_clock)
 * Bryan Fink [Why Vector Clocks are Easy](https://riak.com/why-vector-clocks-are-easy/)
 * Justin Sheehy [Why Vector Clocks Are Hard](https://riak.com/why-vector-clocks-are-hard/)
-
+* Giuseppe DeCandia et al [Dynamo: Amazon’s Highly Available Key-value Store](https://www.allthingsdistributed.com/files/amazon-dynamo-sosp2007.pdf)
+* [Distributed Computing Manifesto](https://www.allthingsdistributed.com/files/amazon-distributed-computing-manifesto-1998.pdf)
+* Jonathan Ellis [Why Cassandra Doesn’t Need Vector Clocks](https://www.datastax.com/blog/why-cassandra-doesnt-need-vector-clocks)
+* Carlos Baquero, Nuno Preguiça [Why Logical Clocks are Easy](https://queue.acm.org/detail.cfm?id=2917756)
+* Barbara Simons, Jennifer Lundelius Welch and Nancy Lynch [An Overview of Clock Synchronization](https://groups.csail.mit.edu/tds/papers/Lynch/lncs90-asilomar.pdf)
+* Shihui Song [Survey on Scalable Failure Detectors](http://www.scs.stanford.edu/14au-cs244b/labs/projects/song.pdf)
+* [Wikipedia Lamport timestamp](https://en.wikipedia.org/wiki/Lamport_timestamp)
+* Tushar Deepak Chandra and Sam Toueg [Unreliable Failure Detectors for Reliable Distributed Systems](http://courses.csail.mit.edu/6.852/08/papers/CT96-JACM.pdf)
+* [A Foray Into Blockchain Scalability](https://jumpcrypto.com/writing/foray-into-scalability/)
+* Ivan Velichko [Computer Networking Introduction: Ethernet and IP (Heavily Illustrated)](https://iximiuz.com/en/posts/computer-networking-101/)
+* Ivan Velichko [Bridge vs. Switch: What I Learned From a Data Center Tour](https://iximiuz.com/en/posts/bridge-vs-switch/)
+* Ivan Velichko [Illustrated introduction to Linux iptables](https://iximiuz.com/en/posts/laymans-iptables-101/)
+* Thomas Graf [Why is the kernel community replacing iptables with BPF?](https://cilium.io/blog/2018/04/17/why-is-the-kernel-community-replacing-iptables/)
+* Jeremy Colvin [What is Kube-Proxy and why move from iptables to eBPF?](https://isovalent.com/blog/post/why-replace-iptables-with-ebpf/)
+* Manish Sampat [When (And When Not) to Use eBPF](https://cloudnativenow.com/topics/when-and-when-not-to-use-ebpf/)
 
 https://www.practicalnetworking.net/series/nat/nat/
 https://www.practicalnetworking.net/series/arp/address-resolution-protocol/
