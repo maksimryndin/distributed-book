@@ -186,8 +186,8 @@ $ cd netstack
 <pre><code class="language-toml ignore">[workspace]
 
 members = [
-    &quot;virtual-interface&quot;,
-    &quot;bindings&quot;,
+    "virtual-interface",
+    "bindings",
 ]
 </code></pre>
 <p>After we create libs running <code>cargo new --lib virtual-interface</code> and <code>cargo new --lib bindings</code> in the <code>netstack</code> directory. So to create a virtual network device, we need to open for a read-write access file <code>/dev/net/tun</code> and configure it with <code>ioctl</code> - a swiss knife of device management in Unix/Linux. Essentialy, <code>ioctl</code> as a universal system call (please see <code>man ioctl</code>) was created to control different devices and be extensible to manage new types of devices. To achieve this goal <code>ioctl</code> accepts an open file descriptor (device), a request code - unsigned long number which is <a href="https://www.kernel.org/doc/Documentation/ioctl/ioctl-number.txt">unique across devices</a> and it can accept a pointer to some datastructure related to the specific device. In our case of a network device (TAP device) such a control structure is <code>ifreq</code> (<em>interface request</em>, see <code>man 7 netdevice</code>) and a request code is <code>TUNSETIFF</code>.</p>
@@ -204,7 +204,7 @@ use std::path::PathBuf;
 
 fn main() {
     // Tell cargo to invalidate the built crate whenever the wrapper changes
-    println!(&quot;cargo:rerun-if-changed=wrapper.h&quot;);
+    println!("cargo:rerun-if-changed=wrapper.h");
 
     // The bindgen::Builder is the main entry point
     // to bindgen, and lets you build up options for
@@ -212,24 +212,24 @@ fn main() {
     let bindings = bindgen::Builder::default()
         // The input header we would like to generate
         // bindings for.
-        .header(&quot;wrapper.h&quot;)
+        .header("wrapper.h")
         // Tell cargo to invalidate the built crate whenever any of the
         // included header files changed.
         .parse_callbacks(Box::new(bindgen::CargoCallbacks))
         // Finish the builder and generate the bindings.
         .generate()
         // Unwrap the Result and panic on failure.
-        .expect(&quot;Unable to generate bindings&quot;);
+        .expect("Unable to generate bindings");
 
     // Write the bindings to the $OUT_DIR/bindings.rs file.
-    let out_path = PathBuf::from(env::var(&quot;OUT_DIR&quot;).unwrap());
+    let out_path = PathBuf::from(env::var("OUT_DIR").unwrap());
     bindings
-        .write_to_file(out_path.join(&quot;bindings.rs&quot;))
-        .expect(&quot;Couldn't write bindings!&quot;);
+        .write_to_file(out_path.join("bindings.rs"))
+        .expect("Couldn't write bindings!");
 }</code></pre>
 <p>Run <code>cargo build</code> and at <code>target/debug/build/bindings-.../out/bindings.rs</code> we can find needed bindings except <code>TUNSETIFF</code> which is a required request code for <code>ioctl</code> (bindgen <a href="https://github.com/rust-lang/rust-bindgen/issues/753">do not generate bindings for functional macros</a>) so if we check contents of <code>/usr/include/linux/if_tun.h</code> then we see <code>TUNSETIFF</code> is a functional macro <code>#define TUNSETIFF _IOW('T', 202, int)</code> so let’s port the C macro code from <code>/usr/include/asm-generic/ioctl.h</code> where participating macros live.</p>
 <p>In <code>netstack/bindings/src/lib.rs</code></p>
-<pre><code class="language-rust ignore">include!(concat!(env!(&quot;OUT_DIR&quot;), &quot;/bindings.rs&quot;));
+<pre><code class="language-rust ignore">include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
 use std::mem;
 use std::os::raw;
 
@@ -258,7 +258,7 @@ use std::os::unix::io::{FromRawFd, IntoRawFd};
 
 use bindings;
 
-const VIRTUAL_DEVICE: &amp;str = &quot;/dev/net/tun&quot;;
+const VIRTUAL_DEVICE: &amp;str = "/dev/net/tun";
 
 #[derive(Debug)]
 pub enum VirtualInterfaceError {
@@ -327,17 +327,17 @@ impl VirtualInterface {
 }</code></pre>
 <p>and import it inside <code>netstack/virtual-interface/src/lib.rs</code>:</p>
 <pre><code class="language-rust ignore">pub mod tap;</code></pre>
-<p>To test the code let’s start with an example <code>netstack/virtual-interface/examples/read_loop.rs</code> </p>
+<p>To test the code let’s start with an example <code>netstack/virtual-interface/examples/read_loop.rs</code></p>
 <pre><code class="language-rust ignore">use std::io::Read;
 use virtual_interface::tap::VirtualInterface;
 
 fn main() {
-    let mut interface = VirtualInterface::create(&quot;dev0&quot;).unwrap();
+    let mut interface = VirtualInterface::create("dev0").unwrap();
     let mut buffer = [0; 4096];
-    println!(&quot;starting read loop for device `dev0`&quot;);
+    println!("starting read loop for device `dev0`");
     loop {
         let n = interface.device().read(&amp;mut buffer[..]).unwrap();
-        println!(&quot;The bytes: {:?}&quot;, &amp;buffer[..n]);
+        println!("The bytes: {:?}", &amp;buffer[..n]);
     }
 }</code></pre>
 <p>and build and run it:</p>
@@ -359,7 +359,7 @@ ioctl(3, TUNSETIFF, 0xffffce5f30e0)     = -1 EPERM (Operation not permitted)
 dev0: &lt;BROADCAST,MULTICAST&gt; mtu 1500 qdisc noop state DOWN mode DEFAULT group default qlen 1000
     link/ether b2:24:f3:9a:71:c1 brd ff:ff:ff:ff:ff:ff
 </code></pre>
-<p>It works<sup class="footnote-reference"><a href="#ip_cli">3</a></sup> But how our binary knows how to call <code>libc</code> functions and use <code>libc</code> structs? Rust dynamically links some system libraries and <code>libc</code> is among them:</p>
+<p>It works!<sup class="footnote-reference"><a href="#ip_cli">3</a></sup> But how our binary knows how to call <code>libc</code> functions and use <code>libc</code> structs? Rust dynamically links some system libraries and <code>libc</code> is among them:</p>
 <pre><code class="language-bash ignore">$ ldd ./target/debug/examples/read_loop
 linux-vdso.so.1 (0x0000ffffb2199000)
 libgcc_s.so.1 =&gt; /lib/aarch64-linux-gnu/libgcc_s.so.1 (0x0000ffffb20c0000)

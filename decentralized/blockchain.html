@@ -188,9 +188,9 @@
 <p>Replicated state machine, state transition is recorded as a block. The first state is the genesis block. State transition is done via applying a transaction. Several state transitions (i.e. transactions) are usually combined into a single block for time and space efficiency.
 When several competing chains exist, we need to choose one (called <em>canonical chain</em>) via a consensus mechanism (PoW, PoS, PoA). Notion of finality.</p>
 <p>Smart contracts are run on VM (Sealevel for Solana, EVM for Ethereum)</p>
-<p>Client is a program communicating with a cluster via transactions (composed of several intructions in terms of solana). </p>
+<p>Client is a program communicating with a cluster via transactions (composed of several intructions in terms of solana).</p>
 <p>Transactions are signed by the client by means of Public Key cryptography.</p>
-<p>dApp -decentralized app is a UI (typically writen in some Javascript flavor) client </p>
+<p>dApp -decentralized app is a UI (typically writen in some Javascript flavor) client</p>
 <p>Node which appends new transaction to the ledger is an elected leader.</p>
 <p>Token is a unit of payments for computing resources of the cluster (running smart contract or validating its output). You can invest some tokens (delegate a stake) into validator gain a reward. Validator takes some fee (commission) for their services (in bitcoin by including a transaction with 25 BTC out of nowhere<sup class="footnote-reference"><a href="#buterin">2</a></sup>. Growing validators can offer lower commission. It favors large validators to become even larger because lower fee insentives investors to delegate their stakes at a lower commission<sup class="footnote-reference"><a href="#validators oligopoly">3</a></sup>.</p>
 <p>If validator behaves maliciously, you los
@@ -206,13 +206,14 @@ To make stakes usually separate stake accounts are used. Solana: Tokens on the s
 <li>with some metaprotocols requiring to use trusted nodes
 Or you should invent your own blockchain</li>
 </ul>
-<p>Buterin suggested EVM to </p>
+<p>Buterin suggested EVM to</p>
 <p>Classical consenus requires all nodes to participates which prevents scalability.
 So either some nodes (called validators) are selected to validate transactions or another way of consensus is suggested (probabilistic consensus of Bitcoin called Nakamoto consensus, probabilistic Avalanche consensus).
 Or the topology of network is changed</p>
 <ul>
 <li>it is sharded by feature (DeFi blockchain, smart contracts etc) (Cosmos blockchain)</li>
-<li>centralization - when there is central network to validate (Polkadot)</li>
+<li>centralization - when there is central network to validate (Polkadot)
+<a href="https://jumpcrypto.com/writing/foray-into-scalability/">A Foray Into Blockchain Scalability</a></li>
 </ul>
 <p>In case of validators pool with classic consensus we need some voting mechanism to allow for more even participation (quadratic voting, https://wiki.polkadot.network/docs/learn-phragmen)</p>
 <p>Byzantine Fault Tolerance (BFT, Tendermint) and Byzantine Agreement-based (Algorand) =&gt; limit the number of validators</p>

@@ -185,7 +185,7 @@
  [0, .., 720, 14]]
 </code></pre>
 <p>where total number of rows is a batch size <code>m</code> and each features row is about 2^20 values (yes, it’s a Twitter’s scale).</p>
-<p>So the first layer of the network requires 2^20 rows in its parameters matrix <code>W</code> consisting of <code>float32</code> numbers (4 bytes each) and it’s number of columns depends on the next layer size, typically 50 - 400 in case of Twitter. So this results in first layer matrices of 
+<p>So the first layer of the network requires 2^20 rows in its parameters matrix <code>W</code> consisting of <code>float32</code> numbers (4 bytes each) and it’s number of columns depends on the next layer size, typically 50 - 400 in case of Twitter. So this results in first layer matrices of
 <code>50 * 2^20  * (4*2^-20) Mb = 200 Mb</code> to <code>400 * 2^20  * (4*2^-20) Mb = 1600 Mb</code>. When you have a lot of worker nodes exhanging gigabyte of data each with parameters servers, your network bandwith is in danger. While first layer is huge, other layers are considerably smaller.</p>
 <p>Twitter approaches this scalability problem with a clever nodes organization<sup class="footnote-reference"><a href="#approach">2</a></sup>.</p>
 <p>Assume we have <code>K</code> worker nodes, <code>P</code> parameters nodes, and <code>n</code> features in a dataset row.
