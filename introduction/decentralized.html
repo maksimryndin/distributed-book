@@ -182,7 +182,7 @@
 <a href="https://www.oxfordreference.com/search?q=decentralized&amp;searchBtn=Search&amp;isQuickSearch=true">Oxford Dictionary of Media and Communication</a></p>
 </blockquote>
 <p>Consider <a href="https://github.com/donnemartin/system-design-primer#master-slave-replication">master-slave replication</a> of database. We have some slave databases running only read requests and a master database server executing read and writes queries and replicating all changes to slaves. Clearly this system is distributed due to the replication link. If we had no mechanism of promoting slave to master in case of the master’s failure, then our system is not decentralized.</p>
-<p>So decentralization insreases fault-tolerance removing single point of failure. But there is also a catch. Consider two network topologies: Mesh (in case of full decentralization) and Star (with central master).</p>
+<p>So decentralization insreases fault-tolerance removing single point of failure. But there is also a catch. Consider two network topologies: Mesh (in case of a full decentralization) and Star (with a central master).</p>
 <p><img src="images/star_mesh.svg" alt="Mesh vs Star" /></p>
 <p>So in the case of <code>n</code> nodes of mesh network topology we have <code>n*(n-1)/2</code> connections[^graph] while in the case of the star network we have only <code>n-1</code> connections. So heavily meshed distributed systems produce increasing network contention.</p>
 
