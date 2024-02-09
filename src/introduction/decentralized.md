@@ -5,7 +5,7 @@
 
 Consider [master-slave replication](https://github.com/donnemartin/system-design-primer#master-slave-replication) of database. We have some slave databases running only read requests and a master database server executing read and writes queries and replicating all changes to slaves. Clearly this system is distributed due to the replication link. If we had no mechanism of promoting slave to master in case of the master's failure, then our system is not decentralized.
 
-So decentralization insreases fault-tolerance removing single point of failure. But there is also a catch. Consider two network topologies: Mesh (in case of full decentralization) and Star (with central master).
+So decentralization insreases fault-tolerance removing single point of failure. But there is also a catch. Consider two network topologies: Mesh (in case of a full decentralization) and Star (with a central master).
 
 ![Mesh vs Star](images/star_mesh.svg)
 

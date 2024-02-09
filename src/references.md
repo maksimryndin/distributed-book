@@ -283,6 +283,8 @@ Here are the list of references to cool articles and books etc I've used to prep
 * Thomas Graf [Why is the kernel community replacing iptables with BPF?](https://cilium.io/blog/2018/04/17/why-is-the-kernel-community-replacing-iptables/)
 * Jeremy Colvin [What is Kube-Proxy and why move from iptables to eBPF?](https://isovalent.com/blog/post/why-replace-iptables-with-ebpf/)
 * Manish Sampat [When (And When Not) to Use eBPF](https://cloudnativenow.com/topics/when-and-when-not-to-use-ebpf/)
+* [Proof of Useful Work](https://wiki.internetcomputer.org/wiki/Proof_of_Useful_Work)
+* [Nakamoto Coefficient: An Accurate Indicator for Blockchain Decentralization?](https://learn.bybit.com/blockchain/nakamoto-coefficient-decentralization/)
 
 https://www.practicalnetworking.net/series/nat/nat/
 https://www.practicalnetworking.net/series/arp/address-resolution-protocol/

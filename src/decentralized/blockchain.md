@@ -52,6 +52,7 @@ So either some nodes (called validators) are selected to validate transactions o
 Or the topology of network is changed
 - it is sharded by feature (DeFi blockchain, smart contracts etc) (Cosmos blockchain)
 - centralization - when there is central network to validate (Polkadot)
+- L2 (layer 2, also called sidechains)
 [A Foray Into Blockchain Scalability](https://jumpcrypto.com/writing/foray-into-scalability/)
 
 In case of validators pool with classic consensus we need some voting mechanism to allow for more even participation (quadratic voting, https://wiki.polkadot.network/docs/learn-phragmen)
@@ -60,6 +61,9 @@ Byzantine Fault Tolerance (BFT, Tendermint) and Byzantine Agreement-based (Algor
 
 
 POW and POS tend to created concentrated pools which contradicts to decentralization
+
+Decentralization index https://nakaflow.io/
+Nakamoto index takes into account not only nodes and owners distribution but also developers participation, codebases diversity.
 
 
 Permisionneless (public) blockchains

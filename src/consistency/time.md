@@ -8,12 +8,21 @@ wall clocks are never perfectly synchronized
 Async vs sync system
 Reliable vs unreliable (fault models) system
 
+Synchronous system assume that there is some bound (known in advance) on the delivery time of messages between nodes.
+Asynchronous system assumes that there is no such a bound. Asynchrounous system seems to be more suitable for nodes interacting via networks but there is no known consensus for such a model.
+
+So partial synchronous model[[DLS88] C. Dwork, N. A. Lynch, and L. J. Stockmeyer. Consensus in the presence of
+partial synchrony.] is used 
+
 a distributed system is asynchronous if there is no bound on message delay, clock drift, or the time
 necessary to execute a step. Thus, to say that a system is asynchronous is to
 make no timing assumptions whatsoever (Chandra)
 
 Full connectivity (all nodes are connected) vs partial
 With Byzantine faults vs without
+
+Liveness property - the consensus makes progress
+Safety property - the consensus behaves correctly (all nodes agree on the order of events)
 
 Fault modes
 Time synchronization
