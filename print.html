@@ -712,6 +712,14 @@ Every Erlang VM is started with a predefined name and then it’s enough to regi
 <p>availability as a metric</p>
 <p>operational and network latency</p>
 <p>algorithm sensitivity to latency</p>
+<p>communication patterns</p>
+<ul>
+<li>unicast (receiver - sender)</li>
+<li>broadcast (sender to all possible receivers)</li>
+<li>multicast (sender to a selected group of receivers)</li>
+<li>convergecast (a group of senders to a receiver)</li>
+</ul>
+<p>Supermajority (2/3) vs simple majority</p>
 <p>Network partitions <em>can be modelled as large packet delays (up to the duration of the partition), provided that the duration of the partition is finite and lost packets are retransmitted an unbounded number of times</em><sup class="footnote-reference"><a href="#kleppmann">1</a></sup>.</p>
 <div class="footnote-definition" id="kleppmann"><sup class="footnote-definition-label">1</sup>
 <p>Martin Kleppmann <a href="https://arxiv.org/abs/1509.05393">A Critique of the CAP Theorem</a></p>
@@ -830,9 +838,23 @@ Or the topology of network is changed</p>
 </ul>
 <p>In case of validators pool with classic consensus we need some voting mechanism to allow for more even participation (quadratic voting, https://wiki.polkadot.network/docs/learn-phragmen)</p>
 <p>Byzantine Fault Tolerance (BFT, Tendermint) and Byzantine Agreement-based (Algorand) =&gt; limit the number of validators</p>
+<p>51% attacks are real https://www.crypto51.app/</p>
 <p>POW and POS tend to created concentrated pools which contradicts to decentralization</p>
-<p>Decentralization index https://nakaflow.io/
-Nakamoto index takes into account not only nodes and owners distribution but also developers participation, codebases diversity.</p>
+<p>There are several proposed decentralization indices like <a href="https://nakaflow.io/">Nakamoto Index</a> or <a href="https://www.ed.ac.uk/informatics/blockchain/edi">Edinburgh Decentralisation Index</a>.
+We will not delve deeply into specific methodologies but will name a few common subsystems being considered.</p>
+<ul>
+<li>(full) nodes distribution by geography and ownership, cloud providers and data centers</li>
+<li>hardware distribution (by geography, vendor, architecture)</li>
+<li>value owners distribution (by accounts, geography, amount of wealth)</li>
+<li>codebase diversity<sup class="footnote-reference"><a href="#lang">4</a></sup></li>
+<li>exhanges support</li>
+<li>number of autonomous systems (AS)</li>
+<li>wallets developers distribution</li>
+<li>juridistiction contraints (e.g. ban on mining)</li>
+<li>governance</li>
+<li>code repository diversity (usually only GitHub)</li>
+</ul>
+<p>Any of such subsystems can become a bootleneck effectively reducing decentralization to very low level (actually the Nakamoto index measures the minimum number of parties to control 51% of the resources in any subsystem<sup class="footnote-reference"><a href="#nakamotoindex">5</a></sup>)</p>
 <p>Permisionneless (public) blockchains</p>
 <ul>
 <li>Ethereum</li>
@@ -848,7 +870,7 @@ etc</li>
 <li>with Polkadot Substrate</li>
 <li>with Avalanche Evergreen</li>
 </ul>
-<p>Problem - grows of the blockchain data. Notion of the succint blockchain (example of Mina)</p>
+<p>Problem - grows of the blockchain data<sup class="footnote-reference"><a href="#blockchain_size">6</a></sup> in terms of hundreds of GBs. Notion of the succint blockchain (example of Mina)</p>
 <div class="footnote-definition" id="validators"><sup class="footnote-definition-label">1</sup>
 <p><a href="https://forums.solana.com/t/validator-information-thread/577/51">https://forums.solana.com/t/validator-information-thread/577/51</a></p>
 </div>
@@ -858,8 +880,17 @@ etc</li>
 <div class="footnote-definition" id="buterin"><sup class="footnote-definition-label">2</sup>
 <p>(https://ethereum.org/en/whitepaper/)</p>
 </div>
-<div class="footnote-definition" id="projects"><sup class="footnote-definition-label">4</sup>
+<div class="footnote-definition" id="projects"><sup class="footnote-definition-label">7</sup>
 <p>https://courses.cfte.education/blockchain-and-defi-projects/</p>
+</div>
+<div class="footnote-definition" id="nakamotoindex"><sup class="footnote-definition-label">5</sup>
+<p>See also Balaji S. Srinivasan <a href="https://news.earn.com/quantifying-decentralization-e39db233c28e">Quantifying Decentralization</a></p>
+</div>
+<div class="footnote-definition" id="lang"><sup class="footnote-definition-label">4</sup>
+<p>Implementation languages also matter: niche ones (like Haskell or OCaml) or too low level ones (like C) can also prevent wider adoption by developers.</p>
+</div>
+<div class="footnote-definition" id="blockchain_size"><sup class="footnote-definition-label">6</sup>
+<p>see <code>Blockchain Size</code> https://bitinfocharts.com/bitcoin/ for Bitcoin, https://etherscan.io/chartsync/chaindefault for Ethereum</p>
 </div>
 <div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><p>Here are the list of references to cool articles and books etc I’ve used to prepare this book.</p>
 <ul>
@@ -1148,6 +1179,15 @@ etc</li>
 <li>Manish Sampat <a href="https://cloudnativenow.com/topics/when-and-when-not-to-use-ebpf/">When (And When Not) to Use eBPF</a></li>
 <li><a href="https://wiki.internetcomputer.org/wiki/Proof_of_Useful_Work">Proof of Useful Work</a></li>
 <li><a href="https://learn.bybit.com/blockchain/nakamoto-coefficient-decentralization/">Nakamoto Coefficient: An Accurate Indicator for Blockchain Decentralization?</a></li>
+<li>Jan Camenisch <a href="https://medium.com/dfinity/chain-key-technology-one-public-key-for-the-internet-computer-6a3644901e28">Chain Key Cryptography: The Scientific Breakthrough Behind the Internet Computer</a></li>
+<li>The DFINITY Team <a href="https://internetcomputer.org/whitepaper.pdf">The Internet Computer for Geeks</a></li>
+<li>Marek Majkowski <a href="https://idea.popcount.org/2017-01-06-select-is-fundamentally-broken/">Select is fundamentally broken</a></li>
+<li>Marek Majkowski <a href="https://idea.popcount.org/2017-02-20-epoll-is-fundamentally-broken-12/">Epoll is fundamentally broken 1/2</a></li>
+<li>Marek Majkowski <a href="https://idea.popcount.org/2017-03-20-epoll-is-fundamentally-broken-22/">Epoll is fundamentally broken 2/2</a></li>
+<li>Rob Habermeier <a href="https://polkadot.network/blog/polkadot-v1-0-sharding-and-economic-security">Polkadot v1.0: Sharding and Economic Security</a></li>
+<li>SPARTAN Research <a href="https://docsend.com/view/5vcmq86fg4wdqkf7">Bitcoin Layers: Tapestry of a Trustless Financial Era</a></li>
+<li>Balaji S. Srinivasan <a href="https://news.earn.com/quantifying-decentralization-e39db233c28e">Quantifying Decentralization</a></li>
+<li>Dimitris Karakostas, Aggelos Kiayias, and Christina Ovezik <a href="https://arxiv.org/pdf/2211.01291.pdf">SoK: A Stratified Approach to Blockchain Decentralization</a></li>
 </ul>
 <p>https://www.practicalnetworking.net/series/nat/nat/
 https://www.practicalnetworking.net/series/arp/address-resolution-protocol/

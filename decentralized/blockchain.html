@@ -218,9 +218,23 @@ Or the topology of network is changed</p>
 </ul>
 <p>In case of validators pool with classic consensus we need some voting mechanism to allow for more even participation (quadratic voting, https://wiki.polkadot.network/docs/learn-phragmen)</p>
 <p>Byzantine Fault Tolerance (BFT, Tendermint) and Byzantine Agreement-based (Algorand) =&gt; limit the number of validators</p>
+<p>51% attacks are real https://www.crypto51.app/</p>
 <p>POW and POS tend to created concentrated pools which contradicts to decentralization</p>
-<p>Decentralization index https://nakaflow.io/
-Nakamoto index takes into account not only nodes and owners distribution but also developers participation, codebases diversity.</p>
+<p>There are several proposed decentralization indices like <a href="https://nakaflow.io/">Nakamoto Index</a> or <a href="https://www.ed.ac.uk/informatics/blockchain/edi">Edinburgh Decentralisation Index</a>.
+We will not delve deeply into specific methodologies but will name a few common subsystems being considered.</p>
+<ul>
+<li>(full) nodes distribution by geography and ownership, cloud providers and data centers</li>
+<li>hardware distribution (by geography, vendor, architecture)</li>
+<li>value owners distribution (by accounts, geography, amount of wealth)</li>
+<li>codebase diversity<sup class="footnote-reference"><a href="#lang">4</a></sup></li>
+<li>exhanges support</li>
+<li>number of autonomous systems (AS)</li>
+<li>wallets developers distribution</li>
+<li>juridistiction contraints (e.g. ban on mining)</li>
+<li>governance</li>
+<li>code repository diversity (usually only GitHub)</li>
+</ul>
+<p>Any of such subsystems can become a bootleneck effectively reducing decentralization to very low level (actually the Nakamoto index measures the minimum number of parties to control 51% of the resources in any subsystem<sup class="footnote-reference"><a href="#nakamotoindex">5</a></sup>)</p>
 <p>Permisionneless (public) blockchains</p>
 <ul>
 <li>Ethereum</li>
@@ -236,7 +250,7 @@ etc</li>
 <li>with Polkadot Substrate</li>
 <li>with Avalanche Evergreen</li>
 </ul>
-<p>Problem - grows of the blockchain data. Notion of the succint blockchain (example of Mina)</p>
+<p>Problem - grows of the blockchain data<sup class="footnote-reference"><a href="#blockchain_size">6</a></sup> in terms of hundreds of GBs. Notion of the succint blockchain (example of Mina)</p>
 <div class="footnote-definition" id="validators"><sup class="footnote-definition-label">1</sup>
 <p><a href="https://forums.solana.com/t/validator-information-thread/577/51">https://forums.solana.com/t/validator-information-thread/577/51</a></p>
 </div>
@@ -246,8 +260,17 @@ etc</li>
 <div class="footnote-definition" id="buterin"><sup class="footnote-definition-label">2</sup>
 <p>(https://ethereum.org/en/whitepaper/)</p>
 </div>
-<div class="footnote-definition" id="projects"><sup class="footnote-definition-label">4</sup>
+<div class="footnote-definition" id="projects"><sup class="footnote-definition-label">7</sup>
 <p>https://courses.cfte.education/blockchain-and-defi-projects/</p>
+</div>
+<div class="footnote-definition" id="nakamotoindex"><sup class="footnote-definition-label">5</sup>
+<p>See also Balaji S. Srinivasan <a href="https://news.earn.com/quantifying-decentralization-e39db233c28e">Quantifying Decentralization</a></p>
+</div>
+<div class="footnote-definition" id="lang"><sup class="footnote-definition-label">4</sup>
+<p>Implementation languages also matter: niche ones (like Haskell or OCaml) or too low level ones (like C) can also prevent wider adoption by developers.</p>
+</div>
+<div class="footnote-definition" id="blockchain_size"><sup class="footnote-definition-label">6</sup>
+<p>see <code>Blockchain Size</code> https://bitinfocharts.com/bitcoin/ for Bitcoin, https://etherscan.io/chartsync/chaindefault for Ethereum</p>
 </div>
 
                     </main>
