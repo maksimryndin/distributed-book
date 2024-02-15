@@ -14,6 +14,13 @@ Asynchronous system assumes that there is no such a bound. Asynchrounous system 
 So partial synchronous model[[DLS88] C. Dwork, N. A. Lynch, and L. J. Stockmeyer. Consensus in the presence of
 partial synchrony.] is used 
 
+partial synchrony, which (roughly stated) says that the network will
+be periodically synchronous for short intervals of time. In such intervals of synchrony, all
+24
+undelivered messages will be delivered in less than time δ, for some fixed bound δ. The
+bound δ does not have to be known in advance (the protocol is initialized with a reasonable
+bound, but will dynamically adapt and increase this bound if it is too small). 
+
 a distributed system is asynchronous if there is no bound on message delay, clock drift, or the time
 necessary to execute a step. Thus, to say that a system is asynchronous is to
 make no timing assumptions whatsoever (Chandra)

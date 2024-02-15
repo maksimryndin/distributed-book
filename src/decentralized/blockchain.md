@@ -59,11 +59,26 @@ In case of validators pool with classic consensus we need some voting mechanism 
 
 Byzantine Fault Tolerance (BFT, Tendermint) and Byzantine Agreement-based (Algorand) => limit the number of validators
 
+51% attacks are real https://www.crypto51.app/
+
 
 POW and POS tend to created concentrated pools which contradicts to decentralization
 
-Decentralization index https://nakaflow.io/
-Nakamoto index takes into account not only nodes and owners distribution but also developers participation, codebases diversity.
+There are several proposed decentralization indices like [Nakamoto Index](https://nakaflow.io/) or [Edinburgh Decentralisation Index](https://www.ed.ac.uk/informatics/blockchain/edi).
+We will not delve deeply into specific methodologies but will name a few common subsystems being considered.
+
+- (full) nodes distribution by geography and ownership, cloud providers and data centers
+- hardware distribution (by geography, vendor, architecture)
+- value owners distribution (by accounts, geography, amount of wealth)
+- codebase diversity[^lang]
+- exhanges support
+- number of autonomous systems (AS)
+- wallets developers distribution
+- juridistiction contraints (e.g. ban on mining)
+- governance
+- code repository diversity (usually only GitHub)
+
+Any of such subsystems can become a bootleneck effectively reducing decentralization to very low level (actually the Nakamoto index measures the minimum number of parties to control 51% of the resources in any subsystem[^nakamotoindex])
 
 
 Permisionneless (public) blockchains
@@ -79,7 +94,7 @@ Permissioned blockchains to create CBDC (Cetral Bank Digital Currency, Interbank
 - with Polkadot Substrate
 - with Avalanche Evergreen
 
-Problem - grows of the blockchain data. Notion of the succint blockchain (example of Mina)
+Problem - grows of the blockchain data[^blockchain_size] in terms of hundreds of GBs. Notion of the succint blockchain (example of Mina)
 
 [^validators]: [https://forums.solana.com/t/validator-information-thread/577/51](https://forums.solana.com/t/validator-information-thread/577/51)
 
@@ -88,3 +103,9 @@ Problem - grows of the blockchain data. Notion of the succint blockchain (exampl
 [^buterin]: (https://ethereum.org/en/whitepaper/)
 
 [^projects]: https://courses.cfte.education/blockchain-and-defi-projects/
+
+[^nakamotoindex]: See also Balaji S. Srinivasan [Quantifying Decentralization](https://news.earn.com/quantifying-decentralization-e39db233c28e)
+
+[^lang]: Implementation languages also matter: niche ones (like Haskell or OCaml) or too low level ones (like C) can also prevent wider adoption by developers.
+
+[^blockchain_size]: see `Blockchain Size` https://bitinfocharts.com/bitcoin/ for Bitcoin, https://etherscan.io/chartsync/chaindefault for Ethereum

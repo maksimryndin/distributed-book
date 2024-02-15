@@ -285,6 +285,15 @@ Here are the list of references to cool articles and books etc I've used to prep
 * Manish Sampat [When (And When Not) to Use eBPF](https://cloudnativenow.com/topics/when-and-when-not-to-use-ebpf/)
 * [Proof of Useful Work](https://wiki.internetcomputer.org/wiki/Proof_of_Useful_Work)
 * [Nakamoto Coefficient: An Accurate Indicator for Blockchain Decentralization?](https://learn.bybit.com/blockchain/nakamoto-coefficient-decentralization/)
+* Jan Camenisch [Chain Key Cryptography: The Scientific Breakthrough Behind the Internet Computer](https://medium.com/dfinity/chain-key-technology-one-public-key-for-the-internet-computer-6a3644901e28)
+* The DFINITY Team [The Internet Computer for Geeks](https://internetcomputer.org/whitepaper.pdf)
+* Marek Majkowski [Select is fundamentally broken](https://idea.popcount.org/2017-01-06-select-is-fundamentally-broken/)
+* Marek Majkowski [Epoll is fundamentally broken 1/2](https://idea.popcount.org/2017-02-20-epoll-is-fundamentally-broken-12/)
+* Marek Majkowski [Epoll is fundamentally broken 2/2](https://idea.popcount.org/2017-03-20-epoll-is-fundamentally-broken-22/)
+* Rob Habermeier [Polkadot v1.0: Sharding and Economic Security](https://polkadot.network/blog/polkadot-v1-0-sharding-and-economic-security)
+* SPARTAN Research [Bitcoin Layers: Tapestry of a Trustless Financial Era](https://docsend.com/view/5vcmq86fg4wdqkf7)
+* Balaji S. Srinivasan [Quantifying Decentralization](https://news.earn.com/quantifying-decentralization-e39db233c28e)
+* Dimitris Karakostas, Aggelos Kiayias, and Christina Ovezik [SoK: A Stratified Approach to Blockchain Decentralization](https://arxiv.org/pdf/2211.01291.pdf)
 
 https://www.practicalnetworking.net/series/nat/nat/
 https://www.practicalnetworking.net/series/arp/address-resolution-protocol/
