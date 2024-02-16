@@ -28,8 +28,7 @@ make no timing assumptions whatsoever (Chandra)
 Full connectivity (all nodes are connected) vs partial
 With Byzantine faults vs without
 
-Liveness property - the consensus makes progress
-Safety property - the consensus behaves correctly (all nodes agree on the order of events)
+
 
 Fault modes
 Time synchronization

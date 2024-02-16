@@ -12,7 +12,7 @@ Blockchain network (also called cluster) is p2p network of nodes (called validat
 
 * distributed state transition requires consensus
 
-Replicated state machine, state transition is recorded as a block. The first state is the genesis block. State transition is done via applying a transaction. Several state transitions (i.e. transactions) are usually combined into a single block for time and space efficiency.
+Replicated state machine, a batch of state transitions (transactions) is recorded as a block. The first state is the genesis block. State transition is done via applying a transaction. Several state transitions (i.e. transactions) are usually combined into a single block for time and space efficiency.
 When several competing chains exist, we need to choose one (called *canonical chain*) via a consensus mechanism (PoW, PoS, PoA). Notion of finality.
 
 
@@ -59,7 +59,7 @@ In case of validators pool with classic consensus we need some voting mechanism 
 
 Byzantine Fault Tolerance (BFT, Tendermint) and Byzantine Agreement-based (Algorand) => limit the number of validators
 
-51% attacks are real https://www.crypto51.app/
+
 
 
 POW and POS tend to created concentrated pools which contradicts to decentralization
@@ -78,7 +78,7 @@ We will not delve deeply into specific methodologies but will name a few common 
 - governance
 - code repository diversity (usually only GitHub)
 
-Any of such subsystems can become a bootleneck effectively reducing decentralization to very low level (actually the Nakamoto index measures the minimum number of parties to control 51% of the resources in any subsystem[^nakamotoindex])
+Any of such subsystems can become a bootleneck effectively reducing decentralization to very low level (actually the Nakamoto index measures the minimum number of parties to control 51% of the resources in any subsystem[^nakamotoindex]). 51% attacks are real https://www.crypto51.app/
 
 
 Permisionneless (public) blockchains

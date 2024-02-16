@@ -294,6 +294,9 @@ Here are the list of references to cool articles and books etc I've used to prep
 * SPARTAN Research [Bitcoin Layers: Tapestry of a Trustless Financial Era](https://docsend.com/view/5vcmq86fg4wdqkf7)
 * Balaji S. Srinivasan [Quantifying Decentralization](https://news.earn.com/quantifying-decentralization-e39db233c28e)
 * Dimitris Karakostas, Aggelos Kiayias, and Christina Ovezik [SoK: A Stratified Approach to Blockchain Decentralization](https://arxiv.org/pdf/2211.01291.pdf)
+* Ivan Velichko [How Container Networking Works: a Docker Bridge Network From Scratch](https://labs.iximiuz.com/tutorials/container-networking-from-scratch)
+* Ivan Velichko [Networking Lab: Ethernet Broadcast Domains](https://iximiuz.com/en/posts/networking-lab-ethernet-broadcast-domains/)
+* Diego Ongaro and John Ousterhout [In Search of an Understandable Consensus Algorithm](https://raft.github.io/raft.pdf)
 
 https://www.practicalnetworking.net/series/nat/nat/
 https://www.practicalnetworking.net/series/arp/address-resolution-protocol/
