@@ -185,7 +185,7 @@
 <ul>
 <li>distributed state transition requires consensus</li>
 </ul>
-<p>Replicated state machine, state transition is recorded as a block. The first state is the genesis block. State transition is done via applying a transaction. Several state transitions (i.e. transactions) are usually combined into a single block for time and space efficiency.
+<p>Replicated state machine, a batch of state transitions (transactions) is recorded as a block. The first state is the genesis block. State transition is done via applying a transaction. Several state transitions (i.e. transactions) are usually combined into a single block for time and space efficiency.
 When several competing chains exist, we need to choose one (called <em>canonical chain</em>) via a consensus mechanism (PoW, PoS, PoA). Notion of finality.</p>
 <p>Smart contracts are run on VM (Sealevel for Solana, EVM for Ethereum)</p>
 <p>Client is a program communicating with a cluster via transactions (composed of several intructions in terms of solana).</p>
@@ -218,7 +218,6 @@ Or the topology of network is changed</p>
 </ul>
 <p>In case of validators pool with classic consensus we need some voting mechanism to allow for more even participation (quadratic voting, https://wiki.polkadot.network/docs/learn-phragmen)</p>
 <p>Byzantine Fault Tolerance (BFT, Tendermint) and Byzantine Agreement-based (Algorand) =&gt; limit the number of validators</p>
-<p>51% attacks are real https://www.crypto51.app/</p>
 <p>POW and POS tend to created concentrated pools which contradicts to decentralization</p>
 <p>There are several proposed decentralization indices like <a href="https://nakaflow.io/">Nakamoto Index</a> or <a href="https://www.ed.ac.uk/informatics/blockchain/edi">Edinburgh Decentralisation Index</a>.
 We will not delve deeply into specific methodologies but will name a few common subsystems being considered.</p>
@@ -234,7 +233,7 @@ We will not delve deeply into specific methodologies but will name a few common 
 <li>governance</li>
 <li>code repository diversity (usually only GitHub)</li>
 </ul>
-<p>Any of such subsystems can become a bootleneck effectively reducing decentralization to very low level (actually the Nakamoto index measures the minimum number of parties to control 51% of the resources in any subsystem<sup class="footnote-reference"><a href="#nakamotoindex">5</a></sup>)</p>
+<p>Any of such subsystems can become a bootleneck effectively reducing decentralization to very low level (actually the Nakamoto index measures the minimum number of parties to control 51% of the resources in any subsystem<sup class="footnote-reference"><a href="#nakamotoindex">5</a></sup>). 51% attacks are real https://www.crypto51.app/</p>
 <p>Permisionneless (public) blockchains</p>
 <ul>
 <li>Ethereum</li>
