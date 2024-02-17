@@ -297,6 +297,8 @@ Here are the list of references to cool articles and books etc I've used to prep
 * Ivan Velichko [How Container Networking Works: a Docker Bridge Network From Scratch](https://labs.iximiuz.com/tutorials/container-networking-from-scratch)
 * Ivan Velichko [Networking Lab: Ethernet Broadcast Domains](https://iximiuz.com/en/posts/networking-lab-ethernet-broadcast-domains/)
 * Diego Ongaro and John Ousterhout [In Search of an Understandable Consensus Algorithm](https://raft.github.io/raft.pdf)
+* Jim Zhang [Consensus Algorithms: PoA, IBFT or Raft?](https://www.kaleido.io/blockchain-blog/consensus-algorithms-poa-ibft-or-raft)
+* Jeff Chase [Distributed Systems, Failures, and Consensus](https://courses.cs.duke.edu//fall07/cps212/consensus.pdf)
 
 https://www.practicalnetworking.net/series/nat/nat/
 https://www.practicalnetworking.net/series/arp/address-resolution-protocol/

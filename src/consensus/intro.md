@@ -8,3 +8,6 @@ Desired properties of consensus
 Consensus protocols
 * with elected leader (Raft, VR)
 * leaderless (EPaxos)
+
+* bft-tolerant (e.g. nodes never assume the leader is correct or honest) PBFT
+* non-bft tolerant (require trusted setup - Raft, VR, Paxos)

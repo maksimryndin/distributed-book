@@ -31,8 +31,17 @@ With Byzantine faults vs without
 
 
 Fault modes
+fail-stop nodes may fail by stopping/crashing
+byzantine - nodes my fail by misbehaving or even intentionally misbehaving
+
 Time synchronization
 Fault detection
+
+FLP 85 - no consensus in async distributed system. So we should introduce some synchronicity. For example, by introducing failure detectors (pings, timeouts, heartbeats).
+Chandra: accuracy vs liveness of failure detectors
+lease and leased clocks
+
+Lamport Pease consensus impossible even in a synchronous distributed system when BFT faults are possible and one third or more processes fail (N <= 3F)
 
 Framework with pluggable fault modes, fault detection algorithms, consensus protocols?
 
