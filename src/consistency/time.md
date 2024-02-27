@@ -5,45 +5,7 @@ Ordering of events and linearizability
 LOgical clocks (events are concurrent just because two processes do not know about each other till some messages exchange occurs even the events have some *physical time* ordering)
 wall clocks are never perfectly synchronized
 
-Async vs sync system
-Reliable vs unreliable (fault models) system
 
-Synchronous system assume that there is some bound (known in advance) on the delivery time of messages between nodes.
-Asynchronous system assumes that there is no such a bound. Asynchrounous system seems to be more suitable for nodes interacting via networks but there is no known consensus for such a model.
-
-So partial synchronous model[[DLS88] C. Dwork, N. A. Lynch, and L. J. Stockmeyer. Consensus in the presence of
-partial synchrony.] is used 
-
-partial synchrony, which (roughly stated) says that the network will
-be periodically synchronous for short intervals of time. In such intervals of synchrony, all
-24
-undelivered messages will be delivered in less than time δ, for some fixed bound δ. The
-bound δ does not have to be known in advance (the protocol is initialized with a reasonable
-bound, but will dynamically adapt and increase this bound if it is too small). 
-
-a distributed system is asynchronous if there is no bound on message delay, clock drift, or the time
-necessary to execute a step. Thus, to say that a system is asynchronous is to
-make no timing assumptions whatsoever (Chandra)
-
-Full connectivity (all nodes are connected) vs partial
-With Byzantine faults vs without
-
-
-
-Fault modes
-fail-stop nodes may fail by stopping/crashing
-byzantine - nodes my fail by misbehaving or even intentionally misbehaving
-
-Time synchronization
-Fault detection
-
-FLP 85 - no consensus in async distributed system. So we should introduce some synchronicity. For example, by introducing failure detectors (pings, timeouts, heartbeats).
-Chandra: accuracy vs liveness of failure detectors
-lease and leased clocks
-
-Lamport Pease consensus impossible even in a synchronous distributed system when BFT faults are possible and one third or more processes fail (N <= 3F)
-
-Framework with pluggable fault modes, fault detection algorithms, consensus protocols?
 
 
 [^lamport] See the seminal paper [Time, Clocks, and the Ordering of Events in a Distributed System](https://amturing.acm.org/p558-lamport.pdf) by Leslie Lamport 

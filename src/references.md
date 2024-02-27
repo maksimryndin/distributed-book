@@ -299,6 +299,11 @@ Here are the list of references to cool articles and books etc I've used to prep
 * Diego Ongaro and John Ousterhout [In Search of an Understandable Consensus Algorithm](https://raft.github.io/raft.pdf)
 * Jim Zhang [Consensus Algorithms: PoA, IBFT or Raft?](https://www.kaleido.io/blockchain-blog/consensus-algorithms-poa-ibft-or-raft)
 * Jeff Chase [Distributed Systems, Failures, and Consensus](https://courses.cs.duke.edu//fall07/cps212/consensus.pdf)
+* Pierre Krieger [Everything I know about networking](https://tomaka.medium.com/everything-i-know-about-networking-8796e4f5846d)
+* [A Brief Tour of FLP Impossibility](http://web.archive.org/web/20231208132153/https://www.the-paper-trail.org/post/2008-08-13-a-brief-tour-of-flp-impossibility/)
+* Michael Fischer, Nancy Lynch, Michael Paterson [Impossibility of Distributed Consensus with One Faulty Process](https://groups.csail.mit.edu/tds/papers/Lynch/jacm85.pdf)
+* [Wikipedia Quorum (distributed computing)](https://en.wikipedia.org/wiki/Quorum_(distributed_computing))
+* [Consensus Protocols: Two-Phase Commit](http://web.archive.org/web/20230901143514/https://www.the-paper-trail.org/post/2008-11-27-consensus-protocols-two-phase-commit/)
 
 https://www.practicalnetworking.net/series/nat/nat/
 https://www.practicalnetworking.net/series/arp/address-resolution-protocol/

@@ -15,6 +15,11 @@
 - [Established systems](./established-systems/overview.md)
     - [Erlang/OTP](./established-systems/erlang.md)
 
+- [Consensus](./consensus/overview.md)
+    - [Raft](./consensus/raft.md)
+    - [Transactions](./consensus/transactions.md)
+    - [Viewstamped Replication](./consensus/viewstamped.md)
+
 - [Consistency](./consistency/overview.md)
 
 - [Distributed computing](./computing/overview.md)
