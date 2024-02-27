@@ -89,7 +89,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="preface.html">Preface</a></li><li class="chapter-item expanded "><a href="introduction/overview.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="introduction/network.html"><strong aria-hidden="true">1.1.</strong> Network stack</a></li><li class="chapter-item expanded "><a href="introduction/tap.html"><strong aria-hidden="true">1.2.</strong> Practice: virtual interface</a></li><li class="chapter-item expanded "><a href="introduction/network-properties.html"><strong aria-hidden="true">1.3.</strong> Unreliable network</a></li><li class="chapter-item expanded "><a href="introduction/measure-network.html"><strong aria-hidden="true">1.4.</strong> Measuring network</a></li><li class="chapter-item expanded "><a href="introduction/availability.html"><strong aria-hidden="true">1.5.</strong> Availability</a></li><li class="chapter-item expanded "><a href="introduction/decentralized.html"><strong aria-hidden="true">1.6.</strong> Distributed vs Decentralized</a></li><li class="chapter-item expanded "><a href="introduction/taste-distributed.html"><strong aria-hidden="true">1.7.</strong> Taste of distributed</a></li><li class="chapter-item expanded "><a href="introduction/exercises.html"><strong aria-hidden="true">1.8.</strong> Exercises</a></li></ol></li><li class="chapter-item expanded "><a href="established-systems/overview.html"><strong aria-hidden="true">2.</strong> Established systems</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="established-systems/erlang.html"><strong aria-hidden="true">2.1.</strong> Erlang/OTP</a></li></ol></li><li class="chapter-item expanded "><a href="consistency/overview.html"><strong aria-hidden="true">3.</strong> Consistency</a></li><li class="chapter-item expanded "><a href="computing/overview.html"><strong aria-hidden="true">4.</strong> Distributed computing</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="computing/ml_training.html"><strong aria-hidden="true">4.1.</strong> ML training</a></li></ol></li><li class="chapter-item expanded "><a href="decentralized/overview.html"><strong aria-hidden="true">5.</strong> Decentralized</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="decentralized/p2p.html"><strong aria-hidden="true">5.1.</strong> p2p networks</a></li><li class="chapter-item expanded "><a href="decentralized/blockchain.html"><strong aria-hidden="true">5.2.</strong> Blockchain</a></li><li class="chapter-item expanded "><a href="decentralized/smart-contracts.html"><strong aria-hidden="true">5.3.</strong> Smart contracts</a></li></ol></li><li class="chapter-item expanded "><a href="references.html"><strong aria-hidden="true">6.</strong> References</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="preface.html">Preface</a></li><li class="chapter-item expanded "><a href="introduction/overview.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="introduction/network.html"><strong aria-hidden="true">1.1.</strong> Network stack</a></li><li class="chapter-item expanded "><a href="introduction/tap.html"><strong aria-hidden="true">1.2.</strong> Practice: virtual interface</a></li><li class="chapter-item expanded "><a href="introduction/network-properties.html"><strong aria-hidden="true">1.3.</strong> Unreliable network</a></li><li class="chapter-item expanded "><a href="introduction/measure-network.html"><strong aria-hidden="true">1.4.</strong> Measuring network</a></li><li class="chapter-item expanded "><a href="introduction/availability.html"><strong aria-hidden="true">1.5.</strong> Availability</a></li><li class="chapter-item expanded "><a href="introduction/decentralized.html"><strong aria-hidden="true">1.6.</strong> Distributed vs Decentralized</a></li><li class="chapter-item expanded "><a href="introduction/taste-distributed.html"><strong aria-hidden="true">1.7.</strong> Taste of distributed</a></li><li class="chapter-item expanded "><a href="introduction/exercises.html"><strong aria-hidden="true">1.8.</strong> Exercises</a></li></ol></li><li class="chapter-item expanded "><a href="established-systems/overview.html"><strong aria-hidden="true">2.</strong> Established systems</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="established-systems/erlang.html"><strong aria-hidden="true">2.1.</strong> Erlang/OTP</a></li></ol></li><li class="chapter-item expanded "><a href="consensus/overview.html"><strong aria-hidden="true">3.</strong> Consensus</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="consensus/raft.html"><strong aria-hidden="true">3.1.</strong> Raft</a></li><li class="chapter-item expanded "><a href="consensus/transactions.html"><strong aria-hidden="true">3.2.</strong> Transactions</a></li><li class="chapter-item expanded "><a href="consensus/viewstamped.html"><strong aria-hidden="true">3.3.</strong> Viewstamped Replication</a></li></ol></li><li class="chapter-item expanded "><a href="consistency/overview.html"><strong aria-hidden="true">4.</strong> Consistency</a></li><li class="chapter-item expanded "><a href="computing/overview.html"><strong aria-hidden="true">5.</strong> Distributed computing</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="computing/ml_training.html"><strong aria-hidden="true">5.1.</strong> ML training</a></li></ol></li><li class="chapter-item expanded "><a href="decentralized/overview.html"><strong aria-hidden="true">6.</strong> Decentralized</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="decentralized/p2p.html"><strong aria-hidden="true">6.1.</strong> p2p networks</a></li><li class="chapter-item expanded "><a href="decentralized/blockchain.html"><strong aria-hidden="true">6.2.</strong> Blockchain</a></li><li class="chapter-item expanded "><a href="decentralized/smart-contracts.html"><strong aria-hidden="true">6.3.</strong> Smart contracts</a></li></ol></li><li class="chapter-item expanded "><a href="references.html"><strong aria-hidden="true">7.</strong> References</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -707,6 +707,81 @@ Every Erlang VM is started with a predefined name and then it’s enough to regi
 <div class="footnote-definition" id="tigerbeetle"><sup class="footnote-definition-label">12</sup>
 <p>See also Joran Dirk Greef <a href="https://www.youtube.com/watch?v=w3WYdYyjek4">TigerStyle! (Or How To Design Safer Systems in Less Time)</a></p>
 </div>
+<div style="break-before: page; page-break-before: always;"></div><p>A several nodes in a distributed system should agree on a value. More formally, a set of replicated state machines computes the same state by applying commands from a replicated log. And the consensus goal is to synchronize the log for every node.</p>
+<p>Distributed systems can be classified by different criteria which have both theoretical (as a constraints for models) and practical (as foundations for design decisions) importance. Let’s list mostly used:</p>
+<ol>
+<li>
+<p><em>By a communication time bound</em>.</p>
+<p><strong>A synchronous system</strong> assumes that there is some bound (known in advance) on the delivery time of messages between nodes.</p>
+<p><strong>An asynchronous system</strong> assumes that there is no such a bound (it is impossible to say either a node has failed or is slowly processing). An asynchrounous system seems to be more suitable for nodes interacting via networks but there is no known consensus for such a model (see below).</p>
+</li>
+<li>
+<p><em>By a fault mode</em>.</p>
+<p><strong>Non-faulty</strong> nodes do not crash or misbehave at all.</p>
+<p><strong>Fail-stop</strong> nodes stop when fails/crashes and do not restart.</p>
+<p><strong>Fail-recover</strong> nodes recover after crashes and behave correctly after the restart.</p>
+<p><strong>Byzantine-faulty</strong> nodes may crash intentionally and moreover misbehave to hamper non-byzantine nodes to achieve consensus.</p>
+</li>
+<li>
+<p><em>By reliability of communication (transport)</em>.</p>
+<p>Systems with <strong>a reliable transport</strong> where sent messages are finally delivered (e.g. stream-oriented protocols like TCP, HTTP2, QUICK)</p>
+<p>Systems with <strong>an unreliable transport</strong> where some sent messages can be dropped while in transit (e.g. UDP)</p>
+</li>
+</ol>
+<p>All type under each criteria are listed from the most restrictive to the most general. As a consequence, if something holds for a more resrictive subtype, then it holds for a more general one. Why is this reasoning important? Let’s illustrate with some impossibility results.</p>
+<p>Some impossibility results (when consensus is impossible to achieve):</p>
+<ul>
+<li><strong>FLP</strong>: <em>in an asynchronous disributed system with a reliable communication and fail-stop nodes a consensus is impossible</em>. As a consequence, the statement holds also for asynchronous systems with fail-recover or byzantine-faulty nodes with a reliable communication (or with an unreliable communication).</li>
+<li>In a presence of an unreliable transport a consensus is impossible even for a synchronous system (TODO link?)</li>
+<li>consensus impossible even in a synchronous distributed system when BFT faults are possible and one third or more processes fail (N &lt;= 3F) Lamport Pease</li>
+<li>Atomic broadcast and its duality to consensus</li>
+</ul>
+<p>How to deal with such impossiblity results?</p>
+<ul>
+<li>in theory - additional constraints are introduced - the network will be periodically synchronous for short intervals of time and in such intervals of synchrony, all undelivered messages will be delivered under some fixed time bound - see [DLS88] C. Dwork, N. A. Lynch, and L. J. Stockmeyer. Consensus in the presence of
+partial synchrony.</li>
+<li>in practice - by using <em>failure detectors</em>. The most simple one is a periodic healthcheck (when a communicating node checks) and heartbeats (when the node itself emits).</li>
+</ul>
+<p>Chandra: accuracy vs liveness of failure detectors
+lease and leased clocks</p>
+<p>TODO Consider 2PC (2-phase commit) for synchronous non-faulty system with a reliable transport as a first step
+If introduce fail-stop nodes (e.g. coordinator itself) than consensus will halt with 2PC.</p>
+<p>Desired properties of consensus</p>
+<ul>
+<li>safety - never return an incorrect result under non-Byzantinne conditions (network problems,), all nodes agree on the order of events</li>
+<li>liveness - the consensus makes progress</li>
+<li>support cluster changes in cluster membership</li>
+</ul>
+<p>Consensus protocols</p>
+<ul>
+<li>
+<p>with elected leader (Raft, VR)</p>
+</li>
+<li>
+<p>leaderless (EPaxos)</p>
+</li>
+<li>
+<p>bft-tolerant (e.g. nodes never assume the leader is correct or honest) PBFT</p>
+</li>
+<li>
+<p>non-bft tolerant (require trusted setup - Raft, VR, Paxos)</p>
+</li>
+</ul>
+<p>CHandra - atomic broadcast is dual to consensus</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="raft"><a class="header" href="#raft">Raft</a></h1>
+<p>Raft is now one of the widely used consensus algorithms. For example it is used in Etcd (link to the established systems) and TiKV.</p>
+<p>The animated introduction is <a href="http://thesecretlivesofdata.com/raft/">here</a> should be checked first, and after that the <a href="https://raft.github.io/raft.pdf">article</a>.</p>
+<p>Key takeaways</p>
+<ul>
+<li>we should try to merge results from equal peers (like in Paxos?), it is much more simplier to elect a leader and make it responsible for the state changes</li>
+<li>a modular design: separate leader election, log replication, safety and membership changes</li>
+</ul>
+<p>Consider Raft critique (e.g. openraft repo)</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="distributed-transactions"><a class="header" href="#distributed-transactions">Distributed transactions</a></h1>
+<p>2-phase commit
+3-phase commit</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="viewstamped-replication"><a class="header" href="#viewstamped-replication">Viewstamped Replication</a></h1>
+<p>Used by Tigerbeetle.</p>
 <div style="break-before: page; page-break-before: always;"></div><p>Martin Kleppman Critique CAP</p>
 <p>latency-sensitivity framework</p>
 <p>availability as a metric</p>
@@ -1192,6 +1267,11 @@ etc</li>
 <li>Diego Ongaro and John Ousterhout <a href="https://raft.github.io/raft.pdf">In Search of an Understandable Consensus Algorithm</a></li>
 <li>Jim Zhang <a href="https://www.kaleido.io/blockchain-blog/consensus-algorithms-poa-ibft-or-raft">Consensus Algorithms: PoA, IBFT or Raft?</a></li>
 <li>Jeff Chase <a href="https://courses.cs.duke.edu//fall07/cps212/consensus.pdf">Distributed Systems, Failures, and Consensus</a></li>
+<li>Pierre Krieger <a href="https://tomaka.medium.com/everything-i-know-about-networking-8796e4f5846d">Everything I know about networking</a></li>
+<li><a href="http://web.archive.org/web/20231208132153/https://www.the-paper-trail.org/post/2008-08-13-a-brief-tour-of-flp-impossibility/">A Brief Tour of FLP Impossibility</a></li>
+<li>Michael Fischer, Nancy Lynch, Michael Paterson <a href="https://groups.csail.mit.edu/tds/papers/Lynch/jacm85.pdf">Impossibility of Distributed Consensus with One Faulty Process</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Quorum_(distributed_computing)">Wikipedia Quorum (distributed computing)</a></li>
+<li><a href="http://web.archive.org/web/20230901143514/https://www.the-paper-trail.org/post/2008-11-27-consensus-protocols-two-phase-commit/">Consensus Protocols: Two-Phase Commit</a></li>
 </ul>
 <p>https://www.practicalnetworking.net/series/nat/nat/
 https://www.practicalnetworking.net/series/arp/address-resolution-protocol/
