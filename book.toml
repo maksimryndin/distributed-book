@@ -3,7 +3,7 @@ authors = ["Maksim Ryndin"]
 language = "en"
 multilingual = false
 src = "src"
-title = "Distributed systems for busy engineer"
+title = "Distributed systems for a busy engineer"
 
 [build]
 create-missing = false
