@@ -5,7 +5,7 @@ A network of interconnected computers is based on some physical layer (Ethernet 
 Moreover, network capacity is limited and we should estimate ahead what an amount of data the system under development is going to send through the network.
 
 > **Network throughput** is an *amount of data that can be transferred through a network within a certain time period*
-[Oxford Dictionary of the Internet (4 ed.)](https://www.oxfordreference.com/search?q=network+throughput&searchBtn=Search&isQuickSearch=true).
+[Oxford Dictionary of the Internet (4 ed.)](https://www.oxfordreference.com/search?q=network+throughput&searchBtn=Search&isQuickSearch=true). Usually, an *average* throughput is used: the number of the transferred bits divided by the number of passed seconds.
 
 We can measure a network throughput in bits per second (bit/s or bps) or even in data packets per a unit of time.
 
@@ -31,6 +31,11 @@ Caching, keep-alive connections, geoghraphical proximity to the users are among 
 
 **Network partition** happens if some nodes of a cluster in a distributed system cannot communicate due to a network failure but are supposed to.
 
+Depending on the network usage profile, targets on throughput, latency, paket loss and rate a standard Linux networking stack can be partially or completely replaced with:
+* a user-space networking stack (no kernel at all) like [DPDK](https://www.dpdk.org/)[^spdk] and other packet processing frameworks[^packet-io]
+* a kernel executed user-defined network modules (eBPF)
+* raw sockets ()
+
 So for a distributed system it is absolutely necessary to handle different network failures (which are quite common):
 * meet bandwith requirements and handle network congestion on scaling;
 * deal with increased latencies;
@@ -51,5 +56,9 @@ So for a distributed system it is absolutely necessary to handle different netwo
 [^ping]: An actual latency measurement is complicated by the presence of several nodes in the packet way, queuing (several packets from different sources to the same destination are put in a waiting list to send) on the gateway, processing delays. Tools like a famous *ping* can use special control protocols (such as ICMP) which differ from those protocols that you actually use for data (such as TCP) so measurements are biased.
 
 [^os]: Analyzing your application stack and CPU/IO profile can also help to choose an appropriate operating system if it is possible - see benchmarks [Benchmarks: FreeBSD 13 vs. NetBSD 9.2 vs. OpenBSD 7 vs. DragonFlyBSD 6 vs. Linux](https://www.phoronix.com/scan.php?page=article&item=bsd-linux-eo2021&num=1)
+
+[^spdk]: see also [SPDK](https://spdk.io/) for a storage
+
+[^packet-io]: see also https://github.com/ntop/PF_RING/tree/dev, https://github.com/luigirizzo/netmap
 
 [^rabbitmq]: [Clustering and Network Partitions](https://www.rabbitmq.com/partitions.html)

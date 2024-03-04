@@ -304,6 +304,10 @@ Here are the list of references to cool articles and books etc I've used to prep
 * Michael Fischer, Nancy Lynch, Michael Paterson [Impossibility of Distributed Consensus with One Faulty Process](https://groups.csail.mit.edu/tds/papers/Lynch/jacm85.pdf)
 * [Wikipedia Quorum (distributed computing)](https://en.wikipedia.org/wiki/Quorum_(distributed_computing))
 * [Consensus Protocols: Two-Phase Commit](http://web.archive.org/web/20230901143514/https://www.the-paper-trail.org/post/2008-11-27-consensus-protocols-two-phase-commit/)
+* Isak Toivanen and Maximilian Vorbrodt [Analyzing the Performance of Linux Networking Approaches for Packet Processing](https://liu.diva-portal.org/smash/get/diva2:1789103/FULLTEXT01.pdf)
+* Sebastian Gallenmüller et al. [Comparison of frameworks for high-performance packet IO](https://www.researchgate.net/publication/301405281_Comparison_of_frameworks_for_high-performance_packet_IO)
+* [AF_XDP](https://www.kernel.org/doc/html/latest/networking/af_xdp.html)
+
 
 https://www.practicalnetworking.net/series/nat/nat/
 https://www.practicalnetworking.net/series/arp/address-resolution-protocol/
