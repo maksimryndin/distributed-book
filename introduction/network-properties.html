@@ -181,7 +181,7 @@
 <p>Moreover, network capacity is limited and we should estimate ahead what an amount of data the system under development is going to send through the network.</p>
 <blockquote>
 <p><strong>Network throughput</strong> is an <em>amount of data that can be transferred through a network within a certain time period</em>
-<a href="https://www.oxfordreference.com/search?q=network+throughput&amp;searchBtn=Search&amp;isQuickSearch=true">Oxford Dictionary of the Internet (4 ed.)</a>.</p>
+<a href="https://www.oxfordreference.com/search?q=network+throughput&amp;searchBtn=Search&amp;isQuickSearch=true">Oxford Dictionary of the Internet (4 ed.)</a>. Usually, an <em>average</em> throughput is used: the number of the transferred bits divided by the number of passed seconds.</p>
 </blockquote>
 <p>We can measure a network throughput in bits per second (bit/s or bps) or even in data packets per a unit of time.</p>
 <blockquote>
@@ -200,11 +200,17 @@ https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/net/ipv4
 <p>Network latency usually measured from source to destination and back constituting the so called <em>round trip time (RTT)</em> which is rougly speaking a double latency.<sup class="footnote-reference"><a href="#ping">3</a></sup></p>
 <p>Caching, keep-alive connections, geoghraphical proximity to the users are among usual options to decrease latency<sup class="footnote-reference"><a href="#os">4</a></sup>.</p>
 <p><strong>Network partition</strong> happens if some nodes of a cluster in a distributed system cannot communicate due to a network failure but are supposed to.</p>
+<p>Depending on the network usage profile, targets on throughput, latency, paket loss and rate a standard Linux networking stack can be partially or completely replaced with:</p>
+<ul>
+<li>a user-space networking stack (no kernel at all) like <a href="https://www.dpdk.org/">DPDK</a><sup class="footnote-reference"><a href="#spdk">5</a></sup> and other packet processing frameworks<sup class="footnote-reference"><a href="#packet-io">6</a></sup></li>
+<li>a kernel executed user-defined network modules (eBPF)</li>
+<li>raw sockets ()</li>
+</ul>
 <p>So for a distributed system it is absolutely necessary to handle different network failures (which are quite common):</p>
 <ul>
 <li>meet bandwith requirements and handle network congestion on scaling;</li>
 <li>deal with increased latencies;</li>
-<li>have policies for network partitions: if a network partition creates two and more subclusters and such subclusters can behave independently (situation known as a <em>split-brain</em><sup class="footnote-reference"><a href="#rabbitmq">5</a></sup>), how should the system evolve and finally merge conflicting states?</li>
+<li>have policies for network partitions: if a network partition creates two and more subclusters and such subclusters can behave independently (situation known as a <em>split-brain</em><sup class="footnote-reference"><a href="#rabbitmq">7</a></sup>), how should the system evolve and finally merge conflicting states?</li>
 <li>implement backpressure</li>
 </ul>
 <div class="footnote-definition" id="osi"><sup class="footnote-definition-label">1</sup>
@@ -228,7 +234,13 @@ https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/net/ipv4
 <div class="footnote-definition" id="os"><sup class="footnote-definition-label">4</sup>
 <p>Analyzing your application stack and CPU/IO profile can also help to choose an appropriate operating system if it is possible - see benchmarks <a href="https://www.phoronix.com/scan.php?page=article&amp;item=bsd-linux-eo2021&amp;num=1">Benchmarks: FreeBSD 13 vs. NetBSD 9.2 vs. OpenBSD 7 vs. DragonFlyBSD 6 vs. Linux</a></p>
 </div>
-<div class="footnote-definition" id="rabbitmq"><sup class="footnote-definition-label">5</sup>
+<div class="footnote-definition" id="spdk"><sup class="footnote-definition-label">5</sup>
+<p>see also <a href="https://spdk.io/">SPDK</a> for a storage</p>
+</div>
+<div class="footnote-definition" id="packet-io"><sup class="footnote-definition-label">6</sup>
+<p>see also https://github.com/ntop/PF_RING/tree/dev, https://github.com/luigirizzo/netmap</p>
+</div>
+<div class="footnote-definition" id="rabbitmq"><sup class="footnote-definition-label">7</sup>
 <p><a href="https://www.rabbitmq.com/partitions.html">Clustering and Network Partitions</a></p>
 </div>
 
