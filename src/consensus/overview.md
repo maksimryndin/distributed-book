@@ -52,10 +52,10 @@ Desired properties of consensus
 * support cluster changes in cluster membership
 
 Consensus protocols
-* with elected leader (Raft, VR)
-* leaderless (EPaxos)
+* with elected leader (Raft, Paxos, Tendermint, pBFT, VR, Nakamoto consensus - POW, POS, POA)
+* leaderless (EPaxos, Avalanche, IOTA)
 
-* bft-tolerant (e.g. nodes never assume the leader is correct or honest) PBFT
+* bft-tolerant (e.g. nodes never assume the leader is correct or honest) PBFT, Nakamoto, Tendermint
 * non-bft tolerant (require trusted setup - Raft, VR, Paxos)
 
 CHandra - atomic broadcast is dual to consensus

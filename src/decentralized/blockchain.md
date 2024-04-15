@@ -6,7 +6,7 @@ TODO: Focus on consensus (POW, POS, POH) as a lesson for the book purposes
 
 TPS (transactions per second)
 
-A permissioneless blockchain as a solution to BFT
+A permissioneless blockchain as a solution to BFT[^focus]
 
 Blockchain network (also called cluster) is p2p network of nodes (called validators in Solana) exchanging with a copy of a ledger (blockchain). Typically 10 - 50 validators totaling 1000-2000 nodes[^validators]
 
@@ -82,10 +82,11 @@ Any of such subsystems can become a bootleneck effectively reducing decentraliza
 
 
 Permisionneless (public) blockchains
-- Ethereum
-- Monero
-- Bitcoin
-etc
+- Ethereum POS (POW earlier)
+- Bitcoin POW
+- Solana POH
+- Cosmos Tendermint
+- Avalanche ???
 
 Permissioned blockchains to create CBDC (Cetral Bank Digital Currency, Interbanking communication - like SWIFT traditionally does) (not about decentralization)
 - HyperledgerFabric by IBM/Linux Foundation
@@ -95,6 +96,15 @@ Permissioned blockchains to create CBDC (Cetral Bank Digital Currency, Interbank
 - with Avalanche Evergreen
 
 Problem - grows of the blockchain data[^blockchain_size] in terms of hundreds of GBs. Notion of the succint blockchain (example of Mina)
+
+Blockchain Trilemma by Vitalik Buterin - choose 2:
+* Security (how easily a node can join the network)
+* Decentralization (how many nodes are participating in the consensus)
+* Scalability (how many transactions per second (TPS) can the network handle)
+
+DePINs (decentralized physical infrastructure)
+
+[^focus]: Our focus is on distributed nature of blockchains, namely Distributed Ledger Technology (DLT), rather than money-related issues. While being an innovative, advanced technology, revolutionalizing several aspects of life, blockchain projects sometimes suffer from ordinary security issues and try to solve them with traditional centralized methods - check https://www.web3isgoinggreat.com/ for a rich collection.
 
 [^validators]: [https://forums.solana.com/t/validator-information-thread/577/51](https://forums.solana.com/t/validator-information-thread/577/51)
 

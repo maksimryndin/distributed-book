@@ -307,7 +307,9 @@ Here are the list of references to cool articles and books etc I've used to prep
 * Isak Toivanen and Maximilian Vorbrodt [Analyzing the Performance of Linux Networking Approaches for Packet Processing](https://liu.diva-portal.org/smash/get/diva2:1789103/FULLTEXT01.pdf)
 * Sebastian Gallenmüller et al. [Comparison of frameworks for high-performance packet IO](https://www.researchgate.net/publication/301405281_Comparison_of_frameworks_for_high-performance_packet_IO)
 * [AF_XDP](https://www.kernel.org/doc/html/latest/networking/af_xdp.html)
-
+* Andrew Poelstra [A Treatise on Altcoins](https://download.wpsoftware.net/bitcoin/alts.pdf)
+* [A Deep Dive Into Blockchain Scalability](https://crypto.com/university/blockchain-scalability)
+* [DePIN: What are Decentralized Physical Infrastructure Networks?](https://www.peaq.network/blog/what-are-decentralized-physical-infrastructure-networks-depin)
 
 https://www.practicalnetworking.net/series/nat/nat/
 https://www.practicalnetworking.net/series/arp/address-resolution-protocol/
