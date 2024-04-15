@@ -767,13 +767,13 @@ If introduce fail-stop nodes (e.g. coordinator itself) than consensus will halt 
 <p>Consensus protocols</p>
 <ul>
 <li>
-<p>with elected leader (Raft, VR)</p>
+<p>with elected leader (Raft, Paxos, Tendermint, pBFT, VR, Nakamoto consensus - POW, POS, POA)</p>
 </li>
 <li>
-<p>leaderless (EPaxos)</p>
+<p>leaderless (EPaxos, Avalanche, IOTA)</p>
 </li>
 <li>
-<p>bft-tolerant (e.g. nodes never assume the leader is correct or honest) PBFT</p>
+<p>bft-tolerant (e.g. nodes never assume the leader is correct or honest) PBFT, Nakamoto, Tendermint</p>
 </li>
 <li>
 <p>non-bft tolerant (require trusted setup - Raft, VR, Paxos)</p>
@@ -887,8 +887,8 @@ fn train_first_layer() {
 <p>Permissioned vs permisionless</p>
 <p>TODO: Focus on consensus (POW, POS, POH) as a lesson for the book purposes</p>
 <p>TPS (transactions per second)</p>
-<p>A permissioneless blockchain as a solution to BFT</p>
-<p>Blockchain network (also called cluster) is p2p network of nodes (called validators in Solana) exchanging with a copy of a ledger (blockchain). Typically 10 - 50 validators totaling 1000-2000 nodes<sup class="footnote-reference"><a href="#validators">1</a></sup></p>
+<p>A permissioneless blockchain as a solution to BFT<sup class="footnote-reference"><a href="#focus">1</a></sup></p>
+<p>Blockchain network (also called cluster) is p2p network of nodes (called validators in Solana) exchanging with a copy of a ledger (blockchain). Typically 10 - 50 validators totaling 1000-2000 nodes<sup class="footnote-reference"><a href="#validators">2</a></sup></p>
 <ul>
 <li>distributed state transition requires consensus</li>
 </ul>
@@ -899,7 +899,7 @@ When several competing chains exist, we need to choose one (called <em>canonical
 <p>Transactions are signed by the client by means of Public Key cryptography.</p>
 <p>dApp -decentralized app is a UI (typically writen in some Javascript flavor) client</p>
 <p>Node which appends new transaction to the ledger is an elected leader.</p>
-<p>Token is a unit of payments for computing resources of the cluster (running smart contract or validating its output). You can invest some tokens (delegate a stake) into validator gain a reward. Validator takes some fee (commission) for their services (in bitcoin by including a transaction with 25 BTC out of nowhere<sup class="footnote-reference"><a href="#buterin">2</a></sup>. Growing validators can offer lower commission. It favors large validators to become even larger because lower fee insentives investors to delegate their stakes at a lower commission<sup class="footnote-reference"><a href="#validators oligopoly">3</a></sup>.</p>
+<p>Token is a unit of payments for computing resources of the cluster (running smart contract or validating its output). You can invest some tokens (delegate a stake) into validator gain a reward. Validator takes some fee (commission) for their services (in bitcoin by including a transaction with 25 BTC out of nowhere<sup class="footnote-reference"><a href="#buterin">3</a></sup>. Growing validators can offer lower commission. It favors large validators to become even larger because lower fee insentives investors to delegate their stakes at a lower commission<sup class="footnote-reference"><a href="#validators oligopoly">4</a></sup>.</p>
 <p>If validator behaves maliciously, you los
 e your delegated tokens and also validator loses its delegated power and cannot earn more or even as before.</p>
 <p>You can use a wallet which is a client allowing you to operate on your token account (send and receive).
@@ -932,7 +932,7 @@ We will not delve deeply into specific methodologies but will name a few common 
 <li>(full) nodes distribution by geography and ownership, cloud providers and data centers</li>
 <li>hardware distribution (by geography, vendor, architecture)</li>
 <li>value owners distribution (by accounts, geography, amount of wealth)</li>
-<li>codebase diversity<sup class="footnote-reference"><a href="#lang">4</a></sup></li>
+<li>codebase diversity<sup class="footnote-reference"><a href="#lang">5</a></sup></li>
 <li>exhanges support</li>
 <li>number of autonomous systems (AS)</li>
 <li>wallets developers distribution</li>
@@ -940,13 +940,14 @@ We will not delve deeply into specific methodologies but will name a few common 
 <li>governance</li>
 <li>code repository diversity (usually only GitHub)</li>
 </ul>
-<p>Any of such subsystems can become a bootleneck effectively reducing decentralization to very low level (actually the Nakamoto index measures the minimum number of parties to control 51% of the resources in any subsystem<sup class="footnote-reference"><a href="#nakamotoindex">5</a></sup>). 51% attacks are real https://www.crypto51.app/</p>
+<p>Any of such subsystems can become a bootleneck effectively reducing decentralization to very low level (actually the Nakamoto index measures the minimum number of parties to control 51% of the resources in any subsystem<sup class="footnote-reference"><a href="#nakamotoindex">6</a></sup>). 51% attacks are real https://www.crypto51.app/</p>
 <p>Permisionneless (public) blockchains</p>
 <ul>
-<li>Ethereum</li>
-<li>Monero</li>
-<li>Bitcoin
-etc</li>
+<li>Ethereum POS (POW earlier)</li>
+<li>Bitcoin POW</li>
+<li>Solana POH</li>
+<li>Cosmos Tendermint</li>
+<li>Avalanche ???</li>
 </ul>
 <p>Permissioned blockchains to create CBDC (Cetral Bank Digital Currency, Interbanking communication - like SWIFT traditionally does) (not about decentralization)</p>
 <ul>
@@ -956,26 +957,36 @@ etc</li>
 <li>with Polkadot Substrate</li>
 <li>with Avalanche Evergreen</li>
 </ul>
-<p>Problem - grows of the blockchain data<sup class="footnote-reference"><a href="#blockchain_size">6</a></sup> in terms of hundreds of GBs. Notion of the succint blockchain (example of Mina)</p>
-<div class="footnote-definition" id="validators"><sup class="footnote-definition-label">1</sup>
+<p>Problem - grows of the blockchain data<sup class="footnote-reference"><a href="#blockchain_size">7</a></sup> in terms of hundreds of GBs. Notion of the succint blockchain (example of Mina)</p>
+<p>Blockchain Trilemma by Vitalik Buterin - choose 2:</p>
+<ul>
+<li>Security (how easily a node can join the network)</li>
+<li>Decentralization (how many nodes are participating in the consensus)</li>
+<li>Scalability (how many transactions per second (TPS) can the network handle)</li>
+</ul>
+<p>DePINs (decentralized physical infrastructure)</p>
+<div class="footnote-definition" id="focus"><sup class="footnote-definition-label">1</sup>
+<p>Our focus is on distributed nature of blockchains, namely Distributed Ledger Technology (DLT), rather than money-related issues. While being an innovative, advanced technology, revolutionalizing several aspects of life, blockchain projects sometimes suffer from ordinary security issues and try to solve them with traditional centralized methods - check https://www.web3isgoinggreat.com/ for a rich collection.</p>
+</div>
+<div class="footnote-definition" id="validators"><sup class="footnote-definition-label">2</sup>
 <p><a href="https://forums.solana.com/t/validator-information-thread/577/51">https://forums.solana.com/t/validator-information-thread/577/51</a></p>
 </div>
-<div class="footnote-definition" id="validators oligopoly"><sup class="footnote-definition-label">3</sup>
+<div class="footnote-definition" id="validators oligopoly"><sup class="footnote-definition-label">4</sup>
 <p>See, for example, Solana’s validators market shares and commissions <a href="https://solanabeach.io/validators">https://solanabeach.io/validators</a></p>
 </div>
-<div class="footnote-definition" id="buterin"><sup class="footnote-definition-label">2</sup>
+<div class="footnote-definition" id="buterin"><sup class="footnote-definition-label">3</sup>
 <p>(https://ethereum.org/en/whitepaper/)</p>
 </div>
-<div class="footnote-definition" id="projects"><sup class="footnote-definition-label">7</sup>
+<div class="footnote-definition" id="projects"><sup class="footnote-definition-label">8</sup>
 <p>https://courses.cfte.education/blockchain-and-defi-projects/</p>
 </div>
-<div class="footnote-definition" id="nakamotoindex"><sup class="footnote-definition-label">5</sup>
+<div class="footnote-definition" id="nakamotoindex"><sup class="footnote-definition-label">6</sup>
 <p>See also Balaji S. Srinivasan <a href="https://news.earn.com/quantifying-decentralization-e39db233c28e">Quantifying Decentralization</a></p>
 </div>
-<div class="footnote-definition" id="lang"><sup class="footnote-definition-label">4</sup>
+<div class="footnote-definition" id="lang"><sup class="footnote-definition-label">5</sup>
 <p>Implementation languages also matter: niche ones (like Haskell or OCaml) or too low level ones (like C) can also prevent wider adoption by developers.</p>
 </div>
-<div class="footnote-definition" id="blockchain_size"><sup class="footnote-definition-label">6</sup>
+<div class="footnote-definition" id="blockchain_size"><sup class="footnote-definition-label">7</sup>
 <p>see <code>Blockchain Size</code> https://bitinfocharts.com/bitcoin/ for Bitcoin, https://etherscan.io/chartsync/chaindefault for Ethereum</p>
 </div>
 <div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><p>Here are the list of references to cool articles and books etc I’ve used to prepare this book.</p>
@@ -1287,6 +1298,9 @@ etc</li>
 <li>Isak Toivanen and Maximilian Vorbrodt <a href="https://liu.diva-portal.org/smash/get/diva2:1789103/FULLTEXT01.pdf">Analyzing the Performance of Linux Networking Approaches for Packet Processing</a></li>
 <li>Sebastian Gallenmüller et al. <a href="https://www.researchgate.net/publication/301405281_Comparison_of_frameworks_for_high-performance_packet_IO">Comparison of frameworks for high-performance packet IO</a></li>
 <li><a href="https://www.kernel.org/doc/html/latest/networking/af_xdp.html">AF_XDP</a></li>
+<li>Andrew Poelstra <a href="https://download.wpsoftware.net/bitcoin/alts.pdf">A Treatise on Altcoins</a></li>
+<li><a href="https://crypto.com/university/blockchain-scalability">A Deep Dive Into Blockchain Scalability</a></li>
+<li><a href="https://www.peaq.network/blog/what-are-decentralized-physical-infrastructure-networks-depin">DePIN: What are Decentralized Physical Infrastructure Networks?</a></li>
 </ul>
 <p>https://www.practicalnetworking.net/series/nat/nat/
 https://www.practicalnetworking.net/series/arp/address-resolution-protocol/
