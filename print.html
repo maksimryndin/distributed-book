@@ -989,7 +989,31 @@ We will not delve deeply into specific methodologies but will name a few common 
 <div class="footnote-definition" id="blockchain_size"><sup class="footnote-definition-label">7</sup>
 <p>see <code>Blockchain Size</code> https://bitinfocharts.com/bitcoin/ for Bitcoin, https://etherscan.io/chartsync/chaindefault for Ethereum</p>
 </div>
-<div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><p>Here are the list of references to cool articles and books etc I’ve used to prepare this book.</p>
+<div style="break-before: page; page-break-before: always;"></div><p>Starting with Ethereum<sup class="footnote-reference"><a href="#bitcoin">1</a></sup>, almost all blockchains provide a Turing-complete computation environment to execute programs (so-called smart contracts<sup class="footnote-reference"><a href="#szabo">2</a></sup>, but in Solana they are called just programs) on chain. The execution is usually handled by some VM (the most popular choice is WASM-compatible VMs<sup class="footnote-reference"><a href="#vms">3</a></sup>) which is builtin in the node. The smart-contracts are written either in domain languages like Solidity and Cairo or in general languages like Rust (to be compiled to wasm or other ISA)<sup class="footnote-reference"><a href="#languages">4</a></sup>.</p>
+<p>Because of the whole domain complexity and available sources of contracts, any overlooked bug can bring a disaster<sup class="footnote-reference"><a href="#bugs">5</a></sup></p>
+<p>If create such smart-contracts which allow some (based for example on the entrance fee) accounts in the blockchain to vote on some proposals, we will get a collective decision making, or so-called DAO (Decentralized Autonomous Organization)<sup class="footnote-reference"><a href="#dao">6</a></sup>. DAOs are <a href="https://deepdao.io/organizations">real</a><sup class="footnote-reference"><a href="#wyoming">7</a></sup>.</p>
+<div class="footnote-definition" id="bitcoin"><sup class="footnote-definition-label">1</sup>
+<p>Bitcoin also has Bitcoin Script but it doesn’t provide loops as a control structure.</p>
+</div>
+<div class="footnote-definition" id="szabo"><sup class="footnote-definition-label">2</sup>
+<p>The concept of smart contract was proposed <a href="https://archive.ph/3vESb">by Nick Szabo in 1994</a></p>
+</div>
+<div class="footnote-definition" id="vms"><sup class="footnote-definition-label">3</sup>
+<p>besides WASM-compatible VMs (like Wasmer), there is a Sealevel - Solana EBPf compatible VM with parallel execution, zkVM, Risc0 to name a few</p>
+</div>
+<div class="footnote-definition" id="languages"><sup class="footnote-definition-label">4</sup>
+<p>Check <a href="https://defillama.com/languages">https://defillama.com/languages</a> to see the most popular languages. But also take into account the target chain and estimate computation costs (aka “gas fees”) as an execution of a smart contract is not free.</p>
+</div>
+<div class="footnote-definition" id="bugs"><sup class="footnote-definition-label">5</sup>
+<p>see <a href="https://rekt.news/leaderboard/">https://rekt.news/leaderboard/</a></p>
+</div>
+<div class="footnote-definition" id="dao"><sup class="footnote-definition-label">6</sup>
+<p>Despite evident pros (decentralized, automatic process) and cons (e.g. bugs in the smart contracts, longer decision process), in case of DAO governance with fungible tokens there is a problem of “whales” - large token holders which can shift voting or in case of DAO governance with the whitelisted accounts the risk of Sybill attack. They can even use so called flash loans (when tokens are borrowed and returned within one block so no collateral is required) to gain a voting power in momentum.</p>
+</div>
+<div class="footnote-definition" id="wyoming"><sup class="footnote-definition-label">7</sup>
+<p>A US state of Wyoming even <a href="https://www.coindesk.com/policy/2021/04/22/state-lawmaker-explains-wyomings-newly-passed-dao-llc-law/">recognizes</a> DAOs as LLC to provide them a full legal status. See also <a href="https://medium.com/seedclub/securities-law-social-community-tokens-3bb0ffaae62">Securities Law: Social &amp; Community Tokens</a></p>
+</div>
+<div style="break-before: page; page-break-before: always;"></div><p>Here are the list of references to cool articles and books etc I’ve used to prepare this book.</p>
 <ul>
 <li>Mikito Takada <a href="http://book.mixu.net/distsys/">Distributed systems: for fun and profit</a></li>
 <li>Brendan Burns <a href="https://azure.microsoft.com/mediahandler/files/resourcefiles/designing-distributed-systems/Designing_Distributed_Systems.pdf">Designing Distributed Systems</a></li>
@@ -1301,6 +1325,9 @@ We will not delve deeply into specific methodologies but will name a few common 
 <li>Andrew Poelstra <a href="https://download.wpsoftware.net/bitcoin/alts.pdf">A Treatise on Altcoins</a></li>
 <li><a href="https://crypto.com/university/blockchain-scalability">A Deep Dive Into Blockchain Scalability</a></li>
 <li><a href="https://www.peaq.network/blog/what-are-decentralized-physical-infrastructure-networks-depin">DePIN: What are Decentralized Physical Infrastructure Networks?</a></li>
+<li>Vitalik Buterin <a href="https://blog.ethereum.org/2014/05/06/daos-dacs-das-and-more-an-incomplete-terminology-guide">DAOs, DACs, DAs and More: An Incomplete Terminology Guide</a></li>
+<li>Adam J. Kerpelman <a href="https://daohaus.substack.com/p/-what-is-a-dao-and-what-is-it-for">What is a DAO and What is it For?</a></li>
+<li>Reuben Bramanathan <a href="https://medium.com/seedclub/securities-law-social-community-tokens-3bb0ffaae62">Securities Law: Social &amp; Community Tokens</a></li>
 </ul>
 <p>https://www.practicalnetworking.net/series/nat/nat/
 https://www.practicalnetworking.net/series/arp/address-resolution-protocol/
