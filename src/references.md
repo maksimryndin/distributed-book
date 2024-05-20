@@ -313,6 +313,9 @@ Here are the list of references to cool articles and books etc I've used to prep
 * Vitalik Buterin [DAOs, DACs, DAs and More: An Incomplete Terminology Guide](https://blog.ethereum.org/2014/05/06/daos-dacs-das-and-more-an-incomplete-terminology-guide)
 * Adam J. Kerpelman [What is a DAO and What is it For?](https://daohaus.substack.com/p/-what-is-a-dao-and-what-is-it-for)
 * Reuben Bramanathan [Securities Law: Social & Community Tokens](https://medium.com/seedclub/securities-law-social-community-tokens-3bb0ffaae62)
+* [Solidity](https://docs.soliditylang.org/en/v0.8.3/index.html)
+* [Bridging and Finality: An Introduction](https://jumpcrypto.com/writing/bridging-and-finality-an-introduction/)
+* [Bridging and Finality: Ethereum](https://jumpcrypto.com/writing/bridging-and-finality-ethereum/)
 
 https://www.practicalnetworking.net/series/nat/nat/
 https://www.practicalnetworking.net/series/arp/address-resolution-protocol/

@@ -104,6 +104,8 @@ Blockchain Trilemma by Vitalik Buterin - choose 2:
 
 DePINs (decentralized physical infrastructure)
 
+Finality is a probabilistic property even for deterministic protocols as there always exists a chance for a hard fork (consensus can be coordinated off-chain like in the DAO hack case)
+
 [^focus]: Our focus is on distributed nature of blockchains, namely Distributed Ledger Technology (DLT), rather than money-related issues. While being an innovative, advanced technology, revolutionalizing several aspects of life, blockchain projects sometimes suffer from ordinary security issues and try to solve them with traditional centralized methods - check https://www.web3isgoinggreat.com/ for a rich collection.
 
 [^validators]: [https://forums.solana.com/t/validator-information-thread/577/51](https://forums.solana.com/t/validator-information-thread/577/51)

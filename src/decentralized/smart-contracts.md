@@ -14,6 +14,6 @@ If create such smart-contracts which allow some (based for example on the entran
 
 [^bugs]: see [https://rekt.news/leaderboard/](https://rekt.news/leaderboard/)
 
-[^dao]: Despite evident pros (decentralized, automatic process) and cons (e.g. bugs in the smart contracts, longer decision process), in case of DAO governance with fungible tokens there is a problem of "whales" - large token holders which can shift voting or in case of DAO governance with the whitelisted accounts the risk of Sybill attack. They can even use so called flash loans (when tokens are borrowed and returned within one block so no collateral is required) to gain a voting power in momentum.
+[^dao]: Despite evident pros (decentralized, automatic process) and cons (e.g. bugs in the smart contracts, longer decision process), in case of DAO governance with fungible tokens there is a problem of "whales" - large token holders which can shift voting or in case of DAO governance with the whitelisted accounts the risk of Sybill attack. They can even use so called [flash loans](https://ethereum.org/en/defi/#flash-loans)(when tokens are borrowed and returned within one block so no collateral is required) to gain a voting power in momentum.
 
 [^wyoming]: A US state of Wyoming even [recognizes](https://www.coindesk.com/policy/2021/04/22/state-lawmaker-explains-wyomings-newly-passed-dao-llc-law/) DAOs as LLC to provide them a full legal status. See also [Securities Law: Social & Community Tokens](https://medium.com/seedclub/securities-law-social-community-tokens-3bb0ffaae62)
